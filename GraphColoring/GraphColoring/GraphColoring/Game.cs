@@ -7,9 +7,9 @@ namespace GraphColoring
 {
     class Game
     {
-        GameType gameType;
-        GardenGraph graph;
-        Color[] colors;
+        public GameType gameType;
+        public GardenGraph graph;
+        public Color[] colors;
 
         public bool CheckIfEnd(out bool didGardenerWon)
         {
