@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 namespace GraphColoring
 {
     enum GameType { VerticesColoring, EdgesColoring };
@@ -17,6 +18,14 @@ namespace GraphColoring
         public int coloredFlowersNumber;
         public int coloredFencesNumber;
 
+        public GardenGraph(List<Flower> flo, List<Fence> fen)
+        {
+            fences = fen;
+            flowers = flo;
+            flowersNumber = flowers.Count;
+            fencesNumber = fences.Count;
+
+        }
         public bool IsColoringPossible(GameType coloringType, Color[] colors) 
         {
             bool correct = false;
@@ -83,5 +92,12 @@ namespace GraphColoring
             return true;
         }
 
+        public void DrawAllElements(SpriteBatch sBatch)
+        {
+            foreach(Flower f in flowers)
+            {
+                f.Draw(sBatch);
+            }
+        }
     }
 }

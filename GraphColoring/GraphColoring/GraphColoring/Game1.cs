@@ -18,7 +18,7 @@ namespace GraphColoring
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Game game;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -33,7 +33,7 @@ namespace GraphColoring
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // TODO: Add your initialization logic here           
 
             base.Initialize();
         }
@@ -46,7 +46,7 @@ namespace GraphColoring
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -84,7 +84,8 @@ namespace GraphColoring
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            PredefinedGraphs.GraphOne(Content).DrawAllElements(spriteBatch);
+            
             base.Draw(gameTime);
         }
     }

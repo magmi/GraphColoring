@@ -10,5 +10,10 @@ namespace GraphColoring
         public Flower f1;
         public Flower f2;
 
+        public Fence(Flower _f1,Flower _f2)
+        {
+            f1 = _f1;
+            f2 = _f2;
+        }
     }
 }

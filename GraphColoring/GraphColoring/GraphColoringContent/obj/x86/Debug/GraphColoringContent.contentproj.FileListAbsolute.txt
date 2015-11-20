@@ -1,1 +1,2 @@
 C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache

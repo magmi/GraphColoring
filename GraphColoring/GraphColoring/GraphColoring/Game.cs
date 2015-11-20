@@ -11,6 +11,13 @@ namespace GraphColoring
         public GardenGraph graph;
         public Color[] colors;
 
+        public Game(GameType gT, GardenGraph g, int c)
+        {
+            gameType = gT;
+            graph = g;
+            colors = ColorsCreator.GetColors(c);
+        }
+
         public bool CheckIfEnd(out bool didGardenerWon)
         {
             didGardenerWon = false;
@@ -26,6 +33,11 @@ namespace GraphColoring
                 return true;
 
             return false;
+        }
+
+        public void StartGame()
+        {
+
         }
 
     }

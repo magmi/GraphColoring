@@ -73,12 +73,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorableObject.cs" />
+    <Compile Include="ColorsCreator.cs" />
     <Compile Include="Computer.cs" />
     <Compile Include="Fence.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GardenGraph.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PredefinedGraphs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
