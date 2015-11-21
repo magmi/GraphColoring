@@ -11,30 +11,32 @@ namespace GraphColoring
     {
         public int index;
         public List<Fence>outFences;
-        public Vector2 positionInPixels;
+        public Vector2 position;
+        public Vector2 center;
         public int sideLength;
         public Texture2D texture;
-        public Color c;
+
 
         public Flower(Vector2 pos, ContentManager content)
         {
-            c = Color.White;
-            positionInPixels = pos;
+            color = Color.White;
+            position = pos;
             this.texture = content.Load<Texture2D>("Kwiatek");
             sideLength = 152;
+            center = new Vector2(pos.X + sideLength / 2, pos.Y + sideLength / 2);
         }
 
         public void Draw(SpriteBatch sBatch)
         {
            
             sBatch.Begin();
-            sBatch.Draw(texture, positionInPixels,c);
+            sBatch.Draw(texture, position, color);
             sBatch.End();            
         }
 
        public bool ContainsPoint(Point _point)
        {
-           Rectangle r = new Rectangle((int)positionInPixels.X,(int)positionInPixels.Y,sideLength,sideLength);
+           Rectangle r = new Rectangle((int)position.X,(int)position.Y,sideLength,sideLength);
            if(r.Contains(_point))
                return true;	
            return false;

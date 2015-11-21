@@ -27,16 +27,19 @@ namespace GraphColoring
                                     };
 
             List<Fence> fences = new List<Fence> {
-                new Fence(flowers[0],flowers[1]),
-                new Fence(flowers[1],flowers[2]),
-                new Fence(flowers[2],flowers[3]),
-                new Fence(flowers[3],flowers[0]),
+                new Fence(flowers[0],flowers[1], content),
+                new Fence(flowers[1],flowers[2], content),
+                new Fence(flowers[2],flowers[3], content),
+                new Fence(flowers[3],flowers[0], content),
                 };
+            
             flowers[0].outFences = new List<Fence> { fences[0], fences[3] };
             flowers[1].outFences = new List<Fence> { fences[0], fences[1] };
             flowers[2].outFences = new List<Fence> { fences[1], fences[2] };
             flowers[3].outFences = new List<Fence> { fences[2], fences[3] };
+            
 
+           
 
             return new GardenGraph(flowers,fences);
         }

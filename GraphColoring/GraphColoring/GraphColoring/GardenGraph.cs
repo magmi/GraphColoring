@@ -94,10 +94,13 @@ namespace GraphColoring
 
         public void DrawAllElements(SpriteBatch sBatch)
         {
-            foreach(Flower f in flowers)
-            {
+            foreach (Fence f in fences)
                 f.Draw(sBatch);
-            }
+            foreach(Flower f in flowers)            
+                f.Draw(sBatch);
+            
+
+           
         }
     }
 }

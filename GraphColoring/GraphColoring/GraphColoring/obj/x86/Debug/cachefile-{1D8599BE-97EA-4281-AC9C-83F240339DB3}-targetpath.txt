@@ -1,2 +1,4 @@
 Content\Kwiatek.xnb
 Content\colorBox.xnb
+Content\Plotek.xnb
+Content\tlo.xnb

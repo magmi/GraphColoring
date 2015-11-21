@@ -12,3 +12,5 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\Microso
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb

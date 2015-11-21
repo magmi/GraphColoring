@@ -20,7 +20,9 @@ namespace GraphColoring
         SpriteBatch spriteBatch;
         Game game;
         Flower lastClicked = null;
-        
+
+        Texture2D background;
+        Rectangle screenRectangle;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -39,6 +41,12 @@ namespace GraphColoring
             IsMouseVisible = true;
             int colorsNr =3;
             game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphOne(Content), colorsNr, Content);
+            background = Content.Load<Texture2D>("tlo");
+
+            screenRectangle = new Rectangle(0, 0, 
+                GraphicsDevice.PresentationParameters.BackBufferWidth, 
+                GraphicsDevice.PresentationParameters.BackBufferHeight);
+
             base.Initialize();
         }
 
@@ -92,9 +100,18 @@ namespace GraphColoring
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            DrawBackground(spriteBatch);
             game.graph.DrawAllElements(spriteBatch);
             game.DrawColorPalete(spriteBatch);
+           
             base.Draw(gameTime);
+        }
+
+        public void DrawBackground(SpriteBatch sBatch)
+        {
+            sBatch.Begin();
+            sBatch.Draw(background, screenRectangle, Color.White);
+            sBatch.End();
         }
 
         public void CheckForFlowersClicked(MouseState mouseState)
@@ -103,7 +120,7 @@ namespace GraphColoring
             int index = 0;
             if (lastClicked == null && game.CheckIfMouseClickedOnFlower(mousePos, out index))
             {
-                game.graph.flowers[index].c = Color.LightBlue;
+                game.graph.flowers[index].color = Color.LightBlue;
                 lastClicked = game.graph.flowers[index];
 
             }
@@ -114,7 +131,7 @@ namespace GraphColoring
             int index = 0;
             if (lastClicked != null && game.CheckIfMouseClickedOnColor(mousePos, out index))
             {
-                lastClicked.c = game.colors[index];
+                lastClicked.color = game.colors[index];
                 lastClicked = null;
 
             }
