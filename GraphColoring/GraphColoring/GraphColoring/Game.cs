@@ -82,6 +82,24 @@ namespace GraphColoring
                 cb.Draw(sBatch);
         }
 
+        public bool CheckIfValidMove(Flower flower, Color c)
+        {
+            foreach(Fence f in flower.outFences)
+            {
+                if(f.f1!=flower)
+                {
+                    if (f.f1.color == c)
+                        return false;
+                }
+                else
+                {
+                    if (f.f2.color == c)
+                        return false;
+                }
+            }
+            return true;
+        }
+
         public void StartGame()
         {
 

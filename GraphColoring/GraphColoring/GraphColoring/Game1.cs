@@ -26,6 +26,8 @@ namespace GraphColoring
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 1200;
             Content.RootDirectory = "Content";
         }
 
@@ -40,7 +42,7 @@ namespace GraphColoring
             // TODO: Add your initialization logic here           
             IsMouseVisible = true;
             int colorsNr =3;
-            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphOne(Content), colorsNr, Content);
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content);
             background = Content.Load<Texture2D>("tlo");
 
             screenRectangle = new Rectangle(0, 0, 
@@ -131,10 +133,13 @@ namespace GraphColoring
             int index = 0;
             if (lastClicked != null && game.CheckIfMouseClickedOnColor(mousePos, out index))
             {
-                lastClicked.color = game.colors[index];
-                lastClicked = null;
-
+                if(game.CheckIfValidMove(lastClicked, game.colors[index]))
+                {
+                    lastClicked.color = game.colors[index];
+                    lastClicked = null;
+                }
             }
         }
+
     }
 }
