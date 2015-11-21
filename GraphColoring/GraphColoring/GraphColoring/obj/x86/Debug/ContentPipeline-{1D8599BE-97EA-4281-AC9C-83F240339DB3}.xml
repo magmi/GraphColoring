@@ -10,6 +10,15 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb</Output>
       <Time>2015-11-20T21:03:16.4615165+01:00</Time>
     </Item>
+    <Item>
+      <Source>colorBox.jpg</Source>
+      <Name>colorBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb</Output>
+      <Time>2015-11-21T15:36:23.8280238+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

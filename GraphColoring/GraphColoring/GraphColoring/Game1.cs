@@ -38,7 +38,7 @@ namespace GraphColoring
             // TODO: Add your initialization logic here           
             IsMouseVisible = true;
             int colorsNr =3;
-            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphOne(Content), colorsNr);
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphOne(Content), colorsNr, Content);
             base.Initialize();
         }
 
@@ -78,6 +78,7 @@ namespace GraphColoring
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 CheckForFlowersClicked(mouseState);
+                CheckForColorsClicked(mouseState);
             }
             base.Update(gameTime);
         }
@@ -92,7 +93,7 @@ namespace GraphColoring
 
             // TODO: Add your drawing code here
             game.graph.DrawAllElements(spriteBatch);
-            
+            game.DrawColorPalete(spriteBatch);
             base.Draw(gameTime);
         }
 
@@ -104,6 +105,17 @@ namespace GraphColoring
             {
                 game.graph.flowers[index].c = Color.LightBlue;
                 lastClicked = game.graph.flowers[index];
+
+            }
+        }
+        public void CheckForColorsClicked(MouseState mouseState)
+        {
+            var mousePos = new Point(mouseState.X, mouseState.Y);
+            int index = 0;
+            if (lastClicked != null && game.CheckIfMouseClickedOnColor(mousePos, out index))
+            {
+                lastClicked.c = game.colors[index];
+                lastClicked = null;
 
             }
         }

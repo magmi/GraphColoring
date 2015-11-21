@@ -28,7 +28,7 @@ namespace GraphColoring
         {
            
             sBatch.Begin();
-            sBatch.Draw(texture, new Vector2(positionInPixels.X, positionInPixels.Y),c);
+            sBatch.Draw(texture, positionInPixels,c);
             sBatch.End();            
         }
 
