@@ -14,17 +14,21 @@ namespace GraphColoring
         public Vector2 positionInPixels;
         public int sideLength;
         public Texture2D texture;
+        public Color c;
 
         public Flower(Vector2 pos, ContentManager content)
         {
+            c = Color.White;
             positionInPixels = pos;
             this.texture = content.Load<Texture2D>("Kwiatek");
+            sideLength = 152;
         }
 
         public void Draw(SpriteBatch sBatch)
         {
+           
             sBatch.Begin();
-            sBatch.Draw(texture, new Vector2(positionInPixels.X, positionInPixels.Y), Color.White);
+            sBatch.Draw(texture, new Vector2(positionInPixels.X, positionInPixels.Y),c);
             sBatch.End();            
         }
 

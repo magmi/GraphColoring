@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorableObject.cs" />
+    <Compile Include="ColorBox.cs" />
     <Compile Include="ColorsCreator.cs" />
     <Compile Include="Computer.cs" />
     <Compile Include="Fence.cs" />

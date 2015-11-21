@@ -35,6 +35,21 @@ namespace GraphColoring
             return false;
         }
 
+        public bool CheckIfMouseClickedOnFlower(Point mousePos, out int index)
+        {
+            index = 0;
+            for(int i=0;i<graph.flowers.Count;i++)                
+            {
+                Flower f = graph.flowers[i];
+                if(f.ContainsPoint(mousePos))
+                {
+                    index = i;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void StartGame()
         {
 

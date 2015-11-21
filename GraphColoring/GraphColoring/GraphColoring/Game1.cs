@@ -19,6 +19,8 @@ namespace GraphColoring
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Game game;
+        Flower lastClicked = null;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,7 +36,9 @@ namespace GraphColoring
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here           
-
+            IsMouseVisible = true;
+            int colorsNr =3;
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphOne(Content), colorsNr);
             base.Initialize();
         }
 
@@ -70,8 +74,11 @@ namespace GraphColoring
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-
+            var mouseState = Mouse.GetState();
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                CheckForFlowersClicked(mouseState);
+            }
             base.Update(gameTime);
         }
 
@@ -84,9 +91,21 @@ namespace GraphColoring
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            PredefinedGraphs.GraphOne(Content).DrawAllElements(spriteBatch);
+            game.graph.DrawAllElements(spriteBatch);
             
             base.Draw(gameTime);
+        }
+
+        public void CheckForFlowersClicked(MouseState mouseState)
+        {
+            var mousePos = new Point(mouseState.X, mouseState.Y);
+            int index = 0;
+            if (lastClicked == null && game.CheckIfMouseClickedOnFlower(mousePos, out index))
+            {
+                game.graph.flowers[index].c = Color.LightBlue;
+                lastClicked = game.graph.flowers[index];
+
+            }
         }
     }
 }

@@ -19,7 +19,10 @@ namespace GraphColoring
             else
             {
                 Color[] colorArray = new Color[colorNr];
-                colors.CopyTo(colorArray, 0);
+                for (int i = 0; i < colorArray.Length;i++)
+                {
+                    colorArray[i] = colors[i];
+                }
                 return colorArray;
             }
         }
