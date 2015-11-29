@@ -14,3 +14,9 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphCo
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\nowa-gra.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\title.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf1.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf2.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\anuluj.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb

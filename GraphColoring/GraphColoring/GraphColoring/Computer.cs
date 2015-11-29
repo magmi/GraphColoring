@@ -33,7 +33,7 @@ namespace GraphColoring
 
                 do
                 {
-                    colorIndex = r.Next(0, m);
+                    colorIndex = r.Next(0, m+1);
                 }
                 while (!g.graph.IsValidMove(g.graph.flowers[index],g.colors[colorIndex]));
 

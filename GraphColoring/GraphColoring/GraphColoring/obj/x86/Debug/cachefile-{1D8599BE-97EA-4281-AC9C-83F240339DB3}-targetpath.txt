@@ -2,3 +2,9 @@ Content\Kwiatek.xnb
 Content\colorBox.xnb
 Content\Plotek.xnb
 Content\tlo.xnb
+Content\nowa-gra.xnb
+Content\title.xnb
+Content\graf1.xnb
+Content\graf2.xnb
+Content\anuluj.xnb
+Content\start.xnb

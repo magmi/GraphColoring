@@ -37,6 +37,60 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb</Output>
       <Time>2015-11-21T16:17:23.9417093+01:00</Time>
     </Item>
+    <Item>
+      <Source>nowa-gra.png</Source>
+      <Name>nowa-gra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\nowa-gra.xnb</Output>
+      <Time>2015-11-29T19:56:52.020645+01:00</Time>
+    </Item>
+    <Item>
+      <Source>title.png</Source>
+      <Name>title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\title.xnb</Output>
+      <Time>2015-11-29T19:56:52.0196446+01:00</Time>
+    </Item>
+    <Item>
+      <Source>graf1.png</Source>
+      <Name>graf1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf1.xnb</Output>
+      <Time>2015-11-29T20:37:01.4655167+01:00</Time>
+    </Item>
+    <Item>
+      <Source>graf2.png</Source>
+      <Name>graf2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf2.xnb</Output>
+      <Time>2015-11-29T20:37:01.4505742+01:00</Time>
+    </Item>
+    <Item>
+      <Source>anuluj.png</Source>
+      <Name>anuluj</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\anuluj.xnb</Output>
+      <Time>2015-11-29T20:38:29.427791+01:00</Time>
+    </Item>
+    <Item>
+      <Source>start.png</Source>
+      <Name>start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb</Output>
+      <Time>2015-11-29T20:38:29.427791+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>
