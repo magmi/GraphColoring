@@ -97,10 +97,8 @@ namespace GraphColoring
             foreach (Fence f in fences)
                 f.Draw(sBatch);
             foreach(Flower f in flowers)            
-                f.Draw(sBatch);
-            
+                f.Draw(sBatch);           
 
-           
         }
     }
 }
