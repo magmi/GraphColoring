@@ -26,20 +26,20 @@ namespace GraphColoring
             fencesNumber = fences.Count;
 
         }
-        public bool IsColoringPossible(GameType coloringType, Color[] colors) 
+        public bool IsColoringPossible(GameType coloringType, Color[] colors)
         {
             bool correct = false;
-            if (coloringType == GameType.EdgesColoring) 
-            {                
+            if (coloringType == GameType.EdgesColoring)
+            {
                 foreach (Fence f in fences)
-                    if (f.color != null) 
+                    if (f.color != null)
                     {
                         correct = false;
                         foreach (Fence ff in f.f1.outFences)
                         {
-                            foreach (Color c in colors)                            
+                            foreach (Color c in colors)
                                 if (IsValidMove(ff, c))
-                                    correct = true;                            
+                                    correct = true;
                             if (!correct)
                                 return false;
                         }
@@ -52,7 +52,7 @@ namespace GraphColoring
                             if (!correct)
                                 return false;
                         }
-                        
+
                     }
             }
 
@@ -89,16 +89,30 @@ namespace GraphColoring
         }
         public bool IsValidMove(Flower f, Color c)
         {
+            for (int i = 0; i < f.outFences.Count; i++)
+            {
+                Flower flower = f.outFences[i].f1 == f ? f.outFences[i].f2 : f.outFences[i].f1;
+                if (flower.color == c)
+                    return false;
+
+            }
             return true;
+        }
+        public void MakeMove(ColorableObject obj, Color c)
+        {
+            obj.color = c;
+            coloredFlowersNumber++;
         }
 
         public void DrawAllElements(SpriteBatch sBatch)
         {
             foreach (Fence f in fences)
                 f.Draw(sBatch);
-            foreach(Flower f in flowers)            
-                f.Draw(sBatch);           
+            foreach (Flower f in flowers)
+                f.Draw(sBatch);
 
         }
+
+
     }
 }

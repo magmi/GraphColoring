@@ -21,6 +21,8 @@ namespace GraphColoring
         SpriteBatch spriteBatch;
         Game game;
 
+        PlayerInterface playerInterface;
+
         Texture2D background;
         Rectangle screenRectangle;
         bool wasChecked;
@@ -47,14 +49,19 @@ namespace GraphColoring
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here           
+            // TODO: Add your initialization logic here      
+            playerInterface = new PlayerInterface(Content);
             IsMouseVisible = true;
-            int colorsNr =3;
-            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content);
+            int colorsNr = 2;
+            Player p1 = new Player("Player 1");
+            Computer c1 = new Computer(true);
+            PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content) };
+
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content, p1, c1);
             background = Content.Load<Texture2D>("tlo");
 
-            screenRectangle = new Rectangle(0, 0, 
-                GraphicsDevice.PresentationParameters.BackBufferWidth, 
+            screenRectangle = new Rectangle(0, 0,
+                GraphicsDevice.PresentationParameters.BackBufferWidth,
                 GraphicsDevice.PresentationParameters.BackBufferHeight);
 
             base.Initialize();
@@ -68,7 +75,7 @@ namespace GraphColoring
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -96,43 +103,59 @@ namespace GraphColoring
 
             var mouseState = Mouse.GetState();
 
-            if (!wasChecked)
+            if (playerInterface.state == InterfaceState.MainMenu)
             {
-                if (game.whoseTurn == 1)
-                {
+                var mousePos = new Point(mouseState.X, mouseState.Y);
+                playerInterface.MainMenuCheck(mousePos);
 
-                    if(!game.gardenerStartedMove && gameStarted)
-                    {
-                        MessageBox(new IntPtr(), "Your turn", "Next turn", 0);
-                        game.gardenerStartedMove = true;
-                    }
-
-                    if (mouseState.LeftButton == ButtonState.Pressed)
-                    {
-                        CheckForFlowersClicked(mouseState);
-                        CheckForColorsClicked(mouseState);
-                    }
-                }
-                else if (game.whoseTurn == 2)
-                {
-                    ((Computer)game.player2).CalculateMove(game);
-                    ((Computer)game.player2).elapsed += gameTime.ElapsedGameTime.TotalSeconds;
-                }
             }
-
-            if (game.CheckIfEnd(out didGardenerWon))
+            else if (playerInterface.state == InterfaceState.NewGame)
             {
-                if (wasChecked)
-                {
-                    if (didGardenerWon)
-                        MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
-                    else
-                        MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
-                }
+                var mousePos = new Point(mouseState.X, mouseState.Y);
+                playerInterface.NewGameCheck(mousePos, ref game, Content);
+            }
+            else if (playerInterface.state == InterfaceState.Game)
+            {
 
                 if (!wasChecked)
                 {
-                    wasChecked = true;
+                    if (game.whoseTurn == 1)
+                    {
+
+                        if (!game.gardenerStartedMove && gameStarted)
+                        {
+                            MessageBox(new IntPtr(), "Your turn", "Next turn", 0);
+                            game.gardenerStartedMove = true;
+                        }
+
+                        if (mouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            CheckForFlowersClicked(mouseState);
+                            CheckForColorsClicked(mouseState);
+                        }
+                    }
+                    else if (game.whoseTurn == 2)
+                    {
+                        ((Computer)game.player2).CalculateMove(game);
+                        ((Computer)game.player2).elapsed += gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                }
+
+                if (game.CheckIfEnd(out didGardenerWon))
+                {
+
+                    if (wasChecked)
+                    {
+                        if (didGardenerWon)
+                            MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
+                        else
+                            MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
+                    }
+
+                    if (!wasChecked)
+                    {
+                        wasChecked = true;
+                    }
                 }
             }
 
@@ -149,11 +172,23 @@ namespace GraphColoring
 
             // TODO: Add your drawing code here
             DrawBackground(spriteBatch);
-            game.graph.DrawAllElements(spriteBatch);
-            game.DrawColorPalete(spriteBatch);
 
             if (!gameStarted)
                 gameStarted = true;
+
+            if (playerInterface.state == InterfaceState.MainMenu)
+            {
+                playerInterface.MainMenuDraw(spriteBatch);
+            }
+            else if (playerInterface.state == InterfaceState.NewGame)
+            {
+                playerInterface.NewGameDraw(spriteBatch);
+            }
+            else if (playerInterface.state == InterfaceState.Game)
+            {
+                game.graph.DrawAllElements(spriteBatch);
+                game.DrawColorPalete(spriteBatch);
+            }
 
             base.Draw(gameTime);
         }
@@ -164,6 +199,8 @@ namespace GraphColoring
             sBatch.Draw(background, screenRectangle, Color.White);
             sBatch.End();
         }
+
+
 
         public void CheckForFlowersClicked(MouseState mouseState)
         {
@@ -181,11 +218,10 @@ namespace GraphColoring
             int index = 0;
             if (game.lastClicked != null && game.CheckIfMouseClickedOnColor(mousePos, out index))
             {
-                if(game.CheckIfValidMove(game.lastClicked, game.colors[index]))
+                if (game.CheckIfValidMove(game.lastClicked, game.colors[index]))
                 {
-                    game.lastClicked.color = game.colors[index];
+                    game.graph.MakeMove(game.lastClicked, game.colors[index]);
                     game.lastClicked = null;
-                    game.graph.coloredFlowersNumber++;
                     game.whoseTurn = 2;
                 }
             }
