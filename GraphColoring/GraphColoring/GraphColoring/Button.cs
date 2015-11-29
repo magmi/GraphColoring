@@ -12,6 +12,7 @@ namespace GraphColoring
         public Texture2D texture;
         public Vector2 position;
         public string name;
+        public Color color = Color.White;
         public Button(Vector2 pos,ContentManager content, string fileName)
         {
             name = fileName;
@@ -24,7 +25,7 @@ namespace GraphColoring
         {
 
             sBatch.Begin();
-            sBatch.Draw(texture, position, Color.White);
+            sBatch.Draw(texture, position, color);
             sBatch.End();
         }
         public bool ContainsPoint(Point _point)

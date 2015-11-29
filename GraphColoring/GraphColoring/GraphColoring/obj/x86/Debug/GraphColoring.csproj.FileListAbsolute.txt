@@ -20,3 +20,6 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf2.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\anuluj.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\bullet.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-gra.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-komp.xnb

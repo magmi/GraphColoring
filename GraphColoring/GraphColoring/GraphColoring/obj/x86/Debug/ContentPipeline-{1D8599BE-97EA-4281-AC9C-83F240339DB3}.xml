@@ -91,6 +91,33 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb</Output>
       <Time>2015-11-29T20:38:29.427791+01:00</Time>
     </Item>
+    <Item>
+      <Source>bullet.png</Source>
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2015-11-29T21:01:21.5948773+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gra-vs-gra.png</Source>
+      <Name>gra-vs-gra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-gra.xnb</Output>
+      <Time>2015-11-29T21:01:21.5948773+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gra-vs-komp.png</Source>
+      <Name>gra-vs-komp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-komp.xnb</Output>
+      <Time>2015-11-29T21:01:21.5948773+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

@@ -45,7 +45,8 @@ namespace GraphColoring
             int colorsNr =2;
             Player p1 = new Player("Player 1");
             Computer c1 = new Computer(true);
-           
+            PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content) };
+            
             game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
@@ -101,7 +102,7 @@ namespace GraphColoring
                 else if(playerInterface.state == InterfaceState.NewGame)
                 {
                     var mousePos = new Point(mouseState.X, mouseState.Y);
-                    playerInterface.NewGameCheck(mousePos);
+                    playerInterface.NewGameCheck(mousePos, ref game, Content);
                 }
                 else if(playerInterface.state == InterfaceState.Game)
                 {
