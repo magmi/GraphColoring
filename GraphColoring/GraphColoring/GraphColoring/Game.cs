@@ -9,12 +9,15 @@ namespace GraphColoring
 {
     class Game
     {
+        public Player player1;
+        public Player player2;
         public GameType gameType;
         public GardenGraph graph;
         public Color[] colors;
         public List<ColorBox> colorBoxes;
 
-        public Game(GameType gT, GardenGraph g, int c, ContentManager content)
+
+        public Game(GameType gT, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
         {
             colorBoxes = new List<ColorBox>();
             gameType = gT;
@@ -27,6 +30,8 @@ namespace GraphColoring
                 Vector2 vect = new Vector2((dist)* (i % 2),(dist)*((int)i / 2));
                 colorBoxes.Add(new ColorBox(colors[i], content, vect));
             }
+            player1 = p1;
+            player2 = p2;
         }
 
         public bool CheckIfEnd(out bool didGardenerWon)

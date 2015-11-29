@@ -41,8 +41,11 @@ namespace GraphColoring
         {
             // TODO: Add your initialization logic here           
             IsMouseVisible = true;
-            int colorsNr =3;
-            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content);
+            int colorsNr =2;
+            Player p1 = new Player("Player 1");
+            Computer c1 = new Computer(true);
+           
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
             screenRectangle = new Rectangle(0, 0, 
@@ -135,8 +138,14 @@ namespace GraphColoring
             {
                 if(game.CheckIfValidMove(lastClicked, game.colors[index]))
                 {
-                    lastClicked.color = game.colors[index];
+                    game.graph.MakeMove(lastClicked, game.colors[index]);
+                    //lastClicked.color = game.colors[index];
                     lastClicked = null;
+                    if (game.graph.IsColoringPossible(game.gameType, game.colors))
+                    {
+                        if (game.player2 is Computer)
+                            ((Computer)game.player2).CalculateMove(game);
+                    }
                 }
             }
         }
