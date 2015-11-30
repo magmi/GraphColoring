@@ -65,8 +65,8 @@ namespace GraphColoring
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
-            {   new TextBox(content, "Player1", new Vector2(100, 200), new Vector2(150, 300), "Gracz1") ,
-                new TextBox(content, "Player2", new Vector2(100, 500), new Vector2(150, 600), "Gracz2")
+            {   new TextBox(content, "Player1", new Vector2(100, 200), new Vector2(550, 250), "Gracz1") ,
+                new TextBox(content, "Player2", new Vector2(100, 500), new Vector2(550, 550), "Gracz2")
             };
             LoginButtons = new List<Button>(){                
                 new Button(new Vector2(350, 30), content, "anuluj"),
@@ -114,24 +114,7 @@ namespace GraphColoring
             }
             if (LoginTextBoxes[0].ContainsPoint(mousePos))
                 ActiveTextBox = 0;
-            KeyboardState keybState = Keyboard.GetState();
-            Keys[] k = keybState.GetPressedKeys();
-            if (k.Length > 0)
-            {
-                if(PlayerSb[ActiveTextBox].Length>0)
-                    if (k[0].ToString()[0] == PlayerSb[ActiveTextBox][PlayerSb[ActiveTextBox].Length - 1])
-                        return;
-                if (k[0] == Keys.Back)
-                {
-                    if(PlayerSb[ActiveTextBox].Length > 0)
-                        PlayerSb[ActiveTextBox].Remove(PlayerSb[ActiveTextBox].Length - 1, 1);
-                    UpdateLogins();
-                    return;
-                }
-
-                PlayerSb[ActiveTextBox].Append(k[0].ToString());
-                UpdateLogins();
-            }
+           
         }
 
         public void LoginMultiCheck(Point mousePos, ref Game game, ContentManager content)
@@ -154,8 +137,12 @@ namespace GraphColoring
             }
             for (int i = 0; i < LoginTextBoxes.Count;i++ )
                 if (LoginTextBoxes[i].ContainsPoint(mousePos))
-                    ActiveTextBox = i;
+                    ActiveTextBox = i;            
 
+        }
+
+        public void LoginKeyCheck()
+        {
             KeyboardState keybState = Keyboard.GetState();
             Keys[] k = keybState.GetPressedKeys();
             if (k.Length > 0)
@@ -170,12 +157,11 @@ namespace GraphColoring
                     UpdateLogins();
                     return;
                 }
+
                 PlayerSb[ActiveTextBox].Append(k[0].ToString());
                 UpdateLogins();
             }
-
         }
-
 
         public void NewGameCheck(Point mousePos, ref Game game, ContentManager content)
         {
@@ -222,7 +208,13 @@ namespace GraphColoring
                     }
                 }
             }                    
-            KeyboardState keybState = Keyboard.GetState();            
+           
+        
+        }
+
+        public void NewGameKeyCheck()
+        {
+            KeyboardState keybState = Keyboard.GetState();
             Keys[] k = keybState.GetPressedKeys();
             if (k.Length > 0)
             {
@@ -232,8 +224,8 @@ namespace GraphColoring
                     colorsNr = nr;
                 NewGameTextBoxes[0].text = colorsNr.ToString();
             }
-        
         }
+
 
         public void UpdateLogins()
         {

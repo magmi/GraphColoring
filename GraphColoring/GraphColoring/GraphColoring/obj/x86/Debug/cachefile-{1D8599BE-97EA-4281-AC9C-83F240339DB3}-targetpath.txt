@@ -20,3 +20,4 @@ Content\SpriteFont1.xnb
 Content\graf3.xnb
 Content\Gracz1.xnb
 Content\Gracz2.xnb
+Content\Panel.xnb

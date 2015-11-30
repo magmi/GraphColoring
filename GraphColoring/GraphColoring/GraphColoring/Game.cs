@@ -22,6 +22,7 @@ namespace GraphColoring
         public Flower lastClicked = null;
         public bool gardenerStartedMove;
         public TextBox[] PlayersTexts;
+        public List<TextBox> panels;
 
         public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
         {            
@@ -43,16 +44,18 @@ namespace GraphColoring
             }
             player1 = p1;
             player2 = p2;
+            panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
             if(p2 is Computer)
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400)) };
+                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400), Color.White) };
             }
             else
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400)),
-                                            new TextBox(content, p2.login, new Vector2(0, 0), new Vector2(30, 600)),
+                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400), Color.White),
+                                            new TextBox(content, p2.login, new Vector2(0, 0), new Vector2(30, 600), Color.White),
                 };
             }
+
         }
 
         public bool CheckIfEnd(out bool didGardenerWon)
@@ -104,6 +107,8 @@ namespace GraphColoring
 
         public void DrawColorPalete(SpriteBatch sBatch)
         {
+            foreach (TextBox t in panels)
+                t.Draw(sBatch);
             foreach (ColorBox cb in colorBoxes)
                 cb.Draw(sBatch);
         }

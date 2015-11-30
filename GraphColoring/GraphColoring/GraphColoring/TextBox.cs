@@ -14,7 +14,7 @@ namespace GraphColoring
         public Vector2 textPosition;
         public string text;
         public SpriteFont sp;
-
+        public Color c;
         public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, string fileName=null)
         {           
             if(fileName!=null)
@@ -23,6 +23,18 @@ namespace GraphColoring
             position = pos;
             textPosition = tPos;
             sp = content.Load<SpriteFont>("SpriteFont1");
+            c = Color.Black;
+
+        }
+        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, Color col, string fileName = null)
+        {
+            if (fileName != null)
+                texture = content.Load<Texture2D>(fileName);
+            text = t;
+            position = pos;
+            textPosition = tPos;
+            sp = content.Load<SpriteFont>("SpriteFont1");
+            c = col;
 
         }
         public void Draw(SpriteBatch sBatch)
@@ -31,7 +43,7 @@ namespace GraphColoring
             sBatch.Begin();
             if(texture!=null)
                 sBatch.Draw(texture, position, Color.White);
-            sBatch.DrawString(sp, text, textPosition, Color.Black);
+            sBatch.DrawString(sp, text, textPosition, c);
             sBatch.End();
         }
         public bool ContainsPoint(Point _point)

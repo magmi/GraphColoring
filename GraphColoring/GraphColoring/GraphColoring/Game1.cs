@@ -95,99 +95,44 @@ namespace GraphColoring
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            bool didGardenerWon;
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             var mouseState = Mouse.GetState();
+            var mousePos = new Point(mouseState.X, mouseState.Y);
 
-            if(playerInterface.state == InterfaceState.MainMenu)
+            if (playerInterface.state == InterfaceState.MainMenu)
             {
-                var mousePos = new Point(mouseState.X, mouseState.Y);
-                playerInterface.MainMenuCheck(mousePos);
-                   
+                    
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                    playerInterface.MainMenuCheck(mousePos);
             }
-            else if(playerInterface.state == InterfaceState.NewGame)
+            else if (playerInterface.state == InterfaceState.NewGame)
             {
-                var mousePos = new Point(mouseState.X, mouseState.Y);
-                playerInterface.NewGameCheck(mousePos, ref game, Content);
+                playerInterface.NewGameKeyCheck();
+                if (mouseState.LeftButton == ButtonState.Pressed)                    
+                    playerInterface.NewGameCheck(mousePos, ref game, Content);                  
             }
+
             else if (playerInterface.state == InterfaceState.LoginSingle)
             {
-                var mousePos = new Point(mouseState.X, mouseState.Y);
-                playerInterface.LoginSingleCheck(mousePos, ref game, Content);
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                    playerInterface.LoginSingleCheck(mousePos, ref game, Content);
+                playerInterface.LoginKeyCheck();
             }
             else if (playerInterface.state == InterfaceState.LoginMulti)
             {
-                var mousePos = new Point(mouseState.X, mouseState.Y);
-                playerInterface.LoginMultiCheck(mousePos, ref game, Content);
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                    playerInterface.LoginMultiCheck(mousePos, ref game, Content);
+                playerInterface.LoginKeyCheck();
             }
             else if (playerInterface.state == InterfaceState.Game)
             {
-
-                if (!wasChecked)
-                {
-                    if (game.whoseTurn == 0)
-                    {
-
-                        if (!game.gardenerStartedMove && gameStarted)
-                        {
-                            MessageBox(new IntPtr(), "Gardener turn", "Next turn", 0);
-                            game.gardenerStartedMove = true;
-                        }
-
-                        if (mouseState.LeftButton == ButtonState.Pressed)
-                        {
-                            CheckForFlowersClicked(mouseState);
-                            CheckForColorsClicked(mouseState);
-                        }
-                    }
-                    else if (game.whoseTurn == 1)
-                    {
-                        if (game.gameMode == GameMode.SinglePlayer)
-                        {
-                            ((Computer)game.player2).CalculateMove(game);
-                            ((Computer)game.player2).elapsed += gameTime.ElapsedGameTime.TotalSeconds;
-                        }
-                        else
-                        {
-                            if (game.gardenerStartedMove && gameStarted)
-                            {
-                                MessageBox(new IntPtr(), "Neighbour turn", "Next turn", 0);
-                                game.gardenerStartedMove = false;
-                            }
-
-                            if (mouseState.LeftButton == ButtonState.Pressed)
-                            {
-                                CheckForFlowersClicked(mouseState);
-                                CheckForColorsClicked(mouseState);
-                            }
-                        }
-                    }
-                }
-
-                if (game.CheckIfEnd(out didGardenerWon))
-                {
-
-                    if (wasChecked)
-                    {
-                        if (didGardenerWon)
-                            MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
-                        else
-                            MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
-
-                        this.Exit();
-                    }
-
-                    if (!wasChecked)
-                    {
-                        wasChecked = true;
-                    }
-                }
+                ManageGame(mouseState,gameTime);
             }
-
+            
             base.Update(gameTime);
         }
 
@@ -232,6 +177,70 @@ namespace GraphColoring
             }
 
             base.Draw(gameTime);
+        }
+
+        public void ManageGame(MouseState mouseState, GameTime gameTime)
+        {
+            bool didGardenerWon;
+            if (!wasChecked)
+            {
+                if (game.whoseTurn == 0)
+                {
+
+                    if (!game.gardenerStartedMove && gameStarted)
+                    {
+                        MessageBox(new IntPtr(), "Gardener turn", "Next turn", 0);
+                        game.gardenerStartedMove = true;
+                    }
+
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        CheckForFlowersClicked(mouseState);
+                        CheckForColorsClicked(mouseState);
+                    }
+                }
+                else if (game.whoseTurn == 1)
+                {
+                    if (game.gameMode == GameMode.SinglePlayer)
+                    {
+                        ((Computer)game.player2).CalculateMove(game);
+                        ((Computer)game.player2).elapsed += gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else
+                    {
+                        if (game.gardenerStartedMove && gameStarted)
+                        {
+                            MessageBox(new IntPtr(), "Neighbour turn", "Next turn", 0);
+                            game.gardenerStartedMove = false;
+                        }
+
+                        if (mouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            CheckForFlowersClicked(mouseState);
+                            CheckForColorsClicked(mouseState);
+                        }
+                    }
+                }
+            }
+
+            if (game.CheckIfEnd(out didGardenerWon))
+            {
+
+                if (wasChecked)
+                {
+                    if (didGardenerWon)
+                        MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
+                    else
+                        MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
+
+                    this.Exit();
+                }
+
+                if (!wasChecked)
+                {
+                    wasChecked = true;
+                }
+            }
         }
 
         public void DrawBackground(SpriteBatch sBatch)
