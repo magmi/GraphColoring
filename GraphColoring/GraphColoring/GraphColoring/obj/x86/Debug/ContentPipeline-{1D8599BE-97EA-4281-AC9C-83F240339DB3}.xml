@@ -181,6 +181,24 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf3.xnb</Output>
       <Time>2015-11-30T11:32:33.5163389+01:00</Time>
     </Item>
+    <Item>
+      <Source>Gracz1.png</Source>
+      <Name>Gracz1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb</Output>
+      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Gracz2.png</Source>
+      <Name>Gracz2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb</Output>
+      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

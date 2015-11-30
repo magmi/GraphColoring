@@ -47,3 +47,5 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphCo
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kolorow.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\SpriteFont1.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf3.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb

@@ -21,7 +21,7 @@ namespace GraphColoring
         public int whoseTurn;
         public Flower lastClicked = null;
         public bool gardenerStartedMove;
-
+        public TextBox[] PlayersTexts;
 
         public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
         {            
@@ -34,14 +34,25 @@ namespace GraphColoring
             this.whoseTurn = 0;
             this.gardenerStartedMove = false;
             int dist = 60;
+            int offset = 20;
 
             for(int i =0;i<colors.Length;i++)
             {
-                Vector2 vect = new Vector2((dist)* (i % 2),(dist)*((int)i / 2));
+                Vector2 vect = new Vector2(offset + (dist) * (i % 2), offset + (dist) * ((int)i / 2));
                 colorBoxes.Add(new ColorBox(colors[i], content, vect));
             }
             player1 = p1;
             player2 = p2;
+            if(p2 is Computer)
+            {
+                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400)) };
+            }
+            else
+            {
+                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400)),
+                                            new TextBox(content, p2.login, new Vector2(0, 0), new Vector2(30, 600)),
+                };
+            }
         }
 
         public bool CheckIfEnd(out bool didGardenerWon)
@@ -95,6 +106,12 @@ namespace GraphColoring
         {
             foreach (ColorBox cb in colorBoxes)
                 cb.Draw(sBatch);
+        }
+
+        public void DrawPlayers(SpriteBatch sBatch)
+        {
+            foreach (TextBox t in PlayersTexts)
+                t.Draw(sBatch);
         }
 
         public bool CheckIfValidMove(Flower flower, Color c)

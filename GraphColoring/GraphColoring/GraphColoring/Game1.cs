@@ -114,6 +114,16 @@ namespace GraphColoring
                 var mousePos = new Point(mouseState.X, mouseState.Y);
                 playerInterface.NewGameCheck(mousePos, ref game, Content);
             }
+            else if (playerInterface.state == InterfaceState.LoginSingle)
+            {
+                var mousePos = new Point(mouseState.X, mouseState.Y);
+                playerInterface.LoginSingleCheck(mousePos, ref game, Content);
+            }
+            else if (playerInterface.state == InterfaceState.LoginMulti)
+            {
+                var mousePos = new Point(mouseState.X, mouseState.Y);
+                playerInterface.LoginMultiCheck(mousePos, ref game, Content);
+            }
             else if (playerInterface.state == InterfaceState.Game)
             {
 
@@ -203,12 +213,21 @@ namespace GraphColoring
             {
                 playerInterface.NewGameDraw(spriteBatch);
             }
+            else if (playerInterface.state == InterfaceState.LoginSingle)
+            {
+                playerInterface.LoginSingleDraw(spriteBatch);
+            }
+            else if (playerInterface.state == InterfaceState.LoginMulti)
+            {
+                playerInterface.LoginMultiDraw(spriteBatch);
+            }
             else if (playerInterface.state == InterfaceState.Game)
             {
                 if (game.graph != null)
                 {
                     game.graph.DrawAllElements(spriteBatch);
                     game.DrawColorPalete(spriteBatch);
+                    game.DrawPlayers(spriteBatch);
                 }
             }
 
