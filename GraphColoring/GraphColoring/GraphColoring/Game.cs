@@ -7,22 +7,32 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 namespace GraphColoring
 {
+    public enum GameMode {SinglePlayer, MultiPlayer};
+
     class Game
     {
         public Player player1;
         public Player player2;
         public GameType gameType;
+        public GameMode gameMode;
         public GardenGraph graph;
         public Color[] colors;
         public List<ColorBox> colorBoxes;
+        public int whoseTurn;
+        public Flower lastClicked = null;
+        public bool gardenerStartedMove;
 
 
-        public Game(GameType gT, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
-        {
+        public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
+        {            
+            player2 = new Computer(true);
             colorBoxes = new List<ColorBox>();
             gameType = gT;
+            gameMode = gM;
             graph = g;
             colors = ColorsCreator.GetColors(c);
+            this.whoseTurn = 0;
+            this.gardenerStartedMove = false;
             int dist = 60;
 
             for(int i =0;i<colors.Length;i++)

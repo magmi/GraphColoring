@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
 namespace GraphColoring
 {
     public enum InterfaceState { MainMenu, NewGame, Game }
@@ -17,6 +18,7 @@ namespace GraphColoring
         public List<Button> NewGameButtons;
         public List<Button> GraphButtons;
         public List<Button> GameTypeButtons;
+        public List<TextBox> NewGameTextBoxes;
         public Texture2D titleTexture;
         public Vector2 titleVector;
         public GardenGraph chosenGraph;
@@ -28,14 +30,17 @@ namespace GraphColoring
             state = InterfaceState.MainMenu;
             MainMenuButtons = new List<Button>();
             MainMenuButtons.Add(new Button(new Vector2(470, 300), content, "nowa-gra"));
+            NewGameTextBoxes = new List<TextBox>() { new TextBox(content,"liczba-kolorow",colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485)),
+                                                     new TextBox(content,"trybBox","",new Vector2(650,50),new Vector2(0,0))};
             GraphButtons = new List<Button>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
                 new Button(new Vector2(250, 50), content, "graf2"),
+                new Button(new Vector2(50, 250), content, "graf3"),
             };
             GameTypeButtons = new List<Button>(){
-                new Button(new Vector2(650, 130), content, "gra-vs-gra"),
-                new Button(new Vector2(650, 330), content, "gra-vs-komp"),
+                new Button(new Vector2(660, 100), content, "gra-vs-gra"),
+                new Button(new Vector2(660, 150), content, "gra-vs-komp"),
             };
             NewGameButtons = new List<Button>(){                
                 new Button(new Vector2(350, 730), content, "anuluj"),
@@ -76,8 +81,11 @@ namespace GraphColoring
                     switch (NewGameButtons[i].name)
                     {
                         case "start":
-                            state = InterfaceState.Game;
-                            game = new Game(GameType.VerticesColoring, chosenGraph, colorsNr, content, p1, p2);
+                            if(p1!=null && chosenGraph != null)
+                            { 
+                                state = InterfaceState.Game;
+                                game = new Game(GameType.VerticesColoring, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);
+                            }
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;                           
@@ -90,6 +98,11 @@ namespace GraphColoring
                         case "graf2":
                             ClearButtons(GraphButtons);
                             chosenGraph = PredefinedGraphs.graphs[1];
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "graf3":
+                            ClearButtons(GraphButtons);
+                            chosenGraph = PredefinedGraphs.graphs[2];
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "gra-vs-gra":
@@ -109,6 +122,19 @@ namespace GraphColoring
                
                     
             }
+                    
+            KeyboardState keybState = Keyboard.GetState();
+            
+            Keys[] k = keybState.GetPressedKeys();
+            if (k.Length > 0)
+            {
+                string nrS = k[0].ToString();
+                int nr = int.Parse(nrS[1].ToString());
+                if (nr > 0 && nr < 10)
+                    colorsNr = nr;
+                NewGameTextBoxes[0].text = colorsNr.ToString();
+            }
+        
         }
         public void ClearButtons(List<Button> list)
         {
@@ -126,13 +152,13 @@ namespace GraphColoring
         }
 
         public void NewGameDraw(SpriteBatch sBatch)
-        {            
+        {
+            foreach (TextBox b in NewGameTextBoxes)
+                b.Draw(sBatch);
             foreach (Button b in NewGameButtons)
                 b.Draw(sBatch);
-            foreach (Button b in GraphButtons)
-                b.Draw(sBatch);
-            foreach (Button b in GameTypeButtons)
-                b.Draw(sBatch);
+
+
         }
 
     }
