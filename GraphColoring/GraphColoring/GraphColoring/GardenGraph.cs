@@ -89,7 +89,19 @@ namespace GraphColoring
         }
         public bool IsValidMove(Flower f, Color c)
         {
+            for (int i = 0; i < f.outFences.Count;i++ )
+            {
+                Flower flower = f.outFences[i].f1 == f ? f.outFences[i].f2 : f.outFences[i].f1;
+                if (flower.color == c)
+                    return false;
+
+            }
             return true;
+        }
+        public void MakeMove(ColorableObject obj, Color c)
+        {
+            obj.color = c;
+            coloredFlowersNumber++;
         }
 
         public void DrawAllElements(SpriteBatch sBatch)
@@ -102,5 +114,7 @@ namespace GraphColoring
 
            
         }
+
+
     }
 }

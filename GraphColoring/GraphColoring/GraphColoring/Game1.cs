@@ -20,7 +20,7 @@ namespace GraphColoring
         SpriteBatch spriteBatch;
         Game game;
         Flower lastClicked = null;
-
+        PlayerInterface playerInterface;
         Texture2D background;
         Rectangle screenRectangle;
         public Game1()
@@ -39,10 +39,15 @@ namespace GraphColoring
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here           
+            // TODO: Add your initialization logic here      
+            playerInterface = new PlayerInterface(Content);
             IsMouseVisible = true;
-            int colorsNr =3;
-            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content);
+            int colorsNr =2;
+            Player p1 = new Player("Player 1");
+            Computer c1 = new Computer(true);
+            PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content) };
+            
+            game = new Game(GameType.VerticesColoring, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
             screenRectangle = new Rectangle(0, 0, 
@@ -80,6 +85,7 @@ namespace GraphColoring
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+           
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -87,8 +93,22 @@ namespace GraphColoring
             var mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                CheckForFlowersClicked(mouseState);
-                CheckForColorsClicked(mouseState);
+                if(playerInterface.state == InterfaceState.MainMenu)
+                {
+                    var mousePos = new Point(mouseState.X, mouseState.Y);
+                    playerInterface.MainMenuCheck(mousePos);
+                   
+                }
+                else if(playerInterface.state == InterfaceState.NewGame)
+                {
+                    var mousePos = new Point(mouseState.X, mouseState.Y);
+                    playerInterface.NewGameCheck(mousePos, ref game, Content);
+                }
+                else if(playerInterface.state == InterfaceState.Game)
+                {
+                    CheckForFlowersClicked(mouseState);
+                    CheckForColorsClicked(mouseState);
+                }
             }
             base.Update(gameTime);
         }
@@ -103,9 +123,19 @@ namespace GraphColoring
 
             // TODO: Add your drawing code here
             DrawBackground(spriteBatch);
-            game.graph.DrawAllElements(spriteBatch);
-            game.DrawColorPalete(spriteBatch);
-           
+            if (playerInterface.state == InterfaceState.MainMenu)
+            {
+                playerInterface.MainMenuDraw(spriteBatch);
+            }
+            else if(playerInterface.state == InterfaceState.NewGame)
+            {
+                playerInterface.NewGameDraw(spriteBatch);
+            }
+            else if (playerInterface.state== InterfaceState.Game)
+            {
+                game.graph.DrawAllElements(spriteBatch);
+                game.DrawColorPalete(spriteBatch);
+            }
             base.Draw(gameTime);
         }
 
@@ -115,6 +145,8 @@ namespace GraphColoring
             sBatch.Draw(background, screenRectangle, Color.White);
             sBatch.End();
         }
+
+        
 
         public void CheckForFlowersClicked(MouseState mouseState)
         {
@@ -135,8 +167,14 @@ namespace GraphColoring
             {
                 if(game.CheckIfValidMove(lastClicked, game.colors[index]))
                 {
-                    lastClicked.color = game.colors[index];
+                    game.graph.MakeMove(lastClicked, game.colors[index]);
+                    //lastClicked.color = game.colors[index];
                     lastClicked = null;
+                    if (game.graph.IsColoringPossible(game.gameType, game.colors))
+                    {
+                        if (game.player2 is Computer)
+                            ((Computer)game.player2).CalculateMove(game);
+                    }
                 }
             }
         }

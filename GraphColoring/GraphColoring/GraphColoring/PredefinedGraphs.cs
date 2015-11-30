@@ -9,8 +9,52 @@ namespace GraphColoring
 {
     class PredefinedGraphs
     {
+        public static List<GardenGraph> graphs;
 
+        public static GardenGraph GraphZero(ContentManager content)
+        {
+            Vector2 center = new Vector2(500, 300);
+            int R = 250;
+            int n = 5;
+
+            float angle = (float)(2 * Math.PI / n);
+
+
+            List<Flower> flowers = CreateflowerList(n, center, R, content);
+            int[,] array = new int[n, n];
+            array[0, 1] = 1;
+            array[1, 2] = 1;
+            array[2, 3] = 1;
+            array[3, 4] = 1;
+            array[4, 0] = 1;
+      
+            List<Fence> fences = CreateFenceList(flowers, array, content);
+            UpdateFlowerList(fences);
+            return new GardenGraph(flowers, fences);
+        }
         public static GardenGraph GraphOne(ContentManager content)
+        {
+            Vector2 center = new Vector2(500, 300);
+            int R = 250;
+            int n = 5;
+
+            float angle = (float)(2 * Math.PI / n);
+
+
+            List<Flower> flowers = CreateflowerList(n, center, R, content);
+            int[,] array = new int[n, n];
+            array[0, 2] = 1;
+            array[0, 1] = 1;
+            array[1, 2] = 1;
+            array[2, 3] = 1;
+            array[3, 4] = 1;
+            array[4, 2] = 1;
+
+            List<Fence> fences = CreateFenceList(flowers, array, content);
+            UpdateFlowerList(fences);
+            return new GardenGraph(flowers, fences);
+        }
+        public static GardenGraph GraphTwo(ContentManager content)
         {
             Vector2 center = new Vector2(  300,150);
             int R = 150;
@@ -43,7 +87,7 @@ namespace GraphColoring
             return new GardenGraph(flowers,fences);
         }
 
-        public static GardenGraph GraphTwo(ContentManager content)
+        public static GardenGraph GraphThree(ContentManager content)
         {
             Vector2 center = new Vector2(500, 300);
             int R = 250;
