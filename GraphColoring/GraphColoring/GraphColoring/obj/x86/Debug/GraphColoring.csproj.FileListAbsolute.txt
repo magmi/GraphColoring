@@ -1,0 +1,26 @@
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.exe
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.pdb
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.csprojResolveAssemblyReference.cache
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
+C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.exe
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.pdb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.csprojResolveAssemblyReference.cache
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.exe
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\GraphColoring.pdb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.csprojResolveAssemblyReference.cache
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb

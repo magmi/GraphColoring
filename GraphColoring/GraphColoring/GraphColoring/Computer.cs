@@ -10,7 +10,6 @@ namespace GraphColoring
     class Computer : Player
     {
         public bool easyMode;
-
         public double elapsed;
         public bool startedMove;
         public bool flowerPicked;
@@ -41,7 +40,7 @@ namespace GraphColoring
                 startedMove = true;
             }
 
-            if (easyMode == true)
+            if(easyMode==true)
             {
                 int colorIndex = 0;
 
@@ -67,8 +66,9 @@ namespace GraphColoring
                     }
                     while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
 
-                    game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                    game.lastClicked.color = game.colors[colorIndex];
                     game.lastClicked = null;
+                    game.graph.coloredFlowersNumber++;
                     flowerColored = true;
                 }
 
