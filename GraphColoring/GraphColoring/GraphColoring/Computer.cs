@@ -3,84 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using System.Runtime.InteropServices;
-
 namespace GraphColoring
 {
-    class Computer : Player
+    class Computer
     {
         public bool easyMode;
-        public double elapsed;
-        public bool startedMove;
-        public bool flowerPicked;
-        public bool flowerColored;
-        private int chosenFlowerIndex;
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern uint MessageBox(IntPtr hWndle, String text, String caption, int buttons);
-
-        public Computer(bool _easyMode)
-        {
-            this.easyMode = _easyMode;
-            this.startedMove = false;
-            this.flowerPicked = false;
-            this.flowerColored = false;
-            this.chosenFlowerIndex = 0;
-            this.elapsed = 0;
-        }
-
-        public void CalculateMove(Game game)
+        public void CalculateMove(Game g)
         {
             Random r = new Random();
-            int n = game.graph.flowers.Count;
-            int m = game.colors.Length;
-
-            if (!startedMove)
-            {
-                MessageBox(new IntPtr(), "Computer's turn", "Next turn", 0);
-                startedMove = true;
-            }
-
+            int n = g.graph.flowers.Count - 1;
+            int m = g.colors.Length - 1;
             if(easyMode==true)
             {
-                int colorIndex = 0;
-
-                if (elapsed > 1 && !flowerPicked)
+                int index = 0,colorIndex=0;
+                do
                 {
-                    do
-                    {
-                        chosenFlowerIndex = r.Next(0, n);
-                    }
-                    while (game.graph.flowers[chosenFlowerIndex].color != Color.White);
-
-                    game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
-                    game.lastClicked = game.graph.flowers[chosenFlowerIndex];
-
-                    flowerPicked = true;
+                    index = r.Next(0, n);
                 }
+                while (g.graph.flowers[index].color != null);
 
-                if (elapsed > 2 && !flowerColored)
+                do
                 {
-                    do
-                    {
-                        colorIndex = r.Next(0, m);
-                    }
-                    while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
-
-                    game.lastClicked.color = game.colors[colorIndex];
-                    game.lastClicked = null;
-                    game.graph.coloredFlowersNumber++;
-                    flowerColored = true;
+                    colorIndex = r.Next(0, m);
                 }
-
-                if (flowerColored)
-                {
-                    game.whoseTurn = 1;
-                    elapsed = 0;
-                    startedMove = false;
-                    flowerPicked = false;
-                    flowerColored = false;
-                    game.gardenerStartedMove = false;
-                }
+                while (!g.graph.IsValidMove(g.graph.flowers[index],g.colors[colorIndex]));
             }
         }
     }

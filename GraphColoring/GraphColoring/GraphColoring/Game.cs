@@ -13,21 +13,13 @@ namespace GraphColoring
         public GardenGraph graph;
         public Color[] colors;
         public List<ColorBox> colorBoxes;
-        public int whoseTurn;
-        public Flower lastClicked = null;
-        public Player player1;
-        public Player player2;
-        public bool gardenerStartedMove;
 
         public Game(GameType gT, GardenGraph g, int c, ContentManager content)
         {
-            player2 = new Computer(true);
             colorBoxes = new List<ColorBox>();
             gameType = gT;
             graph = g;
             colors = ColorsCreator.GetColors(c);
-            this.whoseTurn = 1;
-            this.gardenerStartedMove = false;
             int dist = 60;
 
             for(int i =0;i<colors.Length;i++)
