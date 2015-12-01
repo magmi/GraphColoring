@@ -30,7 +30,9 @@ namespace GraphColoring
         {
            
             sBatch.Begin();
+
             sBatch.Draw(texture, position, color);
+
             sBatch.End();            
         }
 

@@ -8,6 +8,6 @@ namespace GraphColoring
 {
     abstract class ColorableObject
     {
-        public Color color;
+        public Color color = Color.White;
     }
 }

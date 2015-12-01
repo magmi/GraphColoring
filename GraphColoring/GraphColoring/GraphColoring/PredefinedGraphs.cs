@@ -54,37 +54,34 @@ namespace GraphColoring
             UpdateFlowerList(fences);
             return new GardenGraph(flowers, fences);
         }
+
         public static GardenGraph GraphTwo(ContentManager content)
         {
-            Vector2 center = new Vector2(  300,150);
-            int R = 150;
-            int n = 4;
+            Vector2 center = new Vector2(500, 300);
+            int R = 250;
+            int n = 8;
 
-            float angle =(float)(2 * Math.PI / n);
+            float angle = (float)(2 * Math.PI / n);
 
-            List<Flower> flowers = new List<Flower>{
-                                    new Flower(GetCoordinates(center, R, 0), content),
-                                    new Flower(GetCoordinates(center, R, angle), content),
-                                     new Flower(GetCoordinates(center, R, angle*2), content),
-                                      new Flower(GetCoordinates(center, R, angle*3), content),
-                                    };
 
-            List<Fence> fences = new List<Fence> {
-                new Fence(flowers[0],flowers[1], content),
-                new Fence(flowers[1],flowers[2], content),
-                new Fence(flowers[2],flowers[3], content),
-                new Fence(flowers[3],flowers[0], content),
-                };
-            
-            flowers[0].outFences = new List<Fence> { fences[0], fences[3] };
-            flowers[1].outFences = new List<Fence> { fences[0], fences[1] };
-            flowers[2].outFences = new List<Fence> { fences[1], fences[2] };
-            flowers[3].outFences = new List<Fence> { fences[2], fences[3] };
-            
+            List<Flower> flowers = CreateflowerList(n, center, R, content);
+            int[,] array = new int[n, n];
+            array[0, 1] = 1;
+            array[1, 2] = 1;
+            array[2, 3] = 1;
+            array[3, 4] = 1;
+            array[4, 5] = 1;
+            array[5, 6] = 1;
+            array[6, 7] = 1;
+            array[7, 0] = 1;
 
-           
-
-            return new GardenGraph(flowers,fences);
+            array[0, 4] = 1;
+            array[1, 5] = 1;
+            array[2, 6] = 1;
+            array[3, 7] = 1;
+            List<Fence> fences = CreateFenceList(flowers, array, content);
+            UpdateFlowerList(fences);
+            return new GardenGraph(flowers, fences);
         }
 
         public static GardenGraph GraphThree(ContentManager content)
@@ -114,8 +111,39 @@ namespace GraphColoring
             return new GardenGraph(flowers, fences);
         }
 
-       
 
+        public static GardenGraph GraphFour(ContentManager content)
+        {
+            Vector2 center = new Vector2(300, 150);
+            int R = 150;
+            int n = 4;
+
+            float angle = (float)(2 * Math.PI / n);
+
+            List<Flower> flowers = new List<Flower>{
+                                    new Flower(GetCoordinates(center, R, 0), content),
+                                    new Flower(GetCoordinates(center, R, angle), content),
+                                     new Flower(GetCoordinates(center, R, angle*2), content),
+                                      new Flower(GetCoordinates(center, R, angle*3), content),
+                                    };
+
+            List<Fence> fences = new List<Fence> {
+                new Fence(flowers[0],flowers[1], content),
+                new Fence(flowers[1],flowers[2], content),
+                new Fence(flowers[2],flowers[3], content),
+                new Fence(flowers[3],flowers[0], content),
+                };
+
+            flowers[0].outFences = new List<Fence> { fences[0], fences[3] };
+            flowers[1].outFences = new List<Fence> { fences[0], fences[1] };
+            flowers[2].outFences = new List<Fence> { fences[1], fences[2] };
+            flowers[3].outFences = new List<Fence> { fences[2], fences[3] };
+
+
+
+
+            return new GardenGraph(flowers, fences);
+        }
         public static List<Fence> CreateFenceList(List<Flower> flow, int[,] array, ContentManager content)
         {
             List<Fence> fen = new List<Fence>();
