@@ -51,13 +51,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plotek.png">
-      <Name>Plotek</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="nowa-gra.png">
       <Name>nowa-gra</Name>
       <Importer>TextureImporter</Importer>
@@ -170,6 +163,13 @@
   <ItemGroup>
     <Compile Include="Panel.png">
       <Name>Panel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plotek.png">
+      <Name>Plotek</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

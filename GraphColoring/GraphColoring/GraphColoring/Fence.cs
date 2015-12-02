@@ -13,24 +13,23 @@ namespace GraphColoring
         public Flower f2;
         public Texture2D texture;
         public Vector2 position;
-        public float scale;
         public float angle;
 
         public Fence(Flower _f1,Flower _f2, ContentManager content)
         {
-            int originalLength = 260; 
-            int length = 0;
             
             f1 = _f1;
             f2 = _f2;
-            texture = content.Load<Texture2D>("Plotek");
-         //   position = new Vector2(f1.position.X < f2.position.X ? f1.position.X : f2.position.X,
-        //                        f1.position.X < f2.position.X ? f1.position.Y : f2.position.Y);
+            int length = (int)Math.Sqrt((f1.position.X - f2.position.X) * (f1.position.X - f2.position.X) +
+                (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));        
+            Texture2D originalTexture = content.Load<Texture2D>("Plotek");
+            Rectangle sourceRectangle = new Rectangle(0, 0, length, originalTexture.Height);
+            texture = new Texture2D(originalTexture.GraphicsDevice, sourceRectangle.Width, sourceRectangle.Height);
+            Color[] data = new Color[sourceRectangle.Width * sourceRectangle.Height];
+            originalTexture.GetData(0, sourceRectangle, data, 0, data.Length);
+            texture.SetData(data);
             position = f1.center;
             color = Color.White;
-            length = (int)Math.Sqrt((f1.position.X - f2.position.X) * (f1.position.X - f2.position.X) +
-                (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));
-            scale = (float) length / originalLength;
             angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
 
 
@@ -43,11 +42,13 @@ namespace GraphColoring
             return Math.Atan2(yDiff, xDiff);// *(180 / Math.PI); 
         } 
 
+        
+
         public void Draw(SpriteBatch sBatch)
         {
 
             sBatch.Begin();
-            sBatch.Draw(texture, position, null, color, angle, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            sBatch.Draw(texture, position, null, color, angle, Vector2.Zero, 1, SpriteEffects.None, 0f);
             sBatch.End();
         }
     }
