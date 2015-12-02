@@ -10,6 +10,15 @@ namespace GraphColoring
     class PredefinedGraphs
     {
         public static List<GardenGraph> graphs;
+        
+        public static GardenGraph CreateEmptyGraph(int n, ContentManager content)
+        {
+            Vector2 center = new Vector2(500, 300);
+            int R = 250;
+            List<Flower> flowers = CreateflowerList(n, center, R, content);
+            List<Fence> fences = new List<Fence>();
+            return new GardenGraph(flowers, fences);
+        }
 
         public static GardenGraph GraphZero(ContentManager content)
         {

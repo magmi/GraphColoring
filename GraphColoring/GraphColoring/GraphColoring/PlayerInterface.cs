@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 namespace GraphColoring
 {
-    public enum InterfaceState { MainMenu, NewGame, Game, LoginSingle, LoginMulti }
+    public enum InterfaceState { MainMenu, NewGame, Game, LoginSingle, LoginMulti, GraphCreation, GCVertices }
     class PlayerInterface
     {
         
@@ -41,8 +41,9 @@ namespace GraphColoring
         {
             PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
             state = InterfaceState.MainMenu;
-            MainMenuButtons = new List<Button>();
-            MainMenuButtons.Add(new Button(new Vector2(470, 300), content, "nowa-gra"));
+            MainMenuButtons = new List<Button>() { new Button(new Vector2(470, 300), content, "nowa-gra"),
+                new Button(new Vector2(470, 500), content, "anuluj"),};
+
             NewGameTextBoxes = new List<TextBox>() { new TextBox(content,colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485),"liczba-kolorow"),
                                                      new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox")};
             GraphButtons = new List<Button>() 
@@ -88,6 +89,9 @@ namespace GraphColoring
                     {
                         case "nowa-gra":
                             state = InterfaceState.NewGame;
+                            break;
+                        case "anuluj":
+                            state = InterfaceState.GCVertices;
                             break;
                     }
                 }
@@ -146,10 +150,7 @@ namespace GraphColoring
             KeyboardState keybState = Keyboard.GetState();
             Keys[] k = keybState.GetPressedKeys();
             if (k.Length > 0)
-            {
-                if (PlayerSb[ActiveTextBox].Length > 0)
-                    if (k[0].ToString()[0] == PlayerSb[ActiveTextBox][PlayerSb[ActiveTextBox].Length - 1])
-                        return;
+            {                
                 if (k[0] == Keys.Back)
                 {
                     if (PlayerSb[ActiveTextBox].Length > 0)
@@ -157,7 +158,6 @@ namespace GraphColoring
                     UpdateLogins();
                     return;
                 }
-
                 PlayerSb[ActiveTextBox].Append(k[0].ToString());
                 UpdateLogins();
             }
@@ -219,10 +219,15 @@ namespace GraphColoring
             if (k.Length > 0)
             {
                 string nrS = k[0].ToString();
-                int nr = int.Parse(nrS[1].ToString());
-                if (nr > 0 && nr < 10)
-                    colorsNr = nr;
-                NewGameTextBoxes[0].text = colorsNr.ToString();
+                if (nrS.Length > 1)
+                {
+                    int nr = int.Parse(nrS[1].ToString());
+                    if (nr > 0 && nr < 10)
+                    {
+                        colorsNr = nr;
+                        NewGameTextBoxes[0].text = colorsNr.ToString();
+                    }
+                }
             }
         }
 

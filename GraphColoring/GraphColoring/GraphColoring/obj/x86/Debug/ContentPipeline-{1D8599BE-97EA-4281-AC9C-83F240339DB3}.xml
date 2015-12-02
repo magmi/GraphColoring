@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb</Output>
-      <Time>2015-11-29T19:29:17.7227212+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox.xnb</Output>
+      <Time>2015-12-02T12:51:36.7042733+01:00</Time>
     </Item>
     <Item>
       <Source>tlo.jpg</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb</Output>
-      <Time>2015-11-29T19:29:17.7927121+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\tlo.xnb</Output>
+      <Time>2015-12-02T12:51:36.7402743+01:00</Time>
     </Item>
     <Item>
       <Source>Kwiatek.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb</Output>
-      <Time>2015-11-29T19:29:17.6472839+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb</Output>
+      <Time>2015-12-02T12:51:36.6902729+01:00</Time>
     </Item>
     <Item>
       <Source>Plotek.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb</Output>
-      <Time>2015-11-29T19:29:17.6482867+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb</Output>
+      <Time>2015-12-02T12:51:36.693273+01:00</Time>
     </Item>
     <Item>
       <Source>nowa-gra.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\nowa-gra.xnb</Output>
-      <Time>2015-11-29T23:22:13.3281342+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\nowa-gra.xnb</Output>
+      <Time>2015-12-02T12:51:36.7232738+01:00</Time>
     </Item>
     <Item>
       <Source>title.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\title.xnb</Output>
-      <Time>2015-11-29T23:22:13.3731876+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\title.xnb</Output>
+      <Time>2015-12-02T12:51:36.7392743+01:00</Time>
     </Item>
     <Item>
       <Source>graf1.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf1.xnb</Output>
-      <Time>2015-11-29T23:22:13.3261333+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf1.xnb</Output>
+      <Time>2015-12-02T12:51:36.7162736+01:00</Time>
     </Item>
     <Item>
       <Source>graf2.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf2.xnb</Output>
-      <Time>2015-11-29T23:22:13.3271339+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf2.xnb</Output>
+      <Time>2015-12-02T12:51:36.7182737+01:00</Time>
     </Item>
     <Item>
       <Source>anuluj.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\anuluj.xnb</Output>
-      <Time>2015-11-29T23:22:13.3151268+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\anuluj.xnb</Output>
+      <Time>2015-12-02T12:51:36.6992732+01:00</Time>
     </Item>
     <Item>
       <Source>start.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb</Output>
-      <Time>2015-11-29T23:22:13.3691828+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\start.xnb</Output>
+      <Time>2015-12-02T12:51:36.7372742+01:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2015-11-29T23:22:13.317129+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2015-12-02T12:51:36.7002732+01:00</Time>
     </Item>
     <Item>
       <Source>gra-vs-gra.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-gra.xnb</Output>
-      <Time>2015-11-29T23:22:13.3201293+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-gra.xnb</Output>
+      <Time>2015-12-02T12:51:36.7102735+01:00</Time>
     </Item>
     <Item>
       <Source>gra-vs-komp.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-komp.xnb</Output>
-      <Time>2015-11-29T23:22:13.3241332+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra-vs-komp.xnb</Output>
+      <Time>2015-12-02T12:51:36.7142736+01:00</Time>
     </Item>
     <Item>
       <Source>trybBox.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\trybBox.xnb</Output>
-      <Time>2015-11-29T23:22:13.3751863+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\trybBox.xnb</Output>
+      <Time>2015-12-02T12:51:36.7422743+01:00</Time>
     </Item>
     <Item>
       <Source>cofnij.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\cofnij.xnb</Output>
-      <Time>2015-11-29T23:22:13.3191295+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\cofnij.xnb</Output>
+      <Time>2015-12-02T12:51:36.7032733+01:00</Time>
     </Item>
     <Item>
       <Source>od-nowa.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\od-nowa.xnb</Output>
-      <Time>2015-11-29T23:22:13.3291365+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\od-nowa.xnb</Output>
+      <Time>2015-12-02T12:51:36.7342741+01:00</Time>
     </Item>
     <Item>
       <Source>powrot-menu.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\powrot-menu.xnb</Output>
-      <Time>2015-11-29T23:22:13.3301372+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\powrot-menu.xnb</Output>
+      <Time>2015-12-02T12:51:36.7352742+01:00</Time>
     </Item>
     <Item>
       <Source>liczba-kolorow.png</Source>
@@ -160,17 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kolorow.xnb</Output>
-      <Time>2015-11-30T11:09:24.4388813+01:00</Time>
-    </Item>
-    <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2015-11-30T11:18:27.7018956+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kolorow.xnb</Output>
+      <Time>2015-12-02T12:51:36.7222738+01:00</Time>
     </Item>
     <Item>
       <Source>graf3.png</Source>
@@ -178,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf3.xnb</Output>
-      <Time>2015-11-30T11:32:33.5163389+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf3.xnb</Output>
+      <Time>2015-12-02T12:51:36.7202737+01:00</Time>
     </Item>
     <Item>
       <Source>Gracz1.png</Source>
@@ -187,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb</Output>
+      <Time>2015-12-02T12:51:36.6842728+01:00</Time>
     </Item>
     <Item>
       <Source>Gracz2.png</Source>
@@ -196,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb</Output>
+      <Time>2015-12-02T12:51:36.6862728+01:00</Time>
     </Item>
     <Item>
       <Source>Panel.png</Source>
@@ -205,8 +196,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Panel.xnb</Output>
-      <Time>2015-11-30T18:01:03.9698987+01:00</Time>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Panel.xnb</Output>
+      <Time>2015-12-02T12:51:36.691273+01:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2015-12-02T12:51:36.6952731+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -215,10 +215,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoringContent\</RootDirectory>
-      <LoggerRootDirectory>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\GK\GraphColoring\GraphColoring\GraphColoringContent\</RootDirectory>
+      <LoggerRootDirectory>D:\GK\GraphColoring\GraphColoring\GraphColoring\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\GK\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\GK\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -247,7 +247,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-11-16T18:12:49.6426238+01:00</Value>
+        <Value>2015-12-02T13:02:41.4759299+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

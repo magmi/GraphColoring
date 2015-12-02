@@ -22,7 +22,7 @@ namespace GraphColoring
         Game game;
 
         PlayerInterface playerInterface;
-
+        GraphCreator graphCreator;
         Texture2D background;
         Rectangle screenRectangle;
         bool wasChecked;
@@ -51,6 +51,7 @@ namespace GraphColoring
         {
             // TODO: Add your initialization logic here      
             playerInterface = new PlayerInterface(Content);
+            graphCreator = new GraphCreator(Content);
             IsMouseVisible = true;
             int colorsNr =2;
             Player p1 = new Player("Player 1");
@@ -63,7 +64,7 @@ namespace GraphColoring
             screenRectangle = new Rectangle(0, 0, 
                 GraphicsDevice.PresentationParameters.BackBufferWidth, 
                 GraphicsDevice.PresentationParameters.BackBufferHeight);
-
+            this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 10.0f);
             base.Initialize();
         }
 
@@ -102,37 +103,42 @@ namespace GraphColoring
 
             var mouseState = Mouse.GetState();
             var mousePos = new Point(mouseState.X, mouseState.Y);
+            switch (playerInterface.state)
+            {
+                case InterfaceState.MainMenu:
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        playerInterface.MainMenuCheck(mousePos);
+                    break;
 
-            if (playerInterface.state == InterfaceState.MainMenu)
-            {
-                    
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                    playerInterface.MainMenuCheck(mousePos);
-            }
-            else if (playerInterface.state == InterfaceState.NewGame)
-            {
-                playerInterface.NewGameKeyCheck();
-                if (mouseState.LeftButton == ButtonState.Pressed)                    
-                    playerInterface.NewGameCheck(mousePos, ref game, Content);                  
-            }
+                case InterfaceState.NewGame:
+                    playerInterface.NewGameKeyCheck();
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        playerInterface.NewGameCheck(mousePos, ref game, Content);
+                    break;
 
-            else if (playerInterface.state == InterfaceState.LoginSingle)
-            {
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                    playerInterface.LoginSingleCheck(mousePos, ref game, Content);
-                playerInterface.LoginKeyCheck();
+                case InterfaceState.LoginSingle:
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        playerInterface.LoginSingleCheck(mousePos, ref game, Content);
+                    playerInterface.LoginKeyCheck();
+                    break;
+                case InterfaceState.LoginMulti:
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        playerInterface.LoginMultiCheck(mousePos, ref game, Content);
+                    playerInterface.LoginKeyCheck();
+                    break;
+                case InterfaceState.Game:
+                    ManageGame(mouseState, gameTime);
+                    break;
+                case InterfaceState.GCVertices:
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        graphCreator.CheckVerticesAsking(mousePos, playerInterface, Content);
+                    graphCreator.CheckKeyVerticesAsking();
+                    break;
+                case InterfaceState.GraphCreation:
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                        graphCreator.CheckGraphCreator(mousePos, playerInterface, Content);
+                    break;
             }
-            else if (playerInterface.state == InterfaceState.LoginMulti)
-            {
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                    playerInterface.LoginMultiCheck(mousePos, ref game, Content);
-                playerInterface.LoginKeyCheck();
-            }
-            else if (playerInterface.state == InterfaceState.Game)
-            {
-                ManageGame(mouseState,gameTime);
-            }
-            
             base.Update(gameTime);
         }
 
@@ -149,31 +155,34 @@ namespace GraphColoring
 
             if (!gameStarted)
                 gameStarted = true;
-
-            if (playerInterface.state == InterfaceState.MainMenu)
+            switch (playerInterface.state)
             {
-                playerInterface.MainMenuDraw(spriteBatch);
-            }
-            else if(playerInterface.state == InterfaceState.NewGame)
-            {
-                playerInterface.NewGameDraw(spriteBatch);
-            }
-            else if (playerInterface.state == InterfaceState.LoginSingle)
-            {
-                playerInterface.LoginSingleDraw(spriteBatch);
-            }
-            else if (playerInterface.state == InterfaceState.LoginMulti)
-            {
-                playerInterface.LoginMultiDraw(spriteBatch);
-            }
-            else if (playerInterface.state == InterfaceState.Game)
-            {
-                if (game.graph != null)
-                {
-                    game.graph.DrawAllElements(spriteBatch);
-                    game.DrawColorPalete(spriteBatch);
-                    game.DrawPlayers(spriteBatch);
-                }
+                case InterfaceState.MainMenu:
+                    playerInterface.MainMenuDraw(spriteBatch);
+                    break;
+                case InterfaceState.NewGame:
+                    playerInterface.NewGameDraw(spriteBatch);
+                    break;
+                case InterfaceState.LoginSingle:
+                    playerInterface.LoginSingleDraw(spriteBatch);
+                    break;
+                case InterfaceState.LoginMulti:
+                    playerInterface.LoginMultiDraw(spriteBatch);
+                    break;
+                case InterfaceState.Game:
+                    if (game.graph != null)
+                    {
+                        game.graph.DrawAllElements(spriteBatch);
+                        game.DrawColorPalete(spriteBatch);
+                        game.DrawPlayers(spriteBatch);
+                    }
+                    break;
+                case InterfaceState.GCVertices:
+                    graphCreator.DrawVericesAsking(spriteBatch);
+                    break;
+                case InterfaceState.GraphCreation:
+                    graphCreator.DrawGraphCreator(spriteBatch);
+                    break;
             }
 
             base.Draw(gameTime);
