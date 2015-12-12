@@ -22,6 +22,7 @@ namespace GraphColoring
 
         public static GardenGraph GraphZero(ContentManager content)
         {
+
             Vector2 center = new Vector2(500, 300);
             int R = 250;
             int n = 5;

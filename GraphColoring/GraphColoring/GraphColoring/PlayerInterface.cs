@@ -24,12 +24,13 @@ namespace GraphColoring
         public List<TextBox> NewGameTextBoxes;
         public List<Button> GraphButtons;
         public List<Button> GameTypeButtons;
-
+        public List<Button> GameColoringButtons;
        
         public GardenGraph chosenGraph;
         public int colorsNr = 3;
         public Player p1;
         public Player p2;
+        public GameType gT = GameType.EdgesColoring;
 
         //LoginSingle
         public List<TextBox> LoginTextBoxes;
@@ -44,8 +45,12 @@ namespace GraphColoring
             MainMenuButtons = new List<Button>() { new Button(new Vector2(470, 300), content, "nowa-gra"),
                 new Button(new Vector2(470, 500), content, "anuluj"),};
 
-            NewGameTextBoxes = new List<TextBox>() { new TextBox(content,colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485),"liczba-kolorow"),
-                                                     new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox")};
+            NewGameTextBoxes = new List<TextBox>() { 
+                new TextBox(content,colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485),"liczba-kolorow"),
+                new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
+                new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
+
+            };
             GraphButtons = new List<Button>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
@@ -56,11 +61,17 @@ namespace GraphColoring
                 new Button(new Vector2(660, 100), content, "gra-vs-gra"),
                 new Button(new Vector2(660, 150), content, "gra-vs-komp"),
             };
+            GameColoringButtons = new List<Button>(){
+                new Button(new Vector2(660, 260), content, "kwiatkow"),
+                new Button(new Vector2(660, 310), content, "plotkow"),
+            };
             NewGameButtons = new List<Button>(){                
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start"),
             };
             foreach (Button b in GameTypeButtons)
+                NewGameButtons.Add(b);
+            foreach (Button b in GameColoringButtons)
                 NewGameButtons.Add(b);
             foreach (Button b in GraphButtons)
                 NewGameButtons.Add(b);
@@ -108,7 +119,7 @@ namespace GraphColoring
                     {
                         case "start": 
                             state = InterfaceState.Game;
-                            game = new Game(GameType.VerticesColoring, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);                     
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);                     
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -131,7 +142,7 @@ namespace GraphColoring
                     {
                         case "start":
                             state = InterfaceState.Game;
-                            game = new Game(GameType.VerticesColoring, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -203,6 +214,16 @@ namespace GraphColoring
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
                             p2 = new Computer(true);
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "kwiatkow":
+                            ClearButtons(GameColoringButtons);
+                            gT = GameType.VerticesColoring;
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "plotkow":
+                            ClearButtons(GameColoringButtons);
+                            gT = GameType.EdgesColoring;
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                     }

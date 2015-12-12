@@ -19,7 +19,7 @@ namespace GraphColoring
         public Color[] colors;
         public List<ColorBox> colorBoxes;
         public int whoseTurn;
-        public Flower lastClicked = null;
+        public ColorableObject lastClicked = null;
         public bool gardenerStartedMove;
         public TextBox[] PlayersTexts;
         public List<TextBox> panels;
@@ -69,7 +69,7 @@ namespace GraphColoring
                 return true;
             }
 
-            if (!this.graph.IsColoringPossible(this.gameType, this.colors))
+            if (!this.IsColoringPossible(this.gameType, this.colors))
                 return true;
 
             return false;
@@ -80,8 +80,23 @@ namespace GraphColoring
             index = 0;
             for(int i=0;i<graph.flowers.Count;i++)                
             {
-                Flower f = graph.flowers[i];
+                Flower f = graph.flowers[i];                
                 if(f.ContainsPoint(mousePos))
+                {
+                    index = i;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CheckIfMouseClickedOnFence(Point mousePos, out int index)
+        {
+            index = 0;
+            for (int i = 0; i < graph.fences.Count; i++)
+            {
+                Fence f = graph.fences[i];
+                if (f.ContainsPoint(mousePos))
                 {
                     index = i;
                     return true;
@@ -119,24 +134,102 @@ namespace GraphColoring
                 t.Draw(sBatch);
         }
 
-        public bool CheckIfValidMove(Flower flower, Color c)
+        public bool IsColoringPossible(GameType coloringType, Color[] colors)
         {
-            foreach(Fence f in flower.outFences)
+            bool correct = false;
+            if (coloringType == GameType.EdgesColoring)
             {
-                if(f.f1!=flower)
-                {
-                    if (f.f1.color == c)
-                        return false;
-                }
-                else
-                {
-                    if (f.f2.color == c)
-                        return false;
-                }
+                foreach (Fence f in graph.fences)
+                    if (f.color != null)
+                    {
+                        correct = false;
+                        foreach (Fence ff in f.f1.outFences)
+                        {
+                            foreach (Color c in colors)
+                                if (CheckIfValidMove(ff, c))
+                                    correct = true;
+                            if (!correct)
+                                return false;
+                        }
+                        correct = false;
+                        foreach (Fence ff in f.f2.outFences)
+                        {
+                            foreach (Color c in colors)
+                                if (CheckIfValidMove(ff, c))
+                                    correct = true;
+                            if (!correct)
+                                return false;
+                        }
+
+                    }
+            }
+
+
+            else if (coloringType == GameType.VerticesColoring)
+            {
+                foreach (Flower f in graph.flowers)
+                    if (f.color != null)
+                        foreach (Fence ff in f.outFences)
+                        {
+                            correct = false;
+                            foreach (Color c in colors)
+                                if (CheckIfValidMove(ff.f1, c))
+                                    correct = true;
+                            if (!correct)
+                                return false;
+                            correct = false;
+                            foreach (Color c in colors)
+                                if (CheckIfValidMove(ff.f2, c))
+                                    correct = true;
+                            if (!correct)
+                                return false;
+                        }
             }
             return true;
         }
 
+        public bool CheckIfValidMove(ColorableObject cb, Color c)
+        {
+            if (cb is Flower)
+            {
+                Flower flower = cb as Flower;
+                foreach (Fence f in flower.outFences)
+                {
+                    if (f.f1 != flower)
+                    {
+                        if (f.f1.color == c)
+                            return false;
+                    }
+                    else
+                    {
+                        if (f.f2.color == c)
+                            return false;
+                    }
+                }
+            }
+            else
+            {
+                Fence fence = cb as Fence;
+                foreach (Fence f in fence.f1.outFences)
+                {
+                    if (f != fence)
+                    {
+                        if (f.color == c)
+                            return false;
+                    }
+                }
+                foreach (Fence f in fence.f2.outFences)
+                {
+                    if (f != fence)
+                    {
+                        if (f.color == c)
+                            return false;
+                    }
+                }
+            }
+            return true;
+        }
+        
         public void StartGame()
         {
 

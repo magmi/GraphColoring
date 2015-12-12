@@ -204,7 +204,11 @@ namespace GraphColoring
 
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {
-                        CheckForFlowersClicked(mouseState);
+                        if (game.gameType == GameType.VerticesColoring)
+                            CheckForFlowersClicked(mouseState);
+                        else
+                            CheckForFencesClicked(mouseState);
+
                         CheckForColorsClicked(mouseState);
                     }
                 }
@@ -225,7 +229,11 @@ namespace GraphColoring
 
                         if (mouseState.LeftButton == ButtonState.Pressed)
                         {
-                            CheckForFlowersClicked(mouseState);
+                            if(game.gameType == GameType.VerticesColoring)
+                                CheckForFlowersClicked(mouseState);
+                            else
+                                CheckForFencesClicked(mouseState);
+
                             CheckForColorsClicked(mouseState);
                         }
                     }
@@ -259,7 +267,16 @@ namespace GraphColoring
             sBatch.End();
         }
 
-
+        public void CheckForFencesClicked(MouseState mouseState)
+        {
+            var mousePos = new Point(mouseState.X, mouseState.Y);
+            int index = 0;
+            if (game.lastClicked == null && game.CheckIfMouseClickedOnFence(mousePos, out index))
+            {
+                game.graph.fences[index].color = Color.LightBlue;
+                game.lastClicked = game.graph.fences[index];
+            }
+        }
 
         public void CheckForFlowersClicked(MouseState mouseState)
         {

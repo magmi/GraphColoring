@@ -29,57 +29,116 @@ namespace GraphColoring
             this.elapsed = 0;
         }
 
-        public void CalculateMove(Game game)
+        public void EasyModeForFlowers(Game game)
         {
             Random r = new Random();
             int n = game.graph.flowers.Count;
             int m = game.colors.Length;
+            int colorIndex = 0;
 
+            if (elapsed > 1 && !flowerPicked)
+            {
+                do
+                {
+                    chosenFlowerIndex = r.Next(0, n);
+                }
+                while (game.graph.flowers[chosenFlowerIndex].color != Color.White);
+
+                game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
+                game.lastClicked = game.graph.flowers[chosenFlowerIndex];
+
+                flowerPicked = true;
+            }
+
+            if (elapsed > 2 && !flowerColored)
+            {
+                do
+                {
+                    colorIndex = r.Next(0, m);
+                }
+                while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
+
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.lastClicked = null;
+                flowerColored = true;
+            }
+
+            if (flowerColored)
+            {
+                game.whoseTurn = 0;
+                elapsed = 0;
+                startedMove = false;
+                flowerPicked = false;
+                flowerColored = false;
+                game.gardenerStartedMove = false;
+            }
+            
+        }
+
+        public void EasyModeForFences(Game game)
+        {
+            Random r = new Random();
+            int n = game.graph.fences.Count;
+            int m = game.colors.Length;
+            int colorIndex = 0;
+
+            if (elapsed > 1 && !flowerPicked)
+            {
+                do
+                {
+                    chosenFlowerIndex = r.Next(0, n);
+                }
+                while (game.graph.fences[chosenFlowerIndex].color != Color.White);
+
+                game.graph.fences[chosenFlowerIndex].color = Color.LightBlue;
+                game.lastClicked = game.graph.fences[chosenFlowerIndex];
+
+                flowerPicked = true;
+            }
+
+            if (elapsed > 2 && !flowerColored)
+            {
+                do
+                {
+                    colorIndex = r.Next(0, m);
+                }
+                while (!game.CheckIfValidMove(game.graph.fences[chosenFlowerIndex], game.colors[colorIndex]));
+
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.lastClicked = null;
+                flowerColored = true;
+            }
+
+            if (flowerColored)
+            {
+                game.whoseTurn = 0;
+                elapsed = 0;
+                startedMove = false;
+                flowerPicked = false;
+                flowerColored = false;
+                game.gardenerStartedMove = false;
+            }
+
+        }
+        public void CalculateMove(Game game)
+        {
             if (!startedMove)
             {
                 MessageBox(new IntPtr(), "Computer's turn", "Next turn", 0);
                 startedMove = true;
             }
-
-            if(easyMode==true)
+            if (game.gameType == GameType.VerticesColoring)
             {
-                int colorIndex = 0;
-
-                if (elapsed > 1 && !flowerPicked)
+                if (easyMode == true)
                 {
-                    do
-                    {
-                        chosenFlowerIndex = r.Next(0, n);
-                    }
-                    while (game.graph.flowers[chosenFlowerIndex].color != Color.White);
-
-                    game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
-                    game.lastClicked = game.graph.flowers[chosenFlowerIndex];
-
-                    flowerPicked = true;
+                    EasyModeForFlowers(game);
                 }
-
-                if (elapsed > 2 && !flowerColored)
+            }
+            else
+            {
+                if (easyMode == true)
                 {
-                    do
-                    {
-                        colorIndex = r.Next(0, m);
-                    }
-                    while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
-
-                    game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
-                    game.lastClicked = null;
-                    flowerColored = true;
-                }
-
-                if (flowerColored)
-                {
-                    game.whoseTurn = 0;
-                    elapsed = 0;
-                    startedMove = false;
-                    flowerPicked = false;
-                    flowerColored = false;
-                    game.gardenerStartedMove = false;
+                    EasyModeForFences(game);
                 }
             }
         }

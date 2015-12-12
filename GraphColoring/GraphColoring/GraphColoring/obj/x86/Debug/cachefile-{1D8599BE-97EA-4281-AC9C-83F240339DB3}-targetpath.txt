@@ -1,7 +1,6 @@
 Content\colorBox.xnb
 Content\tlo.xnb
 Content\Kwiatek.xnb
-Content\Plotek.xnb
 Content\nowa-gra.xnb
 Content\title.xnb
 Content\graf1.xnb
@@ -20,4 +19,8 @@ Content\graf3.xnb
 Content\Gracz1.xnb
 Content\Gracz2.xnb
 Content\Panel.xnb
+Content\Plotek.xnb
 Content\SpriteFont1.xnb
+Content\kolorowanie.xnb
+Content\kwiatkow.xnb
+Content\plotkow.xnb

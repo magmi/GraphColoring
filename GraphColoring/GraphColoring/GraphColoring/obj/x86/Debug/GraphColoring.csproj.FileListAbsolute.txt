@@ -79,3 +79,6 @@ D:\GK\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.cspr
 D:\GK\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\GK\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
 D:\GK\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\kolorowanie.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\kwiatkow.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\plotkow.xnb
