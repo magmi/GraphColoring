@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Button.cs" />
+    <Compile Include="ClickableObject.cs" />
     <Compile Include="ColorableObject.cs" />
     <Compile Include="ColorBox.cs" />
     <Compile Include="ColorsCreator.cs" />

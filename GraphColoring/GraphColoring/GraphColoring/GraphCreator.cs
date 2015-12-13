@@ -20,12 +20,14 @@ namespace GraphColoring
         public GraphCreator(ContentManager content)
         {
             VerticesNrBuilder = new StringBuilder("3");
-            VerticesTextBox = new TextBox(content, "3", new Vector2(0, 0), new Vector2(400, 400));
+            VerticesTextBox = new TextBox(content, "3", new Vector2(340, 200), new Vector2(450, 250),"liczba-kwiatkow");
             VerticesButtons = new List<Button>(){
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start")};
             GCButtons = new List<Button>(){
-                new Button(new Vector2(0, 730), content, "anuluj")};
+                new Button(new Vector2(0, 730), content, "anuluj"),
+                new Button(new Vector2(0, 660), content, "zapisz-graf"),
+            };
 
         }
 
@@ -39,6 +41,17 @@ namespace GraphColoring
             return -1;
         }
 
+        public void IntefaceUpdate(PlayerInterface pi,ContentManager content)
+        {
+            int n = pi.GraphButtons.Count;
+
+            int x = n%2 ==0 ? 50 : 250;
+            int y = (n/2)*200 + 50;
+            pi.GraphButtons.Add(new TextBox(content,(n-2).ToString(),new Vector2(x, y),new Vector2(x+20,y+20), "graf", n));
+            pi.NewGameButtons.Add(pi.GraphButtons[n]);
+        }
+
+
         public void CheckGraphCreator(Point mousePos, PlayerInterface pi, ContentManager content)
         {
             int index = GetIndex(GCButtons, mousePos);
@@ -47,6 +60,11 @@ namespace GraphColoring
                 switch (GCButtons[index].name)
                 {
                     case "anuluj":
+                        pi.state = InterfaceState.MainMenu;
+                        break;
+                    case "zapisz-graf":
+                        PredefinedGraphs.graphs.Add(graph);
+                        IntefaceUpdate(pi, content);
                         pi.state = InterfaceState.MainMenu;
                         break;
                 }
@@ -66,6 +84,8 @@ namespace GraphColoring
                         if (graph.flowers[i] != lastClicked)
                         {
                             Fence f = new Fence(lastClicked, graph.flowers[i], content);
+                            lastClicked.outFences.Add(f);
+                            graph.flowers[i].outFences.Add(f);
                             graph.fences.Add(f);
                             graph.fencesNumber += 1;
                         }

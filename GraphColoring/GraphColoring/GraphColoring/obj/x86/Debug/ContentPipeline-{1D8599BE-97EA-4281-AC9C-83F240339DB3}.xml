@@ -235,6 +235,60 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\plotkow.xnb</Output>
       <Time>2015-12-12T14:58:44.591913+01:00</Time>
     </Item>
+    <Item>
+      <Source>gra.png</Source>
+      <Name>gra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>graf.png</Source>
+      <Name>graf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ogrodnik-sasiad.jpg</Source>
+      <Name>ogrodnik-sasiad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\ogrodnik-sasiad.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sasiad-ogrodnik.jpg</Source>
+      <Name>sasiad-ogrodnik</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\sasiad-ogrodnik.xnb</Output>
+      <Time>2015-12-13T19:12:18.4094181+01:00</Time>
+    </Item>
+    <Item>
+      <Source>zapisz-graf.png</Source>
+      <Name>zapisz-graf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\zapisz-graf.xnb</Output>
+      <Time>2015-12-13T19:12:18.4094181+01:00</Time>
+    </Item>
+    <Item>
+      <Source>liczba-kwiatkow.png</Source>
+      <Name>liczba-kwiatkow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kwiatkow.xnb</Output>
+      <Time>2015-12-13T19:13:13.6231796+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

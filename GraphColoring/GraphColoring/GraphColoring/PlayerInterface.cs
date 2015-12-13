@@ -20,9 +20,9 @@ namespace GraphColoring
         public Vector2 titleVector;
 
         //NewGame
-        public List<Button> NewGameButtons;
+        public List<ClickableObject> NewGameButtons;
         public List<TextBox> NewGameTextBoxes;
-        public List<Button> GraphButtons;
+        public List<ClickableObject> GraphButtons;
         public List<Button> GameTypeButtons;
         public List<Button> GameColoringButtons;
        
@@ -51,7 +51,7 @@ namespace GraphColoring
                 new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
 
             };
-            GraphButtons = new List<Button>() 
+            GraphButtons = new List<ClickableObject>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
                 new Button(new Vector2(250, 50), content, "graf2"),
@@ -65,7 +65,7 @@ namespace GraphColoring
                 new Button(new Vector2(660, 260), content, "kwiatkow"),
                 new Button(new Vector2(660, 310), content, "plotkow"),
             };
-            NewGameButtons = new List<Button>(){                
+            NewGameButtons = new List<ClickableObject>(){                
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start"),
             };
@@ -73,7 +73,7 @@ namespace GraphColoring
                 NewGameButtons.Add(b);
             foreach (Button b in GameColoringButtons)
                 NewGameButtons.Add(b);
-            foreach (Button b in GraphButtons)
+            foreach (ClickableObject b in GraphButtons)
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
@@ -204,6 +204,11 @@ namespace GraphColoring
                             chosenGraph = PredefinedGraphs.graphs[2];
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
+                        case "graf":
+                            ClearButtons(GraphButtons);                               
+                            chosenGraph = PredefinedGraphs.graphs[NewGameButtons[i].index];
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
                         case "gra-vs-gra":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
@@ -262,6 +267,11 @@ namespace GraphColoring
             LoginTextBoxes[1].text = PlayerSb[1].ToString();
         }
         
+        public void ClearButtons(List<ClickableObject> list)
+        {
+            foreach (ClickableObject b in list)
+                b.color = Color.White;
+        }
         public void ClearButtons(List<Button> list)
         {
             foreach (Button b in list)
@@ -281,7 +291,7 @@ namespace GraphColoring
         {
             foreach (TextBox b in NewGameTextBoxes)
                 b.Draw(sBatch);
-            foreach (Button b in NewGameButtons)
+            foreach (ClickableObject b in NewGameButtons)
                 b.Draw(sBatch);
         }
         public void LoginSingleDraw(SpriteBatch sBatch)
