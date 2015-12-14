@@ -1,7 +1,6 @@
 Content\colorBox.xnb
 Content\tlo.xnb
 Content\Kwiatek.xnb
-Content\Plotek.xnb
 Content\nowa-gra.xnb
 Content\title.xnb
 Content\graf1.xnb
@@ -16,8 +15,18 @@ Content\cofnij.xnb
 Content\od-nowa.xnb
 Content\powrot-menu.xnb
 Content\liczba-kolorow.xnb
-Content\SpriteFont1.xnb
 Content\graf3.xnb
 Content\Gracz1.xnb
 Content\Gracz2.xnb
 Content\Panel.xnb
+Content\Plotek.xnb
+Content\SpriteFont1.xnb
+Content\kolorowanie.xnb
+Content\kwiatkow.xnb
+Content\plotkow.xnb
+Content\gra.xnb
+Content\graf.xnb
+Content\ogrodnik-sasiad.xnb
+Content\sasiad-ogrodnik.xnb
+Content\zapisz-graf.xnb
+Content\liczba-kwiatkow.xnb

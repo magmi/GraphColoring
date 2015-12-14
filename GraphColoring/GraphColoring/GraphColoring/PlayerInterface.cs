@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 namespace GraphColoring
 {
-    public enum InterfaceState { MainMenu, NewGame, Game, LoginSingle, LoginMulti }
+    public enum InterfaceState { MainMenu, NewGame, Game, LoginSingle, LoginMulti, GraphCreation, GCVertices }
     class PlayerInterface
     {
         
@@ -20,16 +20,19 @@ namespace GraphColoring
         public Vector2 titleVector;
 
         //NewGame
-        public List<Button> NewGameButtons;
+        public List<ClickableObject> NewGameButtons;
         public List<TextBox> NewGameTextBoxes;
-        public List<Button> GraphButtons;
+        public List<ClickableObject> GraphButtons;
         public List<Button> GameTypeButtons;
-
+        public List<Button> GameColoringButtons;
+        public List<Button> GameModeButtons;
        
         public GardenGraph chosenGraph;
         public int colorsNr = 3;
         public Player p1;
         public Player p2;
+        public GameType gT = GameType.EdgesColoring;
+        public GameOrder gO = GameOrder.GN;
 
         //LoginSingle
         public List<TextBox> LoginTextBoxes;
@@ -41,11 +44,19 @@ namespace GraphColoring
         {
             PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
             state = InterfaceState.MainMenu;
-            MainMenuButtons = new List<Button>();
-            MainMenuButtons.Add(new Button(new Vector2(470, 300), content, "nowa-gra"));
-            NewGameTextBoxes = new List<TextBox>() { new TextBox(content,colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485),"liczba-kolorow"),
-                                                     new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox")};
-            GraphButtons = new List<Button>() 
+            MainMenuButtons = new List<Button>() { new Button(new Vector2(470, 300), content, "nowa-gra"),
+                new Button(new Vector2(470, 500), content, "anuluj"),};
+
+            NewGameTextBoxes = new List<TextBox>() { 
+                new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow"),
+                new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
+                new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
+                new TextBox(content,"",new Vector2(650,560),new Vector2(0,0),"gra"),
+
+            };
+            p1 = new Player();
+            p2 = new Player();
+            GraphButtons = new List<ClickableObject>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
                 new Button(new Vector2(250, 50), content, "graf2"),
@@ -55,13 +66,25 @@ namespace GraphColoring
                 new Button(new Vector2(660, 100), content, "gra-vs-gra"),
                 new Button(new Vector2(660, 150), content, "gra-vs-komp"),
             };
-            NewGameButtons = new List<Button>(){                
+            GameColoringButtons = new List<Button>(){
+                new Button(new Vector2(660, 260), content, "kwiatkow"),
+                new Button(new Vector2(660, 310), content, "plotkow"),
+            };
+            GameModeButtons = new List<Button>(){
+                new Button(new Vector2(660, 610), content, "sasiad-ogrodnik"),
+                new Button(new Vector2(660, 660), content, "ogrodnik-sasiad"),
+            };
+            NewGameButtons = new List<ClickableObject>(){                
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start"),
             };
             foreach (Button b in GameTypeButtons)
                 NewGameButtons.Add(b);
-            foreach (Button b in GraphButtons)
+            foreach (Button b in GameColoringButtons)
+                NewGameButtons.Add(b);
+            foreach (Button b in GameModeButtons)
+                NewGameButtons.Add(b);
+            foreach (ClickableObject b in GraphButtons)
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
@@ -89,6 +112,9 @@ namespace GraphColoring
                         case "nowa-gra":
                             state = InterfaceState.NewGame;
                             break;
+                        case "anuluj":
+                            state = InterfaceState.GCVertices;
+                            break;
                     }
                 }
             }
@@ -104,7 +130,7 @@ namespace GraphColoring
                     {
                         case "start": 
                             state = InterfaceState.Game;
-                            game = new Game(GameType.VerticesColoring, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);                     
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2,gO);                     
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -127,7 +153,7 @@ namespace GraphColoring
                     {
                         case "start":
                             state = InterfaceState.Game;
-                            game = new Game(GameType.VerticesColoring, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2, gO);
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -146,10 +172,7 @@ namespace GraphColoring
             KeyboardState keybState = Keyboard.GetState();
             Keys[] k = keybState.GetPressedKeys();
             if (k.Length > 0)
-            {
-                if (PlayerSb[ActiveTextBox].Length > 0)
-                    if (k[0].ToString()[0] == PlayerSb[ActiveTextBox][PlayerSb[ActiveTextBox].Length - 1])
-                        return;
+            {                
                 if (k[0] == Keys.Back)
                 {
                     if (PlayerSb[ActiveTextBox].Length > 0)
@@ -157,7 +180,6 @@ namespace GraphColoring
                     UpdateLogins();
                     return;
                 }
-
                 PlayerSb[ActiveTextBox].Append(k[0].ToString());
                 UpdateLogins();
             }
@@ -193,23 +215,69 @@ namespace GraphColoring
                             chosenGraph = PredefinedGraphs.graphs[2];
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
+                        case "graf":
+                            ClearButtons(GraphButtons);                               
+                            chosenGraph = PredefinedGraphs.graphs[NewGameButtons[i].index];
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
                         case "gra-vs-gra":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
-                            p2 = new Player("Player2");                            
+                            p2 = new Player("Player2");
+                            UpdateLogins();
+                            UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "gra-vs-komp":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
                             p2 = new Computer(true);
+                            UpdateLogins();
+                            UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
+                        case "kwiatkow":
+                            ClearButtons(GameColoringButtons);
+                            gT = GameType.VerticesColoring;
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "plotkow":
+                            ClearButtons(GameColoringButtons);
+                            gT = GameType.EdgesColoring;
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "sasiad-ogrodnik":
+                            ClearButtons(GameModeButtons);
+                            gO = GameOrder.NG;
+                            UpdatePlayers();
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "ogrodnik-sasiad":
+                            ClearButtons(GameModeButtons);
+                            gO = GameOrder.GN;
+                            UpdatePlayers();
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+
                     }
                 }
             }                    
            
         
+        }
+
+        public void UpdatePlayers()
+        {
+            if(gO == GameOrder.GN)
+            {
+                p1.isGardener = true;
+                p2.isGardener = false;
+            }
+            else
+            {
+                p1.isGardener = false;
+                p2.isGardener = true;
+            }
         }
 
         public void NewGameKeyCheck()
@@ -219,10 +287,15 @@ namespace GraphColoring
             if (k.Length > 0)
             {
                 string nrS = k[0].ToString();
-                int nr = int.Parse(nrS[1].ToString());
-                if (nr > 0 && nr < 10)
-                    colorsNr = nr;
-                NewGameTextBoxes[0].text = colorsNr.ToString();
+                if (nrS.Length > 1)
+                {
+                    int nr = int.Parse(nrS[1].ToString());
+                    if (nr > 0 && nr < 10)
+                    {
+                        colorsNr = nr;
+                        NewGameTextBoxes[0].text = colorsNr.ToString();
+                    }
+                }
             }
         }
 
@@ -236,6 +309,11 @@ namespace GraphColoring
             LoginTextBoxes[1].text = PlayerSb[1].ToString();
         }
         
+        public void ClearButtons(List<ClickableObject> list)
+        {
+            foreach (ClickableObject b in list)
+                b.color = Color.White;
+        }
         public void ClearButtons(List<Button> list)
         {
             foreach (Button b in list)
@@ -255,7 +333,7 @@ namespace GraphColoring
         {
             foreach (TextBox b in NewGameTextBoxes)
                 b.Draw(sBatch);
-            foreach (Button b in NewGameButtons)
+            foreach (ClickableObject b in NewGameButtons)
                 b.Draw(sBatch);
         }
         public void LoginSingleDraw(SpriteBatch sBatch)

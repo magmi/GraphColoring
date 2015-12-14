@@ -29,15 +29,6 @@
       <Time>2015-11-29T19:29:17.6472839+01:00</Time>
     </Item>
     <Item>
-      <Source>Plotek.png</Source>
-      <Name>Plotek</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb</Output>
-      <Time>2015-11-29T19:29:17.6482867+01:00</Time>
-    </Item>
-    <Item>
       <Source>nowa-gra.png</Source>
       <Name>nowa-gra</Name>
       <Importer>TextureImporter</Importer>
@@ -164,15 +155,6 @@
       <Time>2015-11-30T11:09:24.4388813+01:00</Time>
     </Item>
     <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2015-11-30T11:18:27.7018956+01:00</Time>
-    </Item>
-    <Item>
       <Source>graf3.png</Source>
       <Name>graf3</Name>
       <Importer>TextureImporter</Importer>
@@ -188,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Time>2015-12-14T13:29:06.9016466+01:00</Time>
     </Item>
     <Item>
       <Source>Gracz2.png</Source>
@@ -197,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Time>2015-12-14T13:29:08.3866403+01:00</Time>
     </Item>
     <Item>
       <Source>Panel.png</Source>
@@ -207,6 +189,105 @@
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Panel.xnb</Output>
       <Time>2015-11-30T18:01:03.9698987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Plotek.png</Source>
+      <Name>Plotek</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb</Output>
+      <Time>2015-12-11T18:25:46.3300848+01:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2015-11-30T11:18:27.7018956+01:00</Time>
+    </Item>
+    <Item>
+      <Source>kolorowanie.png</Source>
+      <Name>kolorowanie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\kolorowanie.xnb</Output>
+      <Time>2015-12-12T14:58:44.591913+01:00</Time>
+    </Item>
+    <Item>
+      <Source>kwiatkow.png</Source>
+      <Name>kwiatkow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\kwiatkow.xnb</Output>
+      <Time>2015-12-12T14:58:44.591913+01:00</Time>
+    </Item>
+    <Item>
+      <Source>plotkow.png</Source>
+      <Name>plotkow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\plotkow.xnb</Output>
+      <Time>2015-12-12T14:58:44.591913+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gra.png</Source>
+      <Name>gra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\gra.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>graf.png</Source>
+      <Name>graf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graf.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ogrodnik-sasiad.jpg</Source>
+      <Name>ogrodnik-sasiad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\ogrodnik-sasiad.xnb</Output>
+      <Time>2015-12-13T19:12:13.6392937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sasiad-ogrodnik.jpg</Source>
+      <Name>sasiad-ogrodnik</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\sasiad-ogrodnik.xnb</Output>
+      <Time>2015-12-13T19:12:18.4094181+01:00</Time>
+    </Item>
+    <Item>
+      <Source>zapisz-graf.png</Source>
+      <Name>zapisz-graf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\zapisz-graf.xnb</Output>
+      <Time>2015-12-13T19:12:18.4094181+01:00</Time>
+    </Item>
+    <Item>
+      <Source>liczba-kwiatkow.png</Source>
+      <Name>liczba-kwiatkow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kwiatkow.xnb</Output>
+      <Time>2015-12-13T19:13:13.6231796+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

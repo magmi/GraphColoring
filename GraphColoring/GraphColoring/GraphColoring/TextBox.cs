@@ -7,52 +7,44 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class TextBox
-    {
-        public Texture2D texture;
-        public Vector2 position;
+    class TextBox : ClickableObject
+    {       
         public Vector2 textPosition;
         public string text;
         public SpriteFont sp;
-        public Color c;
-        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, string fileName=null)
-        {           
-            if(fileName!=null)
-                texture = content.Load<Texture2D>(fileName);
+        public Color textColor;
+
+        public TextBox(ContentManager content,string t,Vector2 pos, Vector2 tPos, string fileName=null, int i=0) : base(pos,content,fileName)
+        {                      
+            
             text = t;
             position = pos;
             textPosition = tPos;
             sp = content.Load<SpriteFont>("SpriteFont1");
-            c = Color.Black;
+            textColor = Color.Black;
+            index = i;
 
         }
-        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, Color col, string fileName = null)
+        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, Color col, string fileName = null, int i = 0)
+            : base(pos, content, fileName)
         {
-            if (fileName != null)
-                texture = content.Load<Texture2D>(fileName);
+            
             text = t;
             position = pos;
             textPosition = tPos;
             sp = content.Load<SpriteFont>("SpriteFont1");
-            c = col;
+            textColor =  col;
 
         }
-        public void Draw(SpriteBatch sBatch)
+        public override void Draw(SpriteBatch sBatch)
         {
-
             sBatch.Begin();
             if(texture!=null)
-                sBatch.Draw(texture, position, Color.White);
-            sBatch.DrawString(sp, text, textPosition, c);
+                sBatch.Draw(texture, position, color);
+            sBatch.DrawString(sp, text, textPosition,  textColor);
             sBatch.End();
         }
-        public bool ContainsPoint(Point _point)
-        {
-            Rectangle r = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-            if (r.Contains(_point))
-                return true;
-            return false;
-        }
+
 
     }
 }
