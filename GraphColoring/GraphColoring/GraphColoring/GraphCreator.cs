@@ -84,10 +84,14 @@ namespace GraphColoring
                         if (graph.flowers[i] != lastClicked)
                         {
                             Fence f = new Fence(lastClicked, graph.flowers[i], content);
-                            lastClicked.outFences.Add(f);
-                            graph.flowers[i].outFences.Add(f);
-                            graph.fences.Add(f);
-                            graph.fencesNumber += 1;
+
+                            if (!lastClicked.outFences.Exists(x => (x.f1.Equals(lastClicked) && x.f2.Equals(graph.flowers[i])) || (x.f1.Equals(graph.flowers[i]) && x.f2.Equals(lastClicked))))
+                            {
+                                lastClicked.outFences.Add(f);
+                                graph.flowers[i].outFences.Add(f);
+                                graph.fences.Add(f);
+                                graph.fencesNumber += 1;
+                            }
                         }
                         lastClicked.color = Color.White;
                         lastClicked = null;
