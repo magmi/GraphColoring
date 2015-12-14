@@ -25,12 +25,14 @@ namespace GraphColoring
         public List<ClickableObject> GraphButtons;
         public List<Button> GameTypeButtons;
         public List<Button> GameColoringButtons;
+        public List<Button> GameModeButtons;
        
         public GardenGraph chosenGraph;
         public int colorsNr = 3;
         public Player p1;
         public Player p2;
         public GameType gT = GameType.EdgesColoring;
+        public GameOrder gO = GameOrder.GN;
 
         //LoginSingle
         public List<TextBox> LoginTextBoxes;
@@ -46,11 +48,14 @@ namespace GraphColoring
                 new Button(new Vector2(470, 500), content, "anuluj"),};
 
             NewGameTextBoxes = new List<TextBox>() { 
-                new TextBox(content,colorsNr.ToString(),new Vector2(650,400),new Vector2(845,485),"liczba-kolorow"),
+                new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow"),
                 new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
                 new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
+                new TextBox(content,"",new Vector2(650,560),new Vector2(0,0),"gra"),
 
             };
+            p1 = new Player();
+            p2 = new Player();
             GraphButtons = new List<ClickableObject>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
@@ -65,6 +70,10 @@ namespace GraphColoring
                 new Button(new Vector2(660, 260), content, "kwiatkow"),
                 new Button(new Vector2(660, 310), content, "plotkow"),
             };
+            GameModeButtons = new List<Button>(){
+                new Button(new Vector2(660, 610), content, "sasiad-ogrodnik"),
+                new Button(new Vector2(660, 660), content, "ogrodnik-sasiad"),
+            };
             NewGameButtons = new List<ClickableObject>(){                
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start"),
@@ -72,6 +81,8 @@ namespace GraphColoring
             foreach (Button b in GameTypeButtons)
                 NewGameButtons.Add(b);
             foreach (Button b in GameColoringButtons)
+                NewGameButtons.Add(b);
+            foreach (Button b in GameModeButtons)
                 NewGameButtons.Add(b);
             foreach (ClickableObject b in GraphButtons)
                 NewGameButtons.Add(b);
@@ -119,7 +130,7 @@ namespace GraphColoring
                     {
                         case "start": 
                             state = InterfaceState.Game;
-                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);                     
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2,gO);                     
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -142,7 +153,7 @@ namespace GraphColoring
                     {
                         case "start":
                             state = InterfaceState.Game;
-                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2);
+                            game = new Game(gT, p2 is Computer ? GameMode.SinglePlayer : GameMode.MultiPlayer, chosenGraph, colorsNr, content, p1, p2, gO);
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;
@@ -212,13 +223,17 @@ namespace GraphColoring
                         case "gra-vs-gra":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
-                            p2 = new Player("Player2");                            
+                            p2 = new Player("Player2");
+                            UpdateLogins();
+                            UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "gra-vs-komp":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
                             p2 = new Computer(true);
+                            UpdateLogins();
+                            UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "kwiatkow":
@@ -231,11 +246,38 @@ namespace GraphColoring
                             gT = GameType.EdgesColoring;
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
+                        case "sasiad-ogrodnik":
+                            ClearButtons(GameModeButtons);
+                            gO = GameOrder.NG;
+                            UpdatePlayers();
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "ogrodnik-sasiad":
+                            ClearButtons(GameModeButtons);
+                            gO = GameOrder.GN;
+                            UpdatePlayers();
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+
                     }
                 }
             }                    
            
         
+        }
+
+        public void UpdatePlayers()
+        {
+            if(gO == GameOrder.GN)
+            {
+                p1.isGardener = true;
+                p2.isGardener = false;
+            }
+            else
+            {
+                p1.isGardener = false;
+                p2.isGardener = true;
+            }
         }
 
         public void NewGameKeyCheck()

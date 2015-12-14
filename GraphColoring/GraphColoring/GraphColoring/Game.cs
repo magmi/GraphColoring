@@ -8,13 +8,14 @@ using Microsoft.Xna.Framework.Graphics;
 namespace GraphColoring
 {
     public enum GameMode {SinglePlayer, MultiPlayer};
-
+    public enum GameOrder { GN, NG }
     class Game
     {
         public Player player1;
         public Player player2;
         public GameType gameType;
         public GameMode gameMode;
+        public GameOrder gameOrder;
         public GardenGraph graph;
         public Color[] colors;
         public List<ColorBox> colorBoxes;
@@ -22,15 +23,18 @@ namespace GraphColoring
         public ColorableObject lastClicked = null;
         public bool gardenerStartedMove;
         public TextBox[] PlayersTexts;
+        public TextBox[] PlayerPoints;
+        public TextBox WhoseTurnText;
         public List<TextBox> panels;
 
-        public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2)
+        public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2, GameOrder go)
         {            
             player2 = new Computer(true);
             colorBoxes = new List<ColorBox>();
             gameType = gT;
             gameMode = gM;
             graph = g;
+            gameOrder = go;
             colors = ColorsCreator.GetColors(c);
             this.whoseTurn = 0;
             this.gardenerStartedMove = false;
@@ -45,17 +49,29 @@ namespace GraphColoring
             player1 = p1;
             player2 = p2;
             panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
+            string ps1 = p1.isGardener ? "O: " : "S: ";
+            string ps2 = p2.isGardener ? "O: " : "S: ";
+            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(400, 0), Color.White);
             if(p2 is Computer)
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400), Color.White) };
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White) };
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White) };
             }
             else
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, p1.login, new Vector2(0, 0), new Vector2(30, 400), Color.White),
-                                            new TextBox(content, p2.login, new Vector2(0, 0), new Vector2(30, 600), Color.White),
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White),
+                                            new TextBox(content, ps2 + p2.login, new Vector2(0, 0), new Vector2(10, 600), Color.White),};
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White),
+                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), new Vector2(30, 640), Color.White),
+                
                 };
             }
 
+        }
+
+        public void ChangeTurn(bool sasiad)
+        {
+            WhoseTurnText.text = "Tura: " + (sasiad ? "Ogrodnika" : "Sasiada");
         }
 
         public bool CheckIfEnd(out bool didGardenerWon)
@@ -130,8 +146,19 @@ namespace GraphColoring
 
         public void DrawPlayers(SpriteBatch sBatch)
         {
+            WhoseTurnText.Draw(sBatch);
             foreach (TextBox t in PlayersTexts)
                 t.Draw(sBatch);
+            foreach (TextBox t in PlayerPoints)
+                t.Draw(sBatch);
+        }
+
+        public void AddPoints()
+        {
+            int index = whoseTurn;
+            Player p = index == 0 ? player1 : player2;
+            p.points += 50;
+            PlayerPoints[index].text = p.points.ToString();
         }
 
         public bool IsColoringPossible(GameType coloringType, Color[] colors)

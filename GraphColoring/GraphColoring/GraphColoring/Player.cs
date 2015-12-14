@@ -9,9 +9,9 @@ namespace GraphColoring
     {
         public string login;
         public int points;
-
+        public bool isGardener;
         public Player(string log=null)
-        {
+        {            
             login = log;
         }
     }

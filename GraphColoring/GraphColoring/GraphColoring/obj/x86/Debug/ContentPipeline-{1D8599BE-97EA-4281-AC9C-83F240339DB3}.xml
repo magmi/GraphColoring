@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz1.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Time>2015-12-14T13:29:06.9016466+01:00</Time>
     </Item>
     <Item>
       <Source>Gracz2.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Gracz2.xnb</Output>
-      <Time>2015-11-30T13:29:57.5112918+01:00</Time>
+      <Time>2015-12-14T13:29:08.3866403+01:00</Time>
     </Item>
     <Item>
       <Source>Panel.png</Source>

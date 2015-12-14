@@ -58,7 +58,7 @@ namespace GraphColoring
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
             
-            game = new Game(GameType.VerticesColoring, GameMode.SinglePlayer, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
+            //game = new Game(GameType.VerticesColoring, GameMode.SinglePlayer, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
             screenRectangle = new Rectangle(0, 0, 
@@ -198,7 +198,8 @@ namespace GraphColoring
 
                     if (!game.gardenerStartedMove && gameStarted)
                     {
-                        MessageBox(new IntPtr(), "Gardener turn", "Next turn", 0);
+                        //MessageBox(new IntPtr(), "Gardener turn", "Next turn", 0);
+                        game.ChangeTurn(game.player1.isGardener);
                         game.gardenerStartedMove = true;
                     }
 
@@ -223,7 +224,8 @@ namespace GraphColoring
                     {
                         if (game.gardenerStartedMove && gameStarted)
                         {
-                            MessageBox(new IntPtr(), "Neighbour turn", "Next turn", 0);
+                            //MessageBox(new IntPtr(), "Neighbour turn", "Next turn", 0);
+                            game.ChangeTurn(!game.player1.isGardener);
                             game.gardenerStartedMove = false;
                         }
 
@@ -249,7 +251,7 @@ namespace GraphColoring
                         MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
                     else
                         MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
-
+                    
                     this.Exit();
                 }
 
@@ -282,10 +284,16 @@ namespace GraphColoring
         {
             var mousePos = new Point(mouseState.X, mouseState.Y);
             int index = 0;
-            if (game.lastClicked == null && game.CheckIfMouseClickedOnFlower(mousePos, out index))
+            bool b = game.CheckIfMouseClickedOnFlower(mousePos, out index);
+            if (game.lastClicked == null && b)
             {
                 game.graph.flowers[index].color = Color.LightBlue;
                 game.lastClicked = game.graph.flowers[index];
+            }
+            else if(b && game.lastClicked == game.graph.flowers[index])
+            {
+                game.graph.flowers[index].color = Color.White;
+                game.lastClicked = null;
             }
         }
         public void CheckForColorsClicked(MouseState mouseState)
@@ -297,6 +305,7 @@ namespace GraphColoring
                 if(game.CheckIfValidMove(game.lastClicked, game.colors[index]))
                 {
                     game.graph.MakeMove(game.lastClicked, game.colors[index]);
+                    game.AddPoints();
                     game.lastClicked = null;
                     game.whoseTurn = (game.whoseTurn + 1)%2;
                 }
