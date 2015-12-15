@@ -15,6 +15,7 @@ namespace GraphColoring
         public Vector2 position;
         public float angle;
         public int height = 20;
+        public ContentManager content;
 
         public Fence(Flower _f1,Flower _f2, ContentManager content)
         {
@@ -32,7 +33,7 @@ namespace GraphColoring
             position = f1.center;
             color = Color.White;
             angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
-
+            this.content = content;
 
         }
 

@@ -45,6 +45,34 @@ namespace GraphColoring
 
         }
 
+        public GardenGraph Copy()
+        {
+            List<Flower> copyFlowers = new List<Flower>();
+            List<Fence> copyFences = new List<Fence>();
+
+            foreach(Flower flower in flowers)
+                copyFlowers.Add(flower.Copy());
+
+            foreach (Flower flower in flowers)
+            {
+                foreach (Fence fence in flower.outFences)
+                {
+                    Fence copyFence = new Fence(copyFlowers[fence.f1.index],
+                        copyFlowers[fence.f2.index], fence.content);
+
+                    if (!copyFences.Exists(x=>x.f1.Equals(copyFence.f1) && x.f2.Equals(copyFence.f2)))
+                        copyFences.Add(copyFence);
+                }
+            }
+
+            foreach(Fence fence in copyFences)
+            {
+                fence.f1.outFences.Add(fence);
+                fence.f2.outFences.Add(fence);
+            }
+
+            return new GardenGraph(copyFlowers, copyFences);
+        }
 
     }
 }

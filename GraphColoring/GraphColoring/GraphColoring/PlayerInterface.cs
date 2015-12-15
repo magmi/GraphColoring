@@ -98,7 +98,7 @@ namespace GraphColoring
 
             titleTexture = content.Load<Texture2D>("title");
             titleVector = new Vector2(250, 100);
-
+            chosenGraph = null;
         }
 
         public void MainMenuCheck(Point mousePos)
@@ -202,22 +202,22 @@ namespace GraphColoring
                             break;
                         case "graf1":
                             ClearButtons(GraphButtons);
-                            chosenGraph = PredefinedGraphs.graphs[0];
+                            chosenGraph = PredefinedGraphs.graphs[0].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "graf2":
                             ClearButtons(GraphButtons);
-                            chosenGraph = PredefinedGraphs.graphs[1];
+                            chosenGraph = PredefinedGraphs.graphs[1].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "graf3":
                             ClearButtons(GraphButtons);
-                            chosenGraph = PredefinedGraphs.graphs[2];
+                            chosenGraph = PredefinedGraphs.graphs[2].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "graf":
                             ClearButtons(GraphButtons);                               
-                            chosenGraph = PredefinedGraphs.graphs[NewGameButtons[i].index];
+                            chosenGraph = PredefinedGraphs.graphs[NewGameButtons[i].index].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "gra-vs-gra":

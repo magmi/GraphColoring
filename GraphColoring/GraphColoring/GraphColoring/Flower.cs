@@ -15,15 +15,19 @@ namespace GraphColoring
         public Vector2 center;
         public int sideLength;
         public Texture2D texture;
+        public ContentManager content;
 
 
-        public Flower(Vector2 pos, ContentManager content)
+        public Flower(Vector2 pos, ContentManager content, int index)
         {
+            this.index = index;
             color = Color.White;
             position = pos;
             this.texture = content.Load<Texture2D>("Kwiatek");
             sideLength = 152;
             center = new Vector2(pos.X + sideLength / 2, pos.Y + sideLength / 2);
+            outFences = new List<Fence>();
+            this.content = content;
         }
 
         public void Draw(SpriteBatch sBatch)
@@ -42,6 +46,11 @@ namespace GraphColoring
            if(r.Contains(_point))
                return true;	
            return false;
+       }
+
+       public Flower Copy()
+       {
+           return new Flower(position, content, index);
        }
 
     }

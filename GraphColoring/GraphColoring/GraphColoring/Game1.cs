@@ -251,14 +251,15 @@ namespace GraphColoring
                         MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
                     else
                         MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
-                    
-                    this.Exit();
-                }
 
-                if (!wasChecked)
-                {
-                    wasChecked = true;
+                    game = null;
+                    wasChecked = false;
+                    gameStarted = false;
+                    playerInterface = new PlayerInterface(Content);
+                    playerInterface.state = InterfaceState.MainMenu;
                 }
+                else
+                    wasChecked = true;
             }
         }
 

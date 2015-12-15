@@ -125,10 +125,10 @@ namespace GraphColoring
             float angle = (float)(2 * Math.PI / n);
 
             List<Flower> flowers = new List<Flower>{
-                                    new Flower(GetCoordinates(center, R, 0), content),
-                                    new Flower(GetCoordinates(center, R, angle), content),
-                                     new Flower(GetCoordinates(center, R, angle*2), content),
-                                      new Flower(GetCoordinates(center, R, angle*3), content),
+                                    new Flower(GetCoordinates(center, R, 0), content, 0),
+                                    new Flower(GetCoordinates(center, R, angle), content, 1),
+                                     new Flower(GetCoordinates(center, R, angle*2), content, 2),
+                                      new Flower(GetCoordinates(center, R, angle*3), content, 3),
                                     };
 
             List<Fence> fences = new List<Fence> {
@@ -166,7 +166,7 @@ namespace GraphColoring
              float angle =(float)(2 * Math.PI / n);
             for (int i = 0; i < n;i++ )
             {
-                Flower f = new Flower(GetCoordinates(center, R, i * angle), content);
+                Flower f = new Flower(GetCoordinates(center, R, i * angle), content, i);
                 f.outFences = new List<Fence>();
                 flowers.Add(f);
             }
