@@ -45,8 +45,8 @@ namespace GraphColoring
         {
             int n = pi.GraphButtons.Count;
 
-            int x = n%2 ==0 ? 50 : 250;
-            int y = (n/2)*200 + 50;
+            int x = n%2 ==0 ? 50 : 210;
+            int y = (n/2)*160 + 50;
             pi.GraphButtons.Add(new TextBox(content,(n-2).ToString(),new Vector2(x, y),new Vector2(x+20,y+20), "graf", n));
             pi.NewGameButtons.Add(pi.GraphButtons[n]);
         }

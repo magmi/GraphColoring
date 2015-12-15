@@ -289,6 +289,51 @@
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kwiatkow.xnb</Output>
       <Time>2015-12-13T19:13:13.6231796+01:00</Time>
     </Item>
+    <Item>
+      <Source>latwy.png</Source>
+      <Name>latwy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\latwy.xnb</Output>
+      <Time>2015-12-15T15:00:31.5515671+01:00</Time>
+    </Item>
+    <Item>
+      <Source>poziom.png</Source>
+      <Name>poziom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\poziom.xnb</Output>
+      <Time>2015-12-15T15:00:31.5515671+01:00</Time>
+    </Item>
+    <Item>
+      <Source>stworz-graf.png</Source>
+      <Name>stworz-graf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\stworz-graf.xnb</Output>
+      <Time>2015-12-15T15:00:31.5515671+01:00</Time>
+    </Item>
+    <Item>
+      <Source>trudny.png</Source>
+      <Name>trudny</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\trudny.xnb</Output>
+      <Time>2015-12-15T15:00:31.5515671+01:00</Time>
+    </Item>
+    <Item>
+      <Source>wyjscie.png</Source>
+      <Name>wyjscie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\wyjscie.xnb</Output>
+      <Time>2015-12-15T15:00:31.5515671+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

@@ -26,6 +26,7 @@ namespace GraphColoring
         public List<Button> GameTypeButtons;
         public List<Button> GameColoringButtons;
         public List<Button> GameModeButtons;
+        public List<Button> GameDifButtons;
        
         public GardenGraph chosenGraph;
         public int colorsNr = 3;
@@ -45,13 +46,16 @@ namespace GraphColoring
             PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
             state = InterfaceState.MainMenu;
             MainMenuButtons = new List<Button>() { new Button(new Vector2(470, 300), content, "nowa-gra"),
-                new Button(new Vector2(470, 500), content, "anuluj"),};
+                new Button(new Vector2(440, 400), content, "stworz-graf"),
+                new Button(new Vector2(485, 500), content, "wyjscie"),
+            };
 
             NewGameTextBoxes = new List<TextBox>() { 
                 new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow"),
                 new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
                 new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
                 new TextBox(content,"",new Vector2(650,560),new Vector2(0,0),"gra"),
+                new TextBox(content,"",new Vector2(50,560),new Vector2(0,0),"poziom"),
 
             };
             p1 = new Player();
@@ -59,12 +63,16 @@ namespace GraphColoring
             GraphButtons = new List<ClickableObject>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
-                new Button(new Vector2(250, 50), content, "graf2"),
-                new Button(new Vector2(50, 250), content, "graf3"),
+                new Button(new Vector2(210, 50), content, "graf2"),
+                new Button(new Vector2(50, 210), content, "graf3"),
             };
             GameTypeButtons = new List<Button>(){
                 new Button(new Vector2(660, 100), content, "gra-vs-gra"),
                 new Button(new Vector2(660, 150), content, "gra-vs-komp"),
+            };
+            GameDifButtons = new List<Button>(){
+                new Button(new Vector2(60, 610), content, "latwy"),
+                new Button(new Vector2(60, 660), content, "trudny"),
             };
             GameColoringButtons = new List<Button>(){
                 new Button(new Vector2(660, 260), content, "kwiatkow"),
@@ -78,6 +86,8 @@ namespace GraphColoring
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start"),
             };
+            foreach (Button b in GameDifButtons)
+                NewGameButtons.Add(b);
             foreach (Button b in GameTypeButtons)
                 NewGameButtons.Add(b);
             foreach (Button b in GameColoringButtons)
@@ -112,8 +122,11 @@ namespace GraphColoring
                         case "nowa-gra":
                             state = InterfaceState.NewGame;
                             break;
-                        case "anuluj":
+                        case "stworz-graf":
                             state = InterfaceState.GCVertices;
+                            break;
+                        case "wyjscie":
+                            Game1.ExitGame();
                             break;
                     }
                 }
@@ -184,6 +197,8 @@ namespace GraphColoring
                 UpdateLogins();
             }
         }
+
+
 
         public void NewGameCheck(Point mousePos, ref Game game, ContentManager content)
         {
@@ -258,7 +273,24 @@ namespace GraphColoring
                             UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
-
+                        case "latwy":
+                            ClearButtons(GameDifButtons);
+                            if(p2 is Computer)
+                            {
+                                Computer c = p2 as Computer;
+                                c.easyMode = true;
+                            }                           
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
+                        case "trudny":
+                            ClearButtons(GameDifButtons);
+                            if (p2 is Computer)
+                            {
+                                Computer c = p2 as Computer;
+                                c.easyMode = false;
+                            }
+                            NewGameButtons[i].color = Color.LightBlue;
+                            break;
                     }
                 }
             }                    

@@ -20,7 +20,7 @@ namespace GraphColoring
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Game game;
-
+        static Game1 instance;
         PlayerInterface playerInterface;
         GraphCreator graphCreator;
         Texture2D background;
@@ -37,8 +37,9 @@ namespace GraphColoring
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 1200;
             Content.RootDirectory = "Content";
-            this.wasChecked = false;
+            this.wasChecked = false;            
             this.gameStarted = false;
+            instance = this;
         }
 
         /// <summary>
@@ -89,6 +90,10 @@ namespace GraphColoring
             // TODO: Unload any non ContentManager content here
         }
 
+        public static void ExitGame()
+        {
+            instance.Exit();
+        }
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -290,6 +295,7 @@ namespace GraphColoring
             {
                 game.graph.flowers[index].color = Color.LightBlue;
                 game.lastClicked = game.graph.flowers[index];
+                game.lastClickedIndex = index;
             }
             else if(b && game.lastClicked == game.graph.flowers[index])
             {
@@ -307,7 +313,7 @@ namespace GraphColoring
                 {
                     game.graph.MakeMove(game.lastClicked, game.colors[index]);
                     game.AddPoints();
-                    game.lastClicked = null;
+                    game.lastClicked = null;                    
                     game.whoseTurn = (game.whoseTurn + 1)%2;
                 }
             }

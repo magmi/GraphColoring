@@ -21,6 +21,7 @@ namespace GraphColoring
         public List<ColorBox> colorBoxes;
         public int whoseTurn;
         public ColorableObject lastClicked = null;
+        public int lastClickedIndex = -1;
         public bool gardenerStartedMove;
         public TextBox[] PlayersTexts;
         public TextBox[] PlayerPoints;

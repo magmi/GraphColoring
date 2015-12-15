@@ -88,3 +88,8 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\sasiad-ogrodnik.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\zapisz-graf.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\liczba-kwiatkow.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\latwy.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\poziom.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\stworz-graf.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\trudny.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\wyjscie.xnb

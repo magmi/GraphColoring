@@ -30,3 +30,8 @@ Content\ogrodnik-sasiad.xnb
 Content\sasiad-ogrodnik.xnb
 Content\zapisz-graf.xnb
 Content\liczba-kwiatkow.xnb
+Content\latwy.xnb
+Content\poziom.xnb
+Content\stworz-graf.xnb
+Content\trudny.xnb
+Content\wyjscie.xnb
