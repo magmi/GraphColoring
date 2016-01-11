@@ -44,6 +44,16 @@ namespace GraphColoring
             return -1;
         }
 
+        public void InterfaceUpdate(PlayerInterface pi, ContentManager content)
+        {
+            int n = pi.GraphButtons.Count;
+
+            int x = n % 2 == 0 ? 50 : 210;
+            int y = (n / 2) * 160 + 50;
+            pi.GraphButtons.Add(new TextBox(content, (n - 2).ToString(), new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
+            pi.NewGameButtons.Add(pi.GraphButtons[n]);
+        }
+
         public void CheckGraphCreator(Point mousePos, PlayerInterface pi, ContentManager content)
         {
             int index = GetIndex(GCButtons, mousePos);
@@ -59,6 +69,7 @@ namespace GraphColoring
                         DateTime now = DateTime.Now;
                         SerializationManager.SerializeObject(graph, String.Format("{0}-{1}-{2}-{3}-{4}-{5}.xml", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second));
                         PredefinedGraphs.graphs.Add(graph);
+                        InterfaceUpdate(pi, content);
                         pi.state = InterfaceState.MainMenu;
                         break;
                 }

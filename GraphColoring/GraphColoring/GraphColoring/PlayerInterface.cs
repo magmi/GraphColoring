@@ -117,24 +117,12 @@ namespace GraphColoring
         {
             var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xml", SearchOption.TopDirectoryOnly);
             GardenGraph newGraph;
-            int index;
-            string name;
 
             if (files.Length + 3 == GraphButtons.Count)
                 return;
 
             foreach (var file in files)
             {
-                index = -1;
-
-                for (int i = 0; i < file.Length; i++)
-                    if (file[i] == '\\')
-                        index = i;
-                name = file.Substring(index + 1, file.Length - index - 5);
-
-                if (GraphButtons.Exists(x => x is TextBox && ((TextBox)x).text == name))
-                    continue;
-
                 newGraph = null;
                 newGraph = SerializationManager.DeSerializeObject<GardenGraph>(file);
 
@@ -144,7 +132,7 @@ namespace GraphColoring
 
                     int x = n % 2 == 0 ? 50 : 210;
                     int y = (n / 2) * 160 + 50;
-                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
+                    GraphButtons.Add(new TextBox(content, (n - 2).ToString(), new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
             }
