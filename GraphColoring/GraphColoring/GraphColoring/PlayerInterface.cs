@@ -65,7 +65,7 @@ namespace GraphColoring
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
                 new Button(new Vector2(210, 50), content, "graf2"),
-                new Button(new Vector2(50, 210), content, "graf3"),
+                new Button(new Vector2(370, 50), content, "graf3"),
             };
             GameTypeButtons = new List<Button>(){
                 new Button(new Vector2(660, 100), content, "gra-vs-gra"),
@@ -142,8 +142,15 @@ namespace GraphColoring
                 {
                     int n = GraphButtons.Count;
 
-                    int x = n % 2 == 0 ? 50 : 210;
-                    int y = (n / 2) * 160 + 50;
+                    int x;
+                    if (n % 3 == 0)
+                        x = 50;
+                    else if (n % 3 == 1)
+                        x = 210;
+                    else
+                        x = 370;
+
+                    int y = (n / 3) * 160 + 50;
                     GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
