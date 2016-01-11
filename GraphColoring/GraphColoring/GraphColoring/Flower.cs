@@ -31,6 +31,15 @@ namespace GraphColoring
             texture = Globals.content.Load<Texture2D>(textureAsset);
         }
 
+        public Flower(Vector2 pos, int index)
+        {
+            this.index = index;
+            color = Color.White;
+            position = pos;
+            sideLength = 152;
+            center = new Vector2(pos.X + sideLength / 2, pos.Y + sideLength / 2);           
+        }
+
         public void Draw(SpriteBatch sBatch)
         {
            

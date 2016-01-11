@@ -20,21 +20,29 @@ namespace GraphColoring
 
         public Fence()
         { }
-
-        public Fence(Flower _f1, Flower _f2, string _textureAsset)
+        public Fence(Flower _f1, Flower _f2)
         {
-            
             f1 = _f1;
             f2 = _f2;
             int length = (int)Math.Sqrt((f1.position.X - f2.position.X) * (f1.position.X - f2.position.X) +
                 (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));
+            position = f1.center;
+            color = Color.White;
+            angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
+        }
+        public Fence(Flower _f1, Flower _f2, string _textureAsset)
+        {            
+            f1 = _f1;
+            f2 = _f2;
+            int length = (int)Math.Sqrt((f1.position.X - f2.position.X) * (f1.position.X - f2.position.X) +
+                (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));               
             textureAsset = _textureAsset;
             Texture2D originalTexture = Globals.content.Load<Texture2D>(textureAsset);
             Rectangle sourceRectangle = new Rectangle(0, 0, length, originalTexture.Height);
             texture = new Texture2D(originalTexture.GraphicsDevice, sourceRectangle.Width, sourceRectangle.Height);
             Color[] data = new Color[sourceRectangle.Width * sourceRectangle.Height];
             originalTexture.GetData(0, sourceRectangle, data, 0, data.Length);
-            texture.SetData(data);
+            texture.SetData(data);         
             position = f1.center;
             color = Color.White;
             angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
@@ -67,7 +75,7 @@ namespace GraphColoring
 
         public void Draw(SpriteBatch sBatch)
         {
-            sBatch.Begin();
+            sBatch.Begin();           
             sBatch.Draw(texture, position, null, color, angle, Vector2.Zero, 1, SpriteEffects.None, 0f);
             sBatch.End();
         }

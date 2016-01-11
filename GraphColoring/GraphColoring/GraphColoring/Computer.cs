@@ -288,6 +288,7 @@ namespace GraphColoring
                 game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
                 game.lastClicked = null;
                 flowerColored = true;
+      
             }
 
             if (flowerColored)
@@ -303,9 +304,9 @@ namespace GraphColoring
         }
         public void CalculateMove(Game game)
         {
+            game.ChangeTurn(base.isGardener);
             if (!startedMove)
             {
-                MessageBox(new IntPtr(), "Computer's turn", "Next turn", 0);
                 startedMove = true;
             }
             if (game.gameType == GameType.VerticesColoring)
