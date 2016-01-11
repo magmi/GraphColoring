@@ -20,7 +20,6 @@ Content\Gracz1.xnb
 Content\Gracz2.xnb
 Content\Panel.xnb
 Content\Plotek.xnb
-Content\SpriteFont1.xnb
 Content\kolorowanie.xnb
 Content\kwiatkow.xnb
 Content\plotkow.xnb
@@ -35,3 +34,4 @@ Content\poziom.xnb
 Content\stworz-graf.xnb
 Content\trudny.xnb
 Content\wyjscie.xnb
+Content\SpriteFont1.xnb
