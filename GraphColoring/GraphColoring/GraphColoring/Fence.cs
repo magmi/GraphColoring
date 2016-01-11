@@ -7,24 +7,29 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class Fence : ColorableObject
+    [Serializable]
+    public class Fence : ColorableObject
     {
         public Flower f1;
         public Flower f2;
         public Texture2D texture;
+        public string textureAsset;
         public Vector2 position;
         public float angle;
         public int height = 20;
-        public ContentManager content;
 
-        public Fence(Flower _f1,Flower _f2, ContentManager content)
+        public Fence()
+        { }
+
+        public Fence(Flower _f1, Flower _f2, string _textureAsset)
         {
             
             f1 = _f1;
             f2 = _f2;
             int length = (int)Math.Sqrt((f1.position.X - f2.position.X) * (f1.position.X - f2.position.X) +
-                (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));        
-            Texture2D originalTexture = content.Load<Texture2D>("Plotek");
+                (f1.position.Y - f2.position.Y) * (f1.position.Y - f2.position.Y));
+            textureAsset = _textureAsset;
+            Texture2D originalTexture = Globals.content.Load<Texture2D>(textureAsset);
             Rectangle sourceRectangle = new Rectangle(0, 0, length, originalTexture.Height);
             texture = new Texture2D(originalTexture.GraphicsDevice, sourceRectangle.Width, sourceRectangle.Height);
             Color[] data = new Color[sourceRectangle.Width * sourceRectangle.Height];
@@ -33,8 +38,6 @@ namespace GraphColoring
             position = f1.center;
             color = Color.White;
             angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
-            this.content = content;
-
         }
 
         public double GetAngleOfLineBetweenTwoPoints(Vector2 p1, Vector2 p2)

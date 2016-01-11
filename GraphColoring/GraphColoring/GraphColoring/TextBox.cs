@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class TextBox : ClickableObject
+    public class TextBox : ClickableObject
     {       
         public Vector2 textPosition;
         public string text;

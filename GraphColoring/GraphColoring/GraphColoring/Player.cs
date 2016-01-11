@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraphColoring
 {
-    class Player
+    public class Player
     {
         public string login;
         public int points;

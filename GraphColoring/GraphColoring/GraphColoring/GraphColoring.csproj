@@ -82,6 +82,7 @@
     <Compile Include="Flower.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GardenGraph.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="GraphCreator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInterface.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="SerializationManager.cs" />
     <Compile Include="TextBox.cs" />
   </ItemGroup>
   <ItemGroup>

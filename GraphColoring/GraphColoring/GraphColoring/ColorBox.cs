@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class ColorBox
+    public class ColorBox
     {
         public Color color;
         public Texture2D texture;

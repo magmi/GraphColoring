@@ -9,7 +9,7 @@ namespace GraphColoring
 {
     public enum GameMode {SinglePlayer, MultiPlayer};
     public enum GameOrder { GN, NG }
-    class Game
+    public class Game
     {
         public Player player1;
         public Player player2;
@@ -165,13 +165,15 @@ namespace GraphColoring
         public bool IsColoringPossible(GameType coloringType, Color[] colors)
         {
             bool correct = false;
+            List<Fence> outFences;
             if (coloringType == GameType.EdgesColoring)
             {
                 foreach (Fence f in graph.fences)
                     if (f.color != null)
                     {
                         correct = false;
-                        foreach (Fence ff in f.f1.outFences)
+                        outFences = graph.GetOutFences(f.f1);
+                        foreach (Fence ff in outFences)
                         {
                             foreach (Color c in colors)
                                 if (CheckIfValidMove(ff, c))
@@ -180,7 +182,8 @@ namespace GraphColoring
                                 return false;
                         }
                         correct = false;
-                        foreach (Fence ff in f.f2.outFences)
+                        outFences = graph.GetOutFences(f.f2);
+                        foreach (Fence ff in outFences)
                         {
                             foreach (Color c in colors)
                                 if (CheckIfValidMove(ff, c))
@@ -197,7 +200,9 @@ namespace GraphColoring
             {
                 foreach (Flower f in graph.flowers)
                     if (f.color != null)
-                        foreach (Fence ff in f.outFences)
+                    {
+                        outFences = graph.GetOutFences(f);
+                        foreach (Fence ff in outFences)
                         {
                             correct = false;
                             foreach (Color c in colors)
@@ -212,16 +217,19 @@ namespace GraphColoring
                             if (!correct)
                                 return false;
                         }
+                    }
             }
             return true;
         }
 
         public bool CheckIfValidMove(ColorableObject cb, Color c)
         {
+            List<Fence> outFences;
             if (cb is Flower)
             {
                 Flower flower = cb as Flower;
-                foreach (Fence f in flower.outFences)
+                outFences = graph.GetOutFences(flower);
+                foreach (Fence f in outFences)
                 {
                     if (f.f1 != flower)
                     {
@@ -238,7 +246,8 @@ namespace GraphColoring
             else
             {
                 Fence fence = cb as Fence;
-                foreach (Fence f in fence.f1.outFences)
+                outFences = graph.GetOutFences(fence.f1);
+                foreach (Fence f in outFences)
                 {
                     if (f != fence)
                     {
@@ -246,7 +255,8 @@ namespace GraphColoring
                             return false;
                     }
                 }
-                foreach (Fence f in fence.f2.outFences)
+                outFences = graph.GetOutFences(fence.f2);
+                foreach (Fence f in outFences)
                 {
                     if (f != fence)
                     {

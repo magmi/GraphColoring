@@ -17,6 +17,8 @@ namespace GraphColoring
         public int VerticesNr;
         private GardenGraph graph;
         private Flower lastClicked;
+        private Texture2D fenceTexture;
+
         public GraphCreator(ContentManager content)
         {
             VerticesNrBuilder = new StringBuilder("3");
@@ -29,6 +31,7 @@ namespace GraphColoring
                 new Button(new Vector2(0, 660), content, "zapisz-graf"),
             };
 
+            fenceTexture = content.Load<Texture2D>("Plotek");
         }
 
         public int GetIndex(List<Button> list, Point p)
@@ -41,20 +44,20 @@ namespace GraphColoring
             return -1;
         }
 
-        public void IntefaceUpdate(PlayerInterface pi,ContentManager content)
+        public void InterfaceUpdate(PlayerInterface pi, ContentManager content)
         {
             int n = pi.GraphButtons.Count;
 
-            int x = n%2 ==0 ? 50 : 210;
-            int y = (n/2)*160 + 50;
-            pi.GraphButtons.Add(new TextBox(content,(n-2).ToString(),new Vector2(x, y),new Vector2(x+20,y+20), "graf", n));
+            int x = n % 2 == 0 ? 50 : 210;
+            int y = (n / 2) * 160 + 50;
+            pi.GraphButtons.Add(new TextBox(content, (n - 2).ToString(), new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
             pi.NewGameButtons.Add(pi.GraphButtons[n]);
         }
-
 
         public void CheckGraphCreator(Point mousePos, PlayerInterface pi, ContentManager content)
         {
             int index = GetIndex(GCButtons, mousePos);
+            List<Fence> outFences;
             if (index > -1)
             {
                 switch (GCButtons[index].name)
@@ -63,8 +66,10 @@ namespace GraphColoring
                         pi.state = InterfaceState.MainMenu;
                         break;
                     case "zapisz-graf":
+                        DateTime now = DateTime.Now;
+                        SerializationManager.SerializeObject(graph, String.Format("{0}-{1}-{2}-{3}-{4}-{5}.xml", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second));
                         PredefinedGraphs.graphs.Add(graph);
-                        IntefaceUpdate(pi, content);
+                        InterfaceUpdate(pi, content);
                         pi.state = InterfaceState.MainMenu;
                         break;
                 }
@@ -83,12 +88,12 @@ namespace GraphColoring
                     {
                         if (graph.flowers[i] != lastClicked)
                         {
-                            Fence f = new Fence(lastClicked, graph.flowers[i], content);
+                            Fence f = new Fence(lastClicked, graph.flowers[i], "Plotek");
 
-                            if (!lastClicked.outFences.Exists(x => (x.f1.Equals(lastClicked) && x.f2.Equals(graph.flowers[i])) || (x.f1.Equals(graph.flowers[i]) && x.f2.Equals(lastClicked))))
+                            outFences = graph.GetOutFences(lastClicked);
+                            if (!outFences.Exists(x => (x.f1.Equals(lastClicked) && x.f2.Equals(graph.flowers[i])) || (x.f1.Equals(graph.flowers[i]) && x.f2.Equals(lastClicked))))
                             {
-                                lastClicked.outFences.Add(f);
-                                graph.flowers[i].outFences.Add(f);
+                                outFences.Add(f);
                                 graph.fences.Add(f);
                                 graph.fencesNumber += 1;
                             }

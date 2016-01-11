@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class Button : ClickableObject
+    public class Button : ClickableObject
     {
 
         public Button(Vector2 pos,ContentManager content, string fileName, int i = 0) : base(pos,content,fileName)

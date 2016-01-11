@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class ClickableObject
+    public class ClickableObject
     {
         public Texture2D texture;
         public Vector2 position;

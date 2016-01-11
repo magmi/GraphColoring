@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace GraphColoring
 {
@@ -50,7 +51,8 @@ namespace GraphColoring
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here      
+            // TODO: Add your initialization logic here
+            Globals.content = Content;
             playerInterface = new PlayerInterface(Content);
             graphCreator = new GraphCreator(Content);
             IsMouseVisible = true;
@@ -58,7 +60,9 @@ namespace GraphColoring
             Player p1 = new Player("Player 1");
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
-            
+
+            DeserializeGraphs();
+
             //game = new Game(GameType.VerticesColoring, GameMode.SinglePlayer, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
@@ -112,7 +116,7 @@ namespace GraphColoring
             {
                 case InterfaceState.MainMenu:
                     if (mouseState.LeftButton == ButtonState.Pressed)
-                        playerInterface.MainMenuCheck(mousePos);
+                        playerInterface.MainMenuCheck(mousePos, Content);
                     break;
 
                 case InterfaceState.NewGame:
@@ -315,6 +319,22 @@ namespace GraphColoring
                     game.AddPoints();
                     game.lastClicked = null;                    
                     game.whoseTurn = (game.whoseTurn + 1)%2;
+                }
+            }
+        }
+
+        private void DeserializeGraphs()
+        {
+            var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xml", SearchOption.TopDirectoryOnly);
+            GardenGraph newGraph;
+            foreach (var file in files)
+            {
+                newGraph = null;
+                newGraph = SerializationManager.DeSerializeObject<GardenGraph>(file);
+
+                if (newGraph != null)
+                {
+                    PredefinedGraphs.graphs.Add(newGraph);
                 }
             }
         }

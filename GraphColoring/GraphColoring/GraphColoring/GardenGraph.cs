@@ -7,9 +7,10 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 namespace GraphColoring
 {
-    enum GameType { VerticesColoring, EdgesColoring };
+    public enum GameType { VerticesColoring, EdgesColoring };
 
-    class GardenGraph
+    [Serializable]
+    public class GardenGraph
     {
         public List<Fence> fences;
         public List<Flower> flowers;
@@ -17,6 +18,9 @@ namespace GraphColoring
         public int fencesNumber;
         public int coloredFlowersNumber;
         public int coloredFencesNumber;
+
+        public GardenGraph()
+        { }
 
         public GardenGraph(List<Flower> flo, List<Fence> fen)
         {
@@ -53,26 +57,28 @@ namespace GraphColoring
             foreach(Flower flower in flowers)
                 copyFlowers.Add(flower.Copy());
 
-            foreach (Flower flower in flowers)
+            foreach(Fence fence in fences)
             {
-                foreach (Fence fence in flower.outFences)
-                {
-                    Fence copyFence = new Fence(copyFlowers[fence.f1.index],
-                        copyFlowers[fence.f2.index], fence.content);
+                Fence copyFence = new Fence(copyFlowers[fence.f1.index],
+                    copyFlowers[fence.f2.index], "Plotek");
 
-                    if (!copyFences.Exists(x=>x.f1.Equals(copyFence.f1) && x.f2.Equals(copyFence.f2)))
-                        copyFences.Add(copyFence);
-                }
-            }
-
-            foreach(Fence fence in copyFences)
-            {
-                fence.f1.outFences.Add(fence);
-                fence.f2.outFences.Add(fence);
+                copyFences.Add(copyFence);
             }
 
             return new GardenGraph(copyFlowers, copyFences);
         }
 
+        public List<Fence> GetOutFences(Flower flower)
+        {
+            List<Fence> outFences = new List<Fence>();
+
+            foreach(Fence fence in fences)
+            {
+                if (fence.f1.Equals(flower) || fence.f2.Equals(flower))
+                    outFences.Add(fence);
+            }
+
+            return outFences;
+        }
     }
 }

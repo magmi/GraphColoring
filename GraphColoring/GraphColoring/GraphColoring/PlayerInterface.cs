@@ -6,10 +6,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
 namespace GraphColoring
 {
     public enum InterfaceState { MainMenu, NewGame, Game, LoginSingle, LoginMulti, GraphCreation, GCVertices }
-    class PlayerInterface
+    public class PlayerInterface
     {
         
         public InterfaceState state;
@@ -111,7 +112,33 @@ namespace GraphColoring
             chosenGraph = null;
         }
 
-        public void MainMenuCheck(Point mousePos)
+
+        public void InterfaceUpdate(ContentManager content)
+        {
+            var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xml", SearchOption.TopDirectoryOnly);
+            GardenGraph newGraph;
+
+            if (files.Length + 3 == GraphButtons.Count)
+                return;
+
+            foreach (var file in files)
+            {
+                newGraph = null;
+                newGraph = SerializationManager.DeSerializeObject<GardenGraph>(file);
+
+                if (newGraph != null)
+                {
+                    int n = GraphButtons.Count;
+
+                    int x = n % 2 == 0 ? 50 : 210;
+                    int y = (n / 2) * 160 + 50;
+                    GraphButtons.Add(new TextBox(content, (n - 2).ToString(), new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
+                    NewGameButtons.Add(GraphButtons[n]);
+                }
+            }
+        }
+
+        public void MainMenuCheck(Point mousePos, ContentManager content)
         {
             for (int i = 0; i < MainMenuButtons.Count; i++)
             {
@@ -120,6 +147,7 @@ namespace GraphColoring
                     switch (MainMenuButtons[i].name)
                     {
                         case "nowa-gra":
+                            InterfaceUpdate(content);
                             state = InterfaceState.NewGame;
                             break;
                         case "stworz-graf":

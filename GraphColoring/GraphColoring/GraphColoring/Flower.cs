@@ -7,27 +7,28 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace GraphColoring
 {
-    class Flower : ColorableObject
+    [Serializable]
+    public class Flower : ColorableObject
     {
         public int index;
-        public List<Fence>outFences;
         public Vector2 position;
         public Vector2 center;
         public int sideLength;
         public Texture2D texture;
-        public ContentManager content;
+        public string textureAsset;
 
+        public Flower()
+        { }
 
-        public Flower(Vector2 pos, ContentManager content, int index)
+        public Flower(Vector2 pos, string _textureAsset, int index)
         {
             this.index = index;
             color = Color.White;
             position = pos;
-            this.texture = content.Load<Texture2D>("Kwiatek");
             sideLength = 152;
             center = new Vector2(pos.X + sideLength / 2, pos.Y + sideLength / 2);
-            outFences = new List<Fence>();
-            this.content = content;
+            textureAsset = _textureAsset;
+            texture = Globals.content.Load<Texture2D>(textureAsset);
         }
 
         public void Draw(SpriteBatch sBatch)
@@ -50,7 +51,7 @@ namespace GraphColoring
 
        public Flower Copy()
        {
-           return new Flower(position, content, index);
+           return new Flower(position, textureAsset, index);
        }
 
     }

@@ -37,7 +37,6 @@ namespace GraphColoring
             array[4, 0] = 1;
       
             List<Fence> fences = CreateFenceList(flowers, array, content);
-            UpdateFlowerList(fences);
             return new GardenGraph(flowers, fences);
         }
         public static GardenGraph GraphOne(ContentManager content)
@@ -58,7 +57,6 @@ namespace GraphColoring
             array[4, 2] = 1;
 
             List<Fence> fences = CreateFenceList(flowers, array, content);
-            UpdateFlowerList(fences);
             return new GardenGraph(flowers, fences);
         }
 
@@ -86,7 +84,6 @@ namespace GraphColoring
             array[2, 6] = 1;
             array[3, 7] = 1;
             List<Fence> fences = CreateFenceList(flowers, array, content);
-            UpdateFlowerList(fences);
             return new GardenGraph(flowers, fences);
         }
 
@@ -112,7 +109,6 @@ namespace GraphColoring
             array[1, 4] = 1;
             List<Fence> fences = CreateFenceList(flowers, array, content);
 
-            UpdateFlowerList(fences);
             return new GardenGraph(flowers, fences);
         }
 
@@ -121,30 +117,24 @@ namespace GraphColoring
         {           
             int R = 150;
             int n = 4;
+            Texture2D fenceTexture = content.Load<Texture2D>("Plotek");
+            Texture2D flowerTexture = content.Load<Texture2D>("Kwiatek");
 
             float angle = (float)(2 * Math.PI / n);
 
             List<Flower> flowers = new List<Flower>{
-                                    new Flower(GetCoordinates(center, R, 0), content, 0),
-                                    new Flower(GetCoordinates(center, R, angle), content, 1),
-                                     new Flower(GetCoordinates(center, R, angle*2), content, 2),
-                                      new Flower(GetCoordinates(center, R, angle*3), content, 3),
+                                    new Flower(GetCoordinates(center, R, 0), "Kwiatek", 0),
+                                    new Flower(GetCoordinates(center, R, angle), "Kwiatek", 1),
+                                     new Flower(GetCoordinates(center, R, angle*2), "Kwiatek", 2),
+                                      new Flower(GetCoordinates(center, R, angle*3), "Kwiatek", 3),
                                     };
 
             List<Fence> fences = new List<Fence> {
-                new Fence(flowers[0],flowers[1], content),
-                new Fence(flowers[1],flowers[2], content),
-                new Fence(flowers[2],flowers[3], content),
-                new Fence(flowers[3],flowers[0], content),
+                new Fence(flowers[0],flowers[1], "Plotek"),
+                new Fence(flowers[1],flowers[2], "Plotek"),
+                new Fence(flowers[2],flowers[3], "Plotek"),
+                new Fence(flowers[3],flowers[0], "Plotek"),
                 };
-
-            flowers[0].outFences = new List<Fence> { fences[0], fences[3] };
-            flowers[1].outFences = new List<Fence> { fences[0], fences[1] };
-            flowers[2].outFences = new List<Fence> { fences[1], fences[2] };
-            flowers[3].outFences = new List<Fence> { fences[2], fences[3] };
-
-
-
 
             return new GardenGraph(flowers, fences);
         }
@@ -152,34 +142,26 @@ namespace GraphColoring
         {
             List<Fence> fen = new List<Fence>();
             int n = array.GetLength(0);
+            Texture2D fenceTexture = content.Load<Texture2D>("Plotek");
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                 {
                     if (array[i, j] > 0)
-                        fen.Add(new Fence(flow[i], flow[j], content));
+                        fen.Add(new Fence(flow[i], flow[j], "Plotek"));
                 }
             return fen;
         }
         public static List<Flower> CreateflowerList(int n, Vector2 center, int R, ContentManager content)
         {
             List<Flower> flowers = new List<Flower>();
-             float angle =(float)(2 * Math.PI / n);
+            Texture2D flowerTexture = content.Load<Texture2D>("Kwiatek");
+            float angle =(float)(2 * Math.PI / n);
             for (int i = 0; i < n;i++ )
             {
-                Flower f = new Flower(GetCoordinates(center, R, i * angle), content, i);
-                f.outFences = new List<Fence>();
+                Flower f = new Flower(GetCoordinates(center, R, i * angle), "Kwiatek", i);
                 flowers.Add(f);
             }
             return flowers;
-        }
-
-        public static void UpdateFlowerList(List<Fence> fen)
-        {
-            foreach(Fence f in fen)
-            {
-                f.f1.outFences.Add(f);
-                f.f2.outFences.Add(f);
-            }
         }
 
         public static Vector2 GetCoordinates(Vector2 Center, int r, float angle)

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace GraphColoring
 {
-    abstract class ColorableObject
+    public abstract class ColorableObject
     {
         public Color color = Color.White;
     }
