@@ -180,7 +180,7 @@ namespace GraphColoring
             if (coloringType == GameType.EdgesColoring)
             {
                 foreach (Fence f in graph.fences)
-                    if (f.color != null)
+                    if (f.color != Color.White)
                     {
                         correct = false;
                         outFences = graph.GetOutFences(f.f1);
@@ -210,7 +210,7 @@ namespace GraphColoring
             else if (coloringType == GameType.VerticesColoring)
             {
                 foreach (Flower f in graph.flowers)
-                    if (f.color != null)
+                    if (f.color != Color.White)
                     {
                         outFences = graph.GetOutFences(f);
                         foreach (Fence ff in outFences)

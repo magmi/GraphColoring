@@ -283,10 +283,19 @@ namespace GraphColoring
         {
             var mousePos = new Point(mouseState.X, mouseState.Y);
             int index = 0;
-            if (game.lastClicked == null && game.CheckIfMouseClickedOnFence(mousePos, out index))
+            bool b = game.CheckIfMouseClickedOnFence(mousePos, out index);
+            if (game.lastClicked == null && b)
             {
+                if (game.graph.fences[index].color != Color.White)
+                    return;
+
                 game.graph.fences[index].color = Color.LightBlue;
                 game.lastClicked = game.graph.fences[index];
+            }
+            else if (b && game.lastClicked == game.graph.fences[index])
+            {
+                game.graph.fences[index].color = Color.White;
+                game.lastClicked = null;
             }
         }
 
@@ -297,6 +306,9 @@ namespace GraphColoring
             bool b = game.CheckIfMouseClickedOnFlower(mousePos, out index);
             if (game.lastClicked == null && b)
             {
+                if (game.graph.flowers[index].color != Color.White)
+                    return;
+
                 game.graph.flowers[index].color = Color.LightBlue;
                 game.lastClicked = game.graph.flowers[index];
                 game.lastClickedIndex = index;
