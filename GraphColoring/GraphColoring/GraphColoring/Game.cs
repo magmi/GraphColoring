@@ -28,6 +28,17 @@ namespace GraphColoring
         public TextBox WhoseTurnText;
         public List<TextBox> panels;
 
+        public Game(GameType gT, GardenGraph g, int c)
+        {
+            player2 = new Computer(true);
+            colorBoxes = new List<ColorBox>();
+            gameType = gT;
+            graph = g;
+            colors = ColorsCreator.GetColors(c);
+            this.whoseTurn = 0;
+            this.gardenerStartedMove = false;
+        }
+
         public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2, GameOrder go)
         {            
             player2 = new Computer(true);
