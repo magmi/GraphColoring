@@ -182,30 +182,29 @@ namespace GraphColoring
                 foreach (Fence f in graph.fences)
                     if (f.color != Color.White)
                     {
-                        correct = false;
                         outFences = graph.GetOutFences(f.f1);
                         foreach (Fence ff in outFences)
                         {
+                            correct = false;
                             foreach (Color c in colors)
                                 if (CheckIfValidMove(ff, c))
                                     correct = true;
                             if (!correct)
                                 return false;
                         }
-                        correct = false;
+
                         outFences = graph.GetOutFences(f.f2);
                         foreach (Fence ff in outFences)
                         {
+                            correct = false;
                             foreach (Color c in colors)
                                 if (CheckIfValidMove(ff, c))
                                     correct = true;
                             if (!correct)
                                 return false;
                         }
-
                     }
             }
-
 
             else if (coloringType == GameType.VerticesColoring)
             {
