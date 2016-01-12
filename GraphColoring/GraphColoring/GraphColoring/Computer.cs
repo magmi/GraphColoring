@@ -237,6 +237,15 @@ namespace GraphColoring
             return false;
         }
 
+        private bool AreFencesConnected(Fence f1, Fence f2, GardenGraph graph)
+        {
+            foreach (Fence fence in graph.fences)
+                if (f1.f1.Equals(f2.f1) || f1.f1.Equals(f2.f2) || f1.f2.Equals(f2.f1) || f1.f2.Equals(f2.f2))
+                    return true;
+
+            return false;
+        }
+
         public void EasyFlowerPick(Game game)
         {
             Random r = new Random();
@@ -250,6 +259,24 @@ namespace GraphColoring
 
             game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
             game.lastClicked = game.graph.flowers[chosenFlowerIndex];
+
+            flowerPicked = true;
+        }
+
+        public void EasyFencePick(Game game)
+        {
+            Random r = new Random();
+            int n = game.graph.fences.Count;
+            int chosenFenceIndex;
+
+            do
+            {
+                chosenFenceIndex = r.Next(0, n);
+            }
+            while (game.graph.fences[chosenFenceIndex].color != Color.White);
+
+            game.graph.fences[chosenFenceIndex].color = Color.LightBlue;
+            game.lastClicked = game.graph.fences[chosenFlowerIndex];
 
             flowerPicked = true;
         }
@@ -315,7 +342,84 @@ namespace GraphColoring
 
         public void HardModeNeighbourForFences(Game game)
         {
+            if (elapsed > 1 && !flowerPicked)
+            {
+                foreach (Fence fn in game.graph.fences)
+                {
+                    if (fn.color != Color.White)
+                    {
+                        foreach (Fence fn1 in game.graph.GetOutFences(fn.f1))
+                        {
+                            Flower f1 = fn1.f1;
+                            if (f1.Equals(fn.f1))
+                                f1 = fn1.f2;
 
+                            foreach (Fence fn2 in game.graph.GetOutFences(f1))
+                            {
+                                Flower f2 = fn2.f1;
+                                if (f2.Equals(f1))
+                                    f2 = fn2.f2;
+
+                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2, game.graph))
+                                {
+                                    Color c = PickUnusedColor(game, fn2, fn);
+                                    chosenColor = c;
+                                    fn2.color = Color.LightBlue;
+                                    game.lastClicked = fn2;
+
+                                    flowerPicked = true;
+                                    return;
+                                }
+
+                            }
+                        }
+
+                        foreach (Fence fn1 in game.graph.GetOutFences(fn.f2))
+                        {
+                            Flower f1 = fn1.f1;
+                            if (f1.Equals(fn.f2))
+                                f1 = fn1.f2;
+
+                            foreach (Fence fn2 in game.graph.GetOutFences(f1))
+                            {
+                                Flower f2 = fn2.f1;
+                                if (f2.Equals(f1))
+                                    f2 = fn2.f2;
+
+                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2, game.graph))
+                                {
+                                    Color c = PickUnusedColor(game, fn2, fn);
+                                    chosenColor = c;
+                                    fn2.color = Color.LightBlue;
+                                    game.lastClicked = fn2;
+
+                                    flowerPicked = true;
+                                    return;
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                EasyFlowerPick(game);
+                chosenColor = PickUnusedColor(game, game.lastClicked);
+            }
+            if (elapsed > 2 && !flowerColored)
+            {
+                game.graph.MakeMove(game.lastClicked, chosenColor, game);
+                game.lastClicked = null;
+                flowerColored = true;
+            }
+            if (flowerColored)
+            {
+                game.whoseTurn = 0;
+                elapsed = 0;
+                startedMove = false;
+                flowerPicked = false;
+                flowerColored = false;
+                game.gardenerStartedMove = false;
+            }
         }
 
         public void HardModeGardenerForFences(Game game)
