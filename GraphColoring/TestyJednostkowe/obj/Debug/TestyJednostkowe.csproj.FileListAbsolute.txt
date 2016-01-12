@@ -98,3 +98,6 @@ D:\GK\GraphColoring\TestyJednostkowe\bin\Debug\Microsoft.Xna.Framework.Graphics.
 D:\GK\GraphColoring\TestyJednostkowe\obj\Debug\TestyJednostkowe.csprojResolveAssemblyReference.cache
 D:\GK\GraphColoring\TestyJednostkowe\obj\Debug\TestyJednostkowe.dll
 D:\GK\GraphColoring\TestyJednostkowe\obj\Debug\TestyJednostkowe.pdb
+D:\GraphColoring\GraphColoring\TestyJednostkowe\bin\Debug\Content\graphcreated.xnb
+D:\GraphColoring\GraphColoring\TestyJednostkowe\bin\Debug\Content\CzcionkaUI.xnb
+D:\GraphColoring\GraphColoring\TestyJednostkowe\bin\Debug\Content\colorBox2.xnb

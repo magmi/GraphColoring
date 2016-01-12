@@ -10,7 +10,7 @@ namespace TestyJednostkowe
     public class UnitTest1
     {
         [TestMethod]
-        public void FenceContainsTest()
+        public void FenceContainsTest1()
         {
             Flower f1 = new Flower(new Vector2(746, 97), 2);
             Flower f2 = new Flower(new Vector2(453, 97), 3);
@@ -21,14 +21,32 @@ namespace TestyJednostkowe
         }
 
         [TestMethod]
-        public void FlowerContainsTest()
+        public void FenceContainsTest2()
         {
+            Flower f1 = new Flower(new Vector2(746, 97), 2);
+            Flower f2 = new Flower(new Vector2(453, 97), 3);
+            Fence f = new Fence(f1, f2);
+            Point mp = new Point(880, 160);
+            bool result = f.ContainsPoint(mp);
+            Assert.AreEqual(false, result);
+        }
 
+        [TestMethod]
+        public void FlowerContainsTest1()
+        {
             Flower f = new Flower(new Vector2(0, 0), 0);            
             Point mp = new Point(5, 5);
             bool result = f.ContainsPoint(mp);
-
             Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void FlowerContainsTest2()
+        {
+            Flower f = new Flower(new Vector2(0, 0), 0);
+            Point mp = new Point(250, 250);
+            bool result = f.ContainsPoint(mp);
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
@@ -84,7 +102,7 @@ namespace TestyJednostkowe
             bool result;
             bool res;
             result = game.CheckIfEnd(out res);
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
@@ -105,7 +123,7 @@ namespace TestyJednostkowe
             GardenGraph gg = new GardenGraph(flowers, fences);
             
             GraphColoring.Game game = new GraphColoring.Game(GameType.VerticesColoring, gg, 1);
-            gg.MakeMove(flowers[0], game.colors[0]);
+            gg.MakeMove(flowers[0], game.colors[0], game);
             bool result;
             bool res;
             result = game.CheckIfEnd(out res);
@@ -130,7 +148,7 @@ namespace TestyJednostkowe
             GardenGraph gg = new GardenGraph(flowers, fences);
 
             GraphColoring.Game game = new GraphColoring.Game(GameType.VerticesColoring, gg, 1);
-            gg.MakeMove(flowers[0], game.colors[0]);
+            gg.MakeMove(flowers[0], game.colors[0], game);
             bool result;
             bool res;
             result = game.CheckIfEnd(out res);
@@ -155,9 +173,9 @@ namespace TestyJednostkowe
             GardenGraph gg = new GardenGraph(flowers, fences);
 
             GraphColoring.Game game = new GraphColoring.Game(GameType.VerticesColoring, gg, 3);
-            gg.MakeMove(flowers[0], game.colors[0]);
-            gg.MakeMove(flowers[1], game.colors[1]);
-            gg.MakeMove(flowers[2], game.colors[2]);
+            gg.MakeMove(flowers[0], game.colors[0], game);
+            gg.MakeMove(flowers[1], game.colors[1], game);
+            gg.MakeMove(flowers[2], game.colors[2], game);
             bool result;
             bool res;
             result = game.CheckIfEnd(out res);
@@ -182,9 +200,9 @@ namespace TestyJednostkowe
             GardenGraph gg = new GardenGraph(flowers, fences);
 
             GraphColoring.Game game = new GraphColoring.Game(GameType.VerticesColoring, gg, 3);
-            gg.MakeMove(flowers[0], game.colors[0]);
-            gg.MakeMove(flowers[1], game.colors[1]);
-            gg.MakeMove(flowers[2], game.colors[2]);
+            gg.MakeMove(flowers[0], game.colors[0], game);
+            gg.MakeMove(flowers[1], game.colors[1], game);
+            gg.MakeMove(flowers[2], game.colors[2], game);
             bool result;
             bool res;
             result = game.CheckIfEnd(out res);
