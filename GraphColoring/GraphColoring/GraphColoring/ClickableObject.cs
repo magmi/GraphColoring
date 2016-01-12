@@ -23,7 +23,17 @@ namespace GraphColoring
             position = pos;            
         }
 
+        /// <summary>
+        /// Funkcja rysujaca obiekt
+        /// </summary>
+        /// <param name="sBatch"></param>
         public virtual void Draw(SpriteBatch sBatch){ }
+
+        /// <summary>
+        /// Funckja sprawdzajaca zwawieranie punktu w obiekcie
+        /// </summary>
+        /// <param name="_point"></param>
+        /// <returns></returns>
         public bool ContainsPoint(Point _point)
         {
             Rectangle r = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);

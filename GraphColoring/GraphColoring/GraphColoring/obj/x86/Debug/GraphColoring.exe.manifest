@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="43008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="47616">
       <assemblyIdentity name="GraphColoring" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yA4bkQuVUwc1asqi52srLv2fbCU=</dsig:DigestValue>
+        <dsig:DigestValue>5oMsvyU1UfinglYCdjXz3zbnUc0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -113,6 +113,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>CsaeGtRoge+CPc4gU+445oGj9iw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\colorBox2.xnb" size="7007">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>+AYFiBD9BavRlKuI9PZYpnmT1eA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\CzcionkaUI.xnb" size="38062">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Ja59bIxORmWYAJsePAxG79THlys=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\gra.xnb" size="255627">
@@ -176,6 +194,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>8Sphms8UnWdSjtdaMsmKIcHby5s=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\graphcreated.xnb" size="29891">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>45oq6jUQ+E8g+uINzxkd5k4Nl1k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\gra-vs-gra.xnb" size="31331">
@@ -331,13 +358,13 @@
       <dsig:DigestValue>jRmbxEfYkwx67ESSAB/3PmGh/l4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\SpriteFont1.xnb" size="38062">
+  <file name="Content\SpriteFont1.xnb" size="13486">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>hopm0Vkd6etkuHd9rVWjti/CMvE=</dsig:DigestValue>
+      <dsig:DigestValue>+tQCjWSFPlzbCaYMI8/D3X6NRrk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\start.xnb" size="39407">

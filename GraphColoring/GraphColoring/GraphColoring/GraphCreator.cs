@@ -22,7 +22,7 @@ namespace GraphColoring
         public GraphCreator(ContentManager content)
         {
             VerticesNrBuilder = new StringBuilder("3");
-            VerticesTextBox = new TextBox(content, "3", new Vector2(340, 200), new Vector2(450, 250),"liczba-kwiatkow");
+            VerticesTextBox = new TextBox(content, "3", new Vector2(340, 200), new Vector2(450, 250), "liczba-kwiatkow", 0, "CzcionkaUI");
             VerticesButtons = new List<Button>(){
                 new Button(new Vector2(350, 730), content, "anuluj"),
                 new Button(new Vector2(650, 730), content, "start")};
@@ -43,7 +43,12 @@ namespace GraphColoring
             }
             return -1;
         }
-
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element okna Kreatora grafu
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="pi"></param>
+        /// <param name="content"></param>
         public void CheckGraphCreator(Point mousePos, PlayerInterface pi, ContentManager content)
         {
             int index = GetIndex(GCButtons, mousePos);
@@ -97,6 +102,12 @@ namespace GraphColoring
 
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element okna zapytania o ilosc kwiatkow w grafie
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="pi"></param>
+        /// <param name="content"></param>
         public void CheckVerticesAsking(Point mousePos, PlayerInterface pi, ContentManager content)
         {
             int i = GetIndex(VerticesButtons, mousePos);
@@ -121,7 +132,10 @@ namespace GraphColoring
             
         }
 
-       public void CheckKeyVerticesAsking()
+        /// <summary>
+        /// Funkcja sprawdzajaca wpisywanie liczby wierzchlkow w oknie zapytania o ilosc kwiatkow w grafie
+        /// </summary>
+        public void CheckKeyVerticesAsking()
         {
             KeyboardState keybState = Keyboard.GetState();
             Keys[] k = keybState.GetPressedKeys();

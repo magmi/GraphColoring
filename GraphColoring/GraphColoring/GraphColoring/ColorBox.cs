@@ -13,16 +13,17 @@ namespace GraphColoring
         public Texture2D texture;
         public Vector2 position;
         public int sideLength = 50;
+        public int heightLength = 30;
+
         public ColorBox(Color c, ContentManager content, Vector2 pos)
         {
             color = c;
             position = pos;
-            texture = content.Load<Texture2D>("colorBox");
+            texture = content.Load<Texture2D>("colorBox2");
         }
 
         public void Draw(SpriteBatch sBatch)
         {
-
             sBatch.Begin();
             sBatch.Draw(texture, position, color);
             sBatch.End();
@@ -30,7 +31,7 @@ namespace GraphColoring
 
         public bool ContainsPoint(Point _point)
         {
-            Rectangle r = new Rectangle((int)position.X, (int)position.Y, sideLength, sideLength);
+            Rectangle r = new Rectangle((int)position.X, (int)position.Y, sideLength, heightLength);
             if (r.Contains(_point))
                 return true;
             return false;

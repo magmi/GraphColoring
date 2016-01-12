@@ -42,6 +42,7 @@ namespace GraphColoring
         public int ActiveTextBox = 0;
         public StringBuilder[] PlayerSb;
 
+
         public PlayerInterface(ContentManager content)
         {
             PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
@@ -52,7 +53,7 @@ namespace GraphColoring
             };
 
             NewGameTextBoxes = new List<TextBox>() { 
-                new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow"),
+                new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow",0,"CzcionkaUI"),
                 new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
                 new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
                 new TextBox(content,"",new Vector2(650,560),new Vector2(0,0),"gra"),
@@ -99,8 +100,8 @@ namespace GraphColoring
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
-            {   new TextBox(content, "Player1", new Vector2(100, 200), new Vector2(550, 250), "Gracz1") ,
-                new TextBox(content, "Player2", new Vector2(100, 500), new Vector2(550, 550), "Gracz2")
+            {   new TextBox(content, "Player1", new Vector2(100, 200), new Vector2(550, 250), "Gracz1",0,"CzcionkaUI") ,
+                new TextBox(content, "Player2", new Vector2(100, 500), new Vector2(550, 550), "Gracz2",0,"CzcionkaUI")
             };
             LoginButtons = new List<Button>(){                
                 new Button(new Vector2(350, 30), content, "anuluj"),
@@ -112,7 +113,10 @@ namespace GraphColoring
             chosenGraph = null;
         }
 
-
+        /// <summary>
+        /// Funkcja aktualizajaca ilosc grafow do wyboru
+        /// </summary>
+        /// <param name="content"></param>
         public void InterfaceUpdate(ContentManager content)
         {
             var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xml", SearchOption.TopDirectoryOnly);
@@ -150,13 +154,18 @@ namespace GraphColoring
                     else
                         x = 370;
 
-                    int y = (n / 3) * 160 + 50;
-                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 20), "graf", n));
+                    int y = (n / 3) * 50 + 160;
+                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 15), "graphcreated", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
             }
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element okna Menu Glownego
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="content"></param>
         public void MainMenuCheck(Point mousePos, ContentManager content)
         {
             for (int i = 0; i < MainMenuButtons.Count; i++)
@@ -180,6 +189,12 @@ namespace GraphColoring
             }
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element okna pojedynczego loginu
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="game"></param>
+        /// <param name="content"></param>
         public void LoginSingleCheck(Point mousePos,ref Game game, ContentManager content)
         {
             for (int i = 0; i < LoginButtons.Count; i++)
@@ -203,6 +218,12 @@ namespace GraphColoring
            
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element okna loginu z dwoma graczami
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="game"></param>
+        /// <param name="content"></param>
         public void LoginMultiCheck(Point mousePos, ref Game game, ContentManager content)
         {
             for (int i = 0; i < LoginButtons.Count; i++)
@@ -227,6 +248,9 @@ namespace GraphColoring
 
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca wpisywanie loginu w polu tekstowym
+        /// </summary>
         public void LoginKeyCheck()
         {
             KeyboardState keybState = Keyboard.GetState();
@@ -245,8 +269,12 @@ namespace GraphColoring
             }
         }
 
-
-
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisk myszy na element w oknie kreatora nowej gry
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <param name="game"></param>
+        /// <param name="content"></param>
         public void NewGameCheck(Point mousePos, ref Game game, ContentManager content)
         {
             for (int i = 0; i < NewGameButtons.Count; i++)
@@ -277,7 +305,7 @@ namespace GraphColoring
                             chosenGraph = PredefinedGraphs.graphs[2].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
-                        case "graf":
+                        case "graphcreated":
                             ClearButtons(GraphButtons);                               
                             chosenGraph = PredefinedGraphs.graphs[NewGameButtons[i].index].Copy();
                             NewGameButtons[i].color = Color.LightBlue;
@@ -359,6 +387,9 @@ namespace GraphColoring
             }
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca wpisywanie liczby kolorow w oknie kreatora nowej gry
+        /// </summary>
         public void NewGameKeyCheck()
         {
             KeyboardState keybState = Keyboard.GetState();
@@ -366,7 +397,7 @@ namespace GraphColoring
             if (k.Length > 0)
             {
                 string nrS = k[0].ToString();
-                if (nrS.Length > 1)
+                if (nrS.Length == 2)
                 {
                     int nr = int.Parse(nrS[1].ToString());
                     if (nr > 0 && nr < 10)
@@ -377,7 +408,6 @@ namespace GraphColoring
                 }
             }
         }
-
 
         public void UpdateLogins()
         {
@@ -399,6 +429,11 @@ namespace GraphColoring
                 b.color = Color.White;
         }
 
+
+
+
+        ///Ponizej funkcje rysujace
+
         public void MainMenuDraw(SpriteBatch sBatch)
         {
             sBatch.Begin();
@@ -415,12 +450,14 @@ namespace GraphColoring
             foreach (ClickableObject b in NewGameButtons)
                 b.Draw(sBatch);
         }
+
         public void LoginSingleDraw(SpriteBatch sBatch)
         {
             LoginTextBoxes[0].Draw(sBatch);
             foreach (Button b in LoginButtons)
                 b.Draw(sBatch);
         }
+
         public void LoginMultiDraw(SpriteBatch sBatch)
         {
             foreach(TextBox t in LoginTextBoxes)

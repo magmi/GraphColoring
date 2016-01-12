@@ -32,6 +32,16 @@ namespace GraphColoring
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWndle, String text, String caption, int buttons);
 
+        public static int GetHeight()
+        {
+            return instance.graphics.PreferredBackBufferHeight;
+        }
+
+        public static int GetWidth()
+        {
+            return instance.graphics.PreferredBackBufferWidth;
+        }
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

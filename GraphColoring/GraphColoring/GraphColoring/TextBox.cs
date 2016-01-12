@@ -14,28 +14,26 @@ namespace GraphColoring
         public SpriteFont sp;
         public Color textColor;
 
-        public TextBox(ContentManager content,string t,Vector2 pos, Vector2 tPos, string fileName=null, int i=0) : base(pos,content,fileName)
-        {                      
-            
+        public TextBox(ContentManager content,string t,Vector2 pos, Vector2 tPos, string fileName=null, int i=0,string sf = "SpriteFont1") : base(pos,content,fileName)
+        {                                  
             text = t;
             position = pos;
             textPosition = tPos;
-            sp = content.Load<SpriteFont>("SpriteFont1");
+            sp = content.Load<SpriteFont>(sf);
             textColor = Color.Black;
             index = i;
-
         }
-        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, Color col, string fileName = null, int i = 0)
+
+        public TextBox(ContentManager content, string t, Vector2 pos, Vector2 tPos, Color col, string fileName = null, int i = 0, string sf = "SpriteFont1")
             : base(pos, content, fileName)
-        {
-            
+        {            
             text = t;
             position = pos;
             textPosition = tPos;
-            sp = content.Load<SpriteFont>("SpriteFont1");
+            sp = content.Load<SpriteFont>(sf);
             textColor =  col;
-
         }
+
         public override void Draw(SpriteBatch sBatch)
         {
             sBatch.Begin();

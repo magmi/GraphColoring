@@ -8,7 +8,7 @@ namespace GraphColoring
 {
     class ColorsCreator
     {
-        public static Color[] colors = new Color[] { Color.Red, Color.Blue, Color.Yellow, Color.Green, Color.Purple, Color.Orange, Color.Cyan, Color.Magenta, Color.Pink };
+        public static Color[] colors = new Color[] { Color.Yellow, Color.Orange, Color.Red, Color.Magenta, Color.Purple, Color.Blue, Color.Cyan, Color.Lime, Color.Green, };
 
         public static Color[] GetColors(int colorNr)
         {

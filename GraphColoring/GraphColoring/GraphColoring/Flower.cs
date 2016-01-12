@@ -41,16 +41,13 @@ namespace GraphColoring
         }
 
         public void Draw(SpriteBatch sBatch)
-        {
-           
+        {           
             sBatch.Begin();
-
             sBatch.Draw(texture, position, color);
-
             sBatch.End();            
         }
 
-       public bool ContainsPoint(Point _point)
+        public bool ContainsPoint(Point _point)
        {
            Rectangle r = new Rectangle((int)position.X,(int)position.Y,sideLength,sideLength);
            if(r.Contains(_point))
@@ -58,10 +55,10 @@ namespace GraphColoring
            return false;
        }
 
-       public Flower Copy()
-       {
+        public Flower Copy()
+        {
            return new Flower(position, textureAsset, index);
-       }
+        }
 
     }
 }

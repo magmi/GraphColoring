@@ -48,18 +48,33 @@ namespace GraphColoring
             angle = (float)GetAngleOfLineBetweenTwoPoints(f1.center, f2.center);
         }
 
+        /// <summary>
+        /// Funkcja obliczajaca w radianach kat miedzy dwoma puntkami
+        /// </summary>
+        /// <param name="p1">punkt 1</param>
+        /// <param name="p2">punkt 2</param>
+        /// <returns></returns>
         public double GetAngleOfLineBetweenTwoPoints(Vector2 p1, Vector2 p2)
         { 
             float xDiff = p2.X - p1.X;
             float yDiff = p2.Y - p1.Y;
             return Math.Atan2(yDiff, xDiff);// *(180 / Math.PI); 
         }
-
+        /// <summary>
+        /// Funckaj obliczajaca odleglosc miedzy dwoma kwiatkami
+        /// </summary>
+        /// <returns></returns>
         public int GetDistanceBetweenFlowers()
         {
             return (int)Math.Sqrt((f2.position.X - f1.position.X) * (f2.position.X - f1.position.X) 
                 + (f2.position.Y - f1.position.Y) * (f2.position.Y - f1.position.Y));
         }
+
+        /// <summary>
+        /// Funkcja sprawdzajaca zawieranie punktu przez plotek
+        /// </summary>
+        /// <param name="_point"></param>
+        /// <returns></returns>
         public bool ContainsPoint(Point _point)
         {
             double an = -angle;
@@ -73,6 +88,10 @@ namespace GraphColoring
             return false;
         }
 
+        /// <summary>
+        /// Funkcja rysujaca plotek
+        /// </summary>
+        /// <param name="sBatch"></param>
         public void Draw(SpriteBatch sBatch)
         {
             sBatch.Begin();           

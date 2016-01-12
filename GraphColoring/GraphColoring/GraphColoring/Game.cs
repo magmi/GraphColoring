@@ -53,12 +53,13 @@ namespace GraphColoring
             usedColors = new List<Color>();
             this.whoseTurn = 0;
             this.gardenerStartedMove = false;
-            int dist = 60;
-            int offset = 20;
+            int distx = 55;
+            int disty = 30;
+            int offset = 10;
 
             for(int i =0;i<colors.Length;i++)
             {
-                Vector2 vect = new Vector2(offset + (dist) * (i % 2), offset + (dist) * ((int)i / 2));
+                Vector2 vect = new Vector2(offset + (distx) * (i % 3), offset + (disty) * ((int)i / 3));
                 colorBoxes.Add(new ColorBox(colors[i], content, vect));
             }
             player1 = p1;
@@ -66,29 +67,38 @@ namespace GraphColoring
             panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
             string ps1 = p1.isGardener ? "O: " : "S: ";
             string ps2 = p2.isGardener ? "O: " : "S: ";
-            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(400, 0), Color.White);
+            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(400, 0), Color.White, null, 0, "CzcionkaUI");
             if(p2 is Computer)
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White) };
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White) };
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White, null, 0, "CzcionkaUI") };
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White, null, 0, "CzcionkaUI") };
             }
             else
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White),
-                                            new TextBox(content, ps2 + p2.login, new Vector2(0, 0), new Vector2(10, 600), Color.White),};
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White),
-                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), new Vector2(30, 640), Color.White),
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White, null, 0, "CzcionkaUI"),
+                                            new TextBox(content, ps2 + p2.login, new Vector2(0, 0), new Vector2(10, 600), Color.White, null, 0, "CzcionkaUI"),};
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White, null, 0, "CzcionkaUI"),
+                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), new Vector2(30, 640), Color.White, null, 0, "CzcionkaUI"),
                 
                 };
             }
 
         }
 
+        /// <summary>
+        /// Funkcja zmieniajaca tekst tury
+        /// </summary>
+        /// <param name="sasiad">czy poprzednio byla tura sasiada</param>
         public void ChangeTurn(bool sasiad)
         {
             WhoseTurnText.text = "Tura: " + (sasiad ? "Ogrodnika" : "Sasiada");
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca zakonczenie gry
+        /// </summary>
+        /// <param name="didGardenerWon">parametr czy wygral ogrodnik</param>
+        /// <returns>czy gra zostala zakonczona</returns>
         public bool CheckIfEnd(out bool didGardenerWon)
         {
             didGardenerWon = false;
@@ -106,6 +116,12 @@ namespace GraphColoring
             return false;
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisniecie na ktorys z kwiatkow grafu
+        /// </summary>
+        /// <param name="mousePos">pozycja myszy</param>
+        /// <param name="index">zwracany indeks kwiatka</param>
+        /// <returns></returns>
         public bool CheckIfMouseClickedOnFlower(Point mousePos, out int index)
         {
             index = 0;
@@ -121,6 +137,12 @@ namespace GraphColoring
             return false;
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisniecie na ktorys z plotkow grafu
+        /// </summary>
+        /// <param name="mousePos">pozycja myszy</param>
+        /// <param name="index">zwracany indeks plotka</param>
+        /// <returns></returns>
         public bool CheckIfMouseClickedOnFence(Point mousePos, out int index)
         {
             index = 0;
@@ -136,6 +158,12 @@ namespace GraphColoring
             return false;
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca nacisniecie na ktorys z kolorow
+        /// </summary>
+        /// <param name="mousePos">pozycja myszy</param>
+        /// <param name="index">zwracany indeks koloru</param>
+        /// <returns></returns>
         public bool CheckIfMouseClickedOnColor(Point mousePos, out int index)
         {
             index = 0;
@@ -151,6 +179,10 @@ namespace GraphColoring
             return false;
         }
 
+        /// <summary>
+        /// Funkcja rysujaca palete kolorow
+        /// </summary>
+        /// <param name="sBatch"></param>
         public void DrawColorPalete(SpriteBatch sBatch)
         {
             foreach (TextBox t in panels)
@@ -159,6 +191,10 @@ namespace GraphColoring
                 cb.Draw(sBatch);
         }
 
+        /// <summary>
+        /// funckja rysujaca loginy i punkty graczy
+        /// </summary>
+        /// <param name="sBatch"></param>
         public void DrawPlayers(SpriteBatch sBatch)
         {
             WhoseTurnText.Draw(sBatch);
@@ -168,6 +204,9 @@ namespace GraphColoring
                 t.Draw(sBatch);
         }
 
+        /// <summary>
+        /// Funkcja dodajaca punkty
+        /// </summary>
         public void AddPoints()
         {
             int index = whoseTurn;
@@ -176,6 +215,12 @@ namespace GraphColoring
             PlayerPoints[index].text = p.points.ToString();
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca czy mozliwe jest dalsze poprawne kolorowanie
+        /// </summary>
+        /// <param name="coloringType">typ kolorowania</param>
+        /// <param name="colors">tablica kolorow</param>
+        /// <returns></returns>
         public bool IsColoringPossible(GameType coloringType, Color[] colors)
         {
             bool correct = false;
@@ -235,6 +280,12 @@ namespace GraphColoring
             return true;
         }
 
+        /// <summary>
+        /// Funkcja sprawdzajaca prawidlowosc ruchu
+        /// </summary>
+        /// <param name="cb">wybrany obiekt</param>
+        /// <param name="c">kolor</param>
+        /// <returns></returns>
         public bool CheckIfValidMove(ColorableObject cb, Color c)
         {
             List<Fence> outFences;
@@ -281,10 +332,6 @@ namespace GraphColoring
             return true;
         }
         
-        public void StartGame()
-        {
-
-        }
 
     }
 }

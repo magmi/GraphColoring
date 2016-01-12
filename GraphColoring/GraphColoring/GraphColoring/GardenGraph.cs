@@ -31,6 +31,12 @@ namespace GraphColoring
 
         }        
         
+        /// <summary>
+        /// Funkcja robiaca ruch
+        /// </summary>
+        /// <param name="obj">wybrany element</param>
+        /// <param name="c">kolor</param>
+        /// <param name="game">gra</param>
         public void MakeMove(ColorableObject obj, Color c, Game game)
         {
             obj.color = c;
@@ -43,6 +49,10 @@ namespace GraphColoring
                 game.usedColors.Add(c);
         }
 
+        /// <summary>
+        /// Funkcja rysujaca wszystkie elementy w grafie
+        /// </summary>
+        /// <param name="sBatch"></param>
         public void DrawAllElements(SpriteBatch sBatch)
         {
             foreach (Fence f in fences)
@@ -52,6 +62,10 @@ namespace GraphColoring
 
         }
 
+        /// <summary>
+        /// Pomocnicza funckcja kopiujaca graf
+        /// </summary>
+        /// <returns>skopiowany graf</returns>
         public GardenGraph Copy()
         {
             List<Flower> copyFlowers = new List<Flower>();
@@ -71,6 +85,11 @@ namespace GraphColoring
             return new GardenGraph(copyFlowers, copyFences);
         }
 
+        /// <summary>
+        /// Funckja zwracajaca plotki wychodzace z kwiatka
+        /// </summary>
+        /// <param name="flower">kwiatek</param>
+        /// <returns>lista z plotkami</returns>
         public List<Fence> GetOutFences(Flower flower)
         {
             List<Fence> outFences = new List<Fence>();
