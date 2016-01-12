@@ -15,6 +15,7 @@ namespace GraphColoring
         public bool startedMove;
         public bool flowerPicked;
         public bool flowerColored;
+        public Color chosenColor;
         private int chosenFlowerIndex;
         private bool[] activatedObjects;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -161,7 +162,7 @@ namespace GraphColoring
                 }
                 while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
 
-                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
                 flowerColored = true;
             }
@@ -175,6 +176,146 @@ namespace GraphColoring
                 flowerColored = false;
                 game.gardenerStartedMove = false;
             }
+        }
+
+        private Color PickUnusedColor(Game game, ColorableObject f)
+        {
+            Random r = new Random();
+            List<Color> unusedColors = new List<Color>();
+
+            foreach (Color c in game.colors)
+                if (!game.usedColors.Contains(c))
+                    unusedColors.Add(c);
+
+            ListExtension.Shuffle<Color>(unusedColors);
+
+            foreach (Color c in unusedColors)
+                if (game.CheckIfValidMove(f, c))
+                    return c;
+
+            Color color;
+            do
+                color = game.colors[r.Next(game.colors.Length)];
+            while (!game.CheckIfValidMove(f, color));
+
+            return color;
+        }
+
+        private Color PickUnusedColor(Game game, ColorableObject f1, ColorableObject f2)
+        {
+            Random r = new Random();
+            List<Color> unusedColors = new List<Color>();
+
+            foreach (Color c in game.colors)
+                if (!game.usedColors.Contains(c))
+                    unusedColors.Add(c);
+
+            ListExtension.Shuffle<Color>(unusedColors);
+
+            foreach (Color c in unusedColors)
+                if (game.CheckIfValidMove(f1, c) && f1.color != f2.color)
+                    return c;
+
+            foreach (Color c in unusedColors)
+                if (game.CheckIfValidMove(f1, c))
+                    return c;
+
+            Color color;
+            do
+                color = game.colors[r.Next(game.colors.Length)];
+            while (!game.CheckIfValidMove(f1, color));
+
+            return color;
+        }
+
+        private bool AreFlowersConnected(Flower f1, Flower f2, GardenGraph graph)
+        {
+            foreach(Fence fence in graph.fences)
+                if((fence.f1.Equals(f1) && fence.f2.Equals(f2)) || (fence.f1.Equals(f2) && fence.f2.Equals(f1)))
+                    return true;
+
+            return false;
+        }
+
+        public void EasyFlowerPick(Game game)
+        {
+            Random r = new Random();
+            int n = game.graph.flowers.Count;
+
+            do
+            {
+                chosenFlowerIndex = r.Next(0, n);
+            }
+            while (game.graph.flowers[chosenFlowerIndex].color != Color.White);
+
+            game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
+            game.lastClicked = game.graph.flowers[chosenFlowerIndex];
+
+            flowerPicked = true;
+        }
+
+        public void HardModeNeighbourForFlowers(Game game)
+        {
+            if (elapsed > 1 && !flowerPicked)
+            {
+                foreach (Flower f in game.graph.flowers)
+                {
+                    if (f.color != Color.White)
+                    {
+                        foreach (Fence fn in game.graph.GetOutFences(f))
+                        {
+                            Flower f1 = fn.f1;
+                            if (f1.Equals(f))
+                                f1 = fn.f2;
+
+                            foreach (Fence fn2 in game.graph.GetOutFences(f1))
+                            {
+                                Flower f2 = fn2.f1;
+                                if (f2.Equals(f1))
+                                    f2 = fn2.f2;
+
+                                if (f2.color == Color.White && !AreFlowersConnected(f2, f, game.graph))
+                                {
+                                    Color c = PickUnusedColor(game, f2, f);
+                                    chosenFlowerIndex = f2.index;
+                                    chosenColor = c;
+                                    game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
+                                    game.lastClicked = game.graph.flowers[chosenFlowerIndex];
+
+                                    flowerPicked = true;
+                                    return;
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                EasyFlowerPick(game);
+                chosenColor = PickUnusedColor(game, game.lastClicked);
+            }
+            if (elapsed > 2 && !flowerColored)
+            {
+                game.graph.MakeMove(game.lastClicked, chosenColor, game);
+                game.lastClicked = null;
+                flowerColored = true;
+            }
+            if (flowerColored)
+            {
+                game.whoseTurn = 0;
+                elapsed = 0;
+                startedMove = false;
+                flowerPicked = false;
+                flowerColored = false;
+                game.gardenerStartedMove = false;
+            }
+
+        }
+        
+
+        public void HardModeNeighbourForFences(Game game)
+        {
+
         }
 
         public void HardModeGardenerForFences(Game game)
@@ -195,7 +336,7 @@ namespace GraphColoring
                 }
                 while (!game.CheckIfValidMove(game.graph.fences[chosenFlowerIndex], game.colors[colorIndex]));
 
-                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
                 flowerColored = true;
             }
@@ -213,22 +354,12 @@ namespace GraphColoring
         public void EasyModeForFlowers(Game game)
         {
             Random r = new Random();
-            int n = game.graph.flowers.Count;
             int m = game.colors.Length;
             int colorIndex = 0;
 
             if (elapsed > 1 && !flowerPicked)
             {
-                do
-                {
-                    chosenFlowerIndex = r.Next(0, n);
-                }
-                while (game.graph.flowers[chosenFlowerIndex].color != Color.White);
-
-                game.graph.flowers[chosenFlowerIndex].color = Color.LightBlue;
-                game.lastClicked = game.graph.flowers[chosenFlowerIndex];
-
-                flowerPicked = true;
+                EasyFlowerPick(game);
             }
 
             if (elapsed > 2 && !flowerColored)
@@ -239,7 +370,7 @@ namespace GraphColoring
                 }
                 while (!game.CheckIfValidMove(game.graph.flowers[chosenFlowerIndex], game.colors[colorIndex]));
 
-                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
                 flowerColored = true;
             }
@@ -285,7 +416,7 @@ namespace GraphColoring
                 }
                 while (!game.CheckIfValidMove(game.graph.fences[chosenFlowerIndex], game.colors[colorIndex]));
 
-                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex]);
+                game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
                 flowerColored = true;
       
@@ -317,8 +448,10 @@ namespace GraphColoring
                 }
                 else
                 {
-                    //sasiad
-                    HardModeGardenerForFlowers(game);
+                    if (this.isGardener)
+                        HardModeGardenerForFlowers(game);
+                    else
+                        HardModeNeighbourForFlowers(game);
                 }
             }
             else
@@ -329,8 +462,10 @@ namespace GraphColoring
                 }
                 else
                 {
-                    //sasiad
-                    HardModeGardenerForFences(game);
+                    if (this.isGardener)
+                        HardModeGardenerForFences(game);
+                    else
+                        HardModeNeighbourForFences(game);
                 }
             }
         }

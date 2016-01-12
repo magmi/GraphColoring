@@ -327,7 +327,7 @@ namespace GraphColoring
             {
                 if(game.CheckIfValidMove(game.lastClicked, game.colors[index]))
                 {
-                    game.graph.MakeMove(game.lastClicked, game.colors[index]);
+                    game.graph.MakeMove(game.lastClicked, game.colors[index], game);
                     game.AddPoints();
                     game.lastClicked = null;                    
                     game.whoseTurn = (game.whoseTurn + 1)%2;

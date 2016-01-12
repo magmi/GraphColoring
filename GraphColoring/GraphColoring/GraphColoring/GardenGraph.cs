@@ -31,13 +31,16 @@ namespace GraphColoring
 
         }        
         
-        public void MakeMove(ColorableObject obj, Color c)
+        public void MakeMove(ColorableObject obj, Color c, Game game)
         {
             obj.color = c;
             if (obj is Flower)
                 coloredFlowersNumber++;
             else
                 coloredFencesNumber++;
+
+            if (!game.usedColors.Contains(c))
+                game.usedColors.Add(c);
         }
 
         public void DrawAllElements(SpriteBatch sBatch)

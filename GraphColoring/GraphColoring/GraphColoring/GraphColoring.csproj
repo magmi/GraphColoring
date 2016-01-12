@@ -97,6 +97,7 @@
     <Compile Include="GardenGraph.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="GraphCreator.cs" />
+    <Compile Include="ListExtension.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInterface.cs" />
     <Compile Include="PredefinedGraphs.cs" />

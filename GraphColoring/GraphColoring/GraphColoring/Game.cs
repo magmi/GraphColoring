@@ -18,6 +18,7 @@ namespace GraphColoring
         public GameOrder gameOrder;
         public GardenGraph graph;
         public Color[] colors;
+        public List<Color> usedColors;
         public List<ColorBox> colorBoxes;
         public int whoseTurn;
         public ColorableObject lastClicked = null;
@@ -35,6 +36,7 @@ namespace GraphColoring
             gameType = gT;
             graph = g;
             colors = ColorsCreator.GetColors(c);
+            usedColors = new List<Color>();
             this.whoseTurn = 0;
             this.gardenerStartedMove = false;
         }
@@ -48,6 +50,7 @@ namespace GraphColoring
             graph = g;
             gameOrder = go;
             colors = ColorsCreator.GetColors(c);
+            usedColors = new List<Color>();
             this.whoseTurn = 0;
             this.gardenerStartedMove = false;
             int dist = 60;
