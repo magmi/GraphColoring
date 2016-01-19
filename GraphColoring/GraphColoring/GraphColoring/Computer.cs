@@ -158,7 +158,7 @@ namespace GraphColoring
                                 if (f2.Equals(f1))
                                     f2 = fn2.f2;
 
-                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2, game.graph))
+                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2))
                                 {
                                     Color c = PickUnusedColor(game, fn2, fn);
                                     chosenColor = c;
@@ -184,7 +184,7 @@ namespace GraphColoring
                                 if (f2.Equals(f1))
                                     f2 = fn2.f2;
 
-                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2, game.graph))
+                                if (fn2.color == Color.White && !AreFencesConnected(fn, fn2))
                                 {
                                     Color c = PickUnusedColor(game, fn2, fn);
                                     chosenColor = c;
@@ -337,7 +337,7 @@ namespace GraphColoring
         }
 
         /// <summary>
-        /// Funckcja ruchu dla poziomu latwego dla kolorwania plotkow
+        /// Funkcja ruchu dla poziomu latwego dla kolorwania plotkow
         /// </summary>
         /// <param name="game"></param>
         public void EasyModeForFences(Game game)
@@ -563,11 +563,10 @@ namespace GraphColoring
             return false;
         }
 
-        private bool AreFencesConnected(Fence f1, Fence f2, GardenGraph graph)
+        private bool AreFencesConnected(Fence f1, Fence f2)
         {
-            foreach (Fence fence in graph.fences)
-                if (f1.f1.Equals(f2.f1) || f1.f1.Equals(f2.f2) || f1.f2.Equals(f2.f1) || f1.f2.Equals(f2.f2))
-                    return true;
+            if (f1.f1.Equals(f2.f1) || f1.f1.Equals(f2.f2) || f1.f2.Equals(f2.f1) || f1.f2.Equals(f2.f2))
+                return true;
 
             return false;
         }

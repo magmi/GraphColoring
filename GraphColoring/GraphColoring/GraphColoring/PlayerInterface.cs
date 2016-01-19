@@ -33,6 +33,7 @@ namespace GraphColoring
         public int colorsNr = 3;
         public Player p1;
         public Player p2;
+        public bool easyMode;
         public GameType gT = GameType.EdgesColoring;
         public GameOrder gO = GameOrder.GN;
 
@@ -62,6 +63,7 @@ namespace GraphColoring
             };
             p1 = new Player();
             p2 = new Player();
+            easyMode = true;
             GraphButtons = new List<ClickableObject>() 
             {
                 new Button(new Vector2(50, 50), content, "graf1"),
@@ -321,7 +323,7 @@ namespace GraphColoring
                         case "gra-vs-komp":
                             ClearButtons(GameTypeButtons);
                             p1 = new Player("Player1");
-                            p2 = new Computer(true);
+                            p2 = new Computer(easyMode);
                             UpdateLogins();
                             UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
@@ -350,6 +352,7 @@ namespace GraphColoring
                             break;
                         case "latwy":
                             ClearButtons(GameDifButtons);
+                            easyMode = true;
                             if(p2 is Computer)
                             {
                                 Computer c = p2 as Computer;
@@ -359,6 +362,7 @@ namespace GraphColoring
                             break;
                         case "trudny":
                             ClearButtons(GameDifButtons);
+                            easyMode = false;
                             if (p2 is Computer)
                             {
                                 Computer c = p2 as Computer;
