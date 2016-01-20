@@ -141,6 +141,7 @@ namespace GraphColoring
                         x = 370;
 
                     int y = (n / 3) * 50 + 160;
+                    PredefinedGraphs.graphs.Add(newGraph);
                     GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 15), "graphcreated", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
