@@ -247,7 +247,7 @@ namespace GraphColoring
                 HardModeFindFlower(game);
             }
 
-            if (elapsed > 0.5f && !flowerColored)
+            if (elapsed > 0.8f && !flowerColored)
             {
                 do
                 {
@@ -286,7 +286,7 @@ namespace GraphColoring
                 HardModeFindFence(game);
             }
 
-            if (elapsed > 0.5f && !flowerColored)
+            if (elapsed > 0.8f && !flowerColored)
             {
                 do
                 {
@@ -326,7 +326,7 @@ namespace GraphColoring
                 EasyFlowerPick(game);
             }
 
-            if (elapsed > 0.5f && !flowerColored)
+            if (elapsed > 0.8f && !flowerColored)
             {
                 do
                 {
@@ -377,7 +377,7 @@ namespace GraphColoring
                 flowerPicked = true;
             }
 
-            if (elapsed > 0.5f && !flowerColored)
+            if (elapsed > 0.8f && !flowerColored)
             {
                 do
                 {
