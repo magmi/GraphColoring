@@ -25,7 +25,7 @@ namespace GraphColoring
             this.index = index;
             color = Color.White;
             position = pos;
-            sideLength = 152;
+            sideLength = 100;
             center = new Vector2(pos.X + sideLength / 2, pos.Y + sideLength / 2);
             textureAsset = _textureAsset;
             texture = Globals.content.Load<Texture2D>(textureAsset);

@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Kwiatek.xnb</Output>
-      <Time>2015-11-29T19:29:17.6472839+01:00</Time>
+      <Time>2016-01-20T14:34:35.2086319+01:00</Time>
     </Item>
     <Item>
       <Source>nowa-gra.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\Plotek.xnb</Output>
-      <Time>2015-12-11T18:25:46.3300848+01:00</Time>
+      <Time>2016-01-20T14:34:35.1930621+01:00</Time>
     </Item>
     <Item>
       <Source>kolorowanie.png</Source>

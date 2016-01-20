@@ -75,7 +75,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6AG9bnugnSWW0GeQENs4vcRQjio=</dsig:DigestValue>
+        <dsig:DigestValue>9IyGwzrksuiIu3CaxCjlewvN6HM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -232,13 +232,13 @@
       <dsig:DigestValue>18KjLyBJfZhgej9C/D9c5RkfXM8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Kwiatek.xnb" size="90779">
+  <file name="Content\Kwiatek.xnb" size="41799">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cnFG1hln29d7sP/06Aa3s7KyuPg=</dsig:DigestValue>
+      <dsig:DigestValue>8AFcOpzYSfkS7Bm6YiLmgcJqT2k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\kwiatkow.xnb" size="69547">
@@ -313,13 +313,13 @@
       <dsig:DigestValue>gg+w698rSWFaCFsQDfZkHDT94cY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Plotek.xnb" size="88187">
+  <file name="Content\Plotek.xnb" size="36707">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>EJ+C+Gbh6GHgLVwJST1T8LWM6+4=</dsig:DigestValue>
+      <dsig:DigestValue>LpkAlG4Cn5iR4F1D8p/exqwTzII=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\plotkow.xnb" size="69547">

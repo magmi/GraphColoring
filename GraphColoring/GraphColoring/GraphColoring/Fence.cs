@@ -16,7 +16,7 @@ namespace GraphColoring
         public string textureAsset;
         public Vector2 position;
         public float angle;
-        public int height = 20;
+        public int height = 10;
 
         public Fence()
         { }

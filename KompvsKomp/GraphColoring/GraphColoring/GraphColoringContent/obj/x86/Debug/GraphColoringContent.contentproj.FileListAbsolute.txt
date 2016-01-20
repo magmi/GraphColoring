@@ -2,3 +2,4 @@ C:\Users\Ula\Documents\Visual Studio 2013\Projects\GraphColoring\GraphColoring\G
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache
 C:\Users\Maja\Desktop\GraphColoring\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache
 D:\GK\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache
+D:\GraphColoring\KompvsKomp\GraphColoring\GraphColoring\GraphColoringContent\obj\x86\Debug\GraphColoringContent.contentprojResolveAssemblyReference.cache
