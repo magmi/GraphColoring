@@ -63,7 +63,6 @@ namespace GraphColoring
                     case "zapisz-graf":
                         DateTime now = DateTime.Now;
                         SerializationManager.SerializeObject(graph, String.Format("{0}-{1}-{2}-{3}-{4}-{5}.xml", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second));
-                        PredefinedGraphs.graphs.Add(graph);
                         pi.state = InterfaceState.MainMenu;
                         break;
                 }

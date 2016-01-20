@@ -32,7 +32,7 @@ namespace GraphColoring
         }
 
         /// <summary>
-        /// Funckcja komputera obliczajaca nastepny ruch
+        /// Funkcja komputera obliczajaca nastepny ruch
         /// </summary>
         /// <param name="game"></param>
         public void CalculateMove(Game game)

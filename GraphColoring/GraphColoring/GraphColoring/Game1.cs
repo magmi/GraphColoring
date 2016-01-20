@@ -71,8 +71,6 @@ namespace GraphColoring
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
 
-            DeserializeGraphs();
-
             //game = new Game(GameType.VerticesColoring, GameMode.SinglePlayer, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
@@ -344,22 +342,5 @@ namespace GraphColoring
                 }
             }
         }
-
-        private void DeserializeGraphs()
-        {
-            var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xml", SearchOption.TopDirectoryOnly);
-            GardenGraph newGraph;
-            foreach (var file in files)
-            {
-                newGraph = null;
-                newGraph = SerializationManager.DeSerializeObject<GardenGraph>(file);
-
-                if (newGraph != null)
-                {
-                    PredefinedGraphs.graphs.Add(newGraph);
-                }
-            }
-        }
-
     }
 }
