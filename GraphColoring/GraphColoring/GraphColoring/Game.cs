@@ -28,7 +28,7 @@ namespace GraphColoring
         public TextBox[] PlayerPoints;
         public TextBox WhoseTurnText;
         public List<TextBox> panels;
-
+        public TextBox colorsText;
         public Game(GameType gT, GardenGraph g, int c)
         {
             player2 = new Computer(true);
@@ -57,17 +57,21 @@ namespace GraphColoring
             int disty = 30;
             int offset = 10;
 
+            colorsText = new TextBox(content, "", new Vector2(0, 0), new Vector2(0, 0), "KoloryText");
+
             for(int i =0;i<colors.Length;i++)
             {
-                Vector2 vect = new Vector2(offset + (distx) * (i % 3), offset + (disty) * ((int)i / 3));
+                Vector2 vect = new Vector2(10+offset + (distx) * (i % 3), 30 +offset + (disty) * ((int)i / 3));
                 colorBoxes.Add(new ColorBox(colors[i], content, vect));
             }
+
             player1 = p1;
             player2 = p2;
             panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
             string ps1 = p1.isGardener ? "O: " : "S: ";
             string ps2 = p2.isGardener ? "O: " : "S: ";
-            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(400, 0), Color.White, null, 0, "CzcionkaUI");
+            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(550, 0), Color.White, null, 0, "CzcionkaUI");
+
             if(p2 is Computer)
             {
                 PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White, null, 0, "CzcionkaUI") };
@@ -185,10 +189,13 @@ namespace GraphColoring
         /// <param name="sBatch"></param>
         public void DrawColorPalete(SpriteBatch sBatch)
         {
+
             foreach (TextBox t in panels)
                 t.Draw(sBatch);
             foreach (ColorBox cb in colorBoxes)
                 cb.Draw(sBatch);
+
+            colorsText.Draw(sBatch);
         }
 
         /// <summary>

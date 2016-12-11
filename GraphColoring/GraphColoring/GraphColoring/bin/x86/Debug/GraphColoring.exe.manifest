@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="47616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="48544">
       <assemblyIdentity name="GraphColoring" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9IyGwzrksuiIu3CaxCjlewvN6HM=</dsig:DigestValue>
+        <dsig:DigestValue>jSGtTa8tcs777pSVEEbQR+YGOKs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -205,22 +205,22 @@
       <dsig:DigestValue>45oq6jUQ+E8g+uINzxkd5k4Nl1k=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\gra-vs-gra.xnb" size="31331">
+  <file name="Content\gra-vs-gra.xnb" size="31339">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KPkgmcIAUg4ILc1h4+7g0dGQTm0=</dsig:DigestValue>
+      <dsig:DigestValue>ac3VQOmfqbBrdLvjaShK60cK0yA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\gra-vs-komp.xnb" size="35695">
+  <file name="Content\gra-vs-komp.xnb" size="31339">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>xfysnmXvVx6p+kidgOGsuRJ6WVE=</dsig:DigestValue>
+      <dsig:DigestValue>hddr+9E5vgAbVNWBLcQy7TEym5s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\kolorowanie.xnb" size="255627">
@@ -230,6 +230,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>18KjLyBJfZhgej9C/D9c5RkfXM8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\KoloryText.xnb" size="12987">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3ffjqaSXm0oYE91kzoOocZDP0ZU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Kwiatek.xnb" size="41799">
@@ -247,16 +256,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>auXLHiadom4QR+ckLurWorezAw8=</dsig:DigestValue>
+      <dsig:DigestValue>j2M4+2/1+NfCdVemQ3PkFMOSoVs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\latwy.xnb" size="68731">
+  <file name="Content\latwy.xnb" size="60667">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IluhHMfOXsJx6XBOUrluK8+yCzg=</dsig:DigestValue>
+      <dsig:DigestValue>6e6DPWZl9sNgdogALx8lU/OwBLs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\liczba-kolorow.xnb" size="255627">
@@ -295,13 +304,13 @@
       <dsig:DigestValue>D6Wq/MdB5Z07PKA93A+5jLvBrhw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\ogrodnik-sasiad.xnb" size="41811">
+  <file name="Content\ogrodnik-sasiad.xnb" size="54367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MrJUDqHXU9fHlJwFyjIFm4pT/1w=</dsig:DigestValue>
+      <dsig:DigestValue>ZnLVnI0pqvpSE/yGcwFXCVOJf7Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Panel.xnb" size="716243">
@@ -328,7 +337,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LOgkIVsGn+2Du72uOmWCgupIcy0=</dsig:DigestValue>
+      <dsig:DigestValue>/pWqQZYf+zAzjGuNdH5cVqdjAbc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\powrot-menu.xnb" size="37267">
@@ -349,13 +358,13 @@
       <dsig:DigestValue>ZHVL/rOvu+hNokx0FjTf+6ceohY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\sasiad-ogrodnik.xnb" size="41811">
+  <file name="Content\sasiad-ogrodnik.xnb" size="54367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>jRmbxEfYkwx67ESSAB/3PmGh/l4=</dsig:DigestValue>
+      <dsig:DigestValue>upYjSPoM3VCgscq4WU7ndJmDZIw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\SpriteFont1.xnb" size="13486">
@@ -403,13 +412,13 @@
       <dsig:DigestValue>Y1TrXBdvMItmFx9XOVNSkyYgGeM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\trudny.xnb" size="68731">
+  <file name="Content\trudny.xnb" size="60667">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zU6Uj6mHi8JfmypvwF+bK8lf/Bo=</dsig:DigestValue>
+      <dsig:DigestValue>inyHA6cqpM01sdNlaM6e2ovbcxE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\trybBox.xnb" size="255627">

@@ -28,7 +28,7 @@ namespace GraphColoring
         Rectangle screenRectangle;
         bool wasChecked;
         bool gameStarted;
-
+        public static SpriteFont Font1;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWndle, String text, String caption, int buttons);
 
@@ -89,7 +89,11 @@ namespace GraphColoring
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
+
+            Font1 = Content.Load<SpriteFont>("CzcionkaUI");
+
+
             // TODO: use this.Content to load your game content here
         }
 
