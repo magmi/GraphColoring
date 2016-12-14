@@ -118,3 +118,4 @@ D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphCo
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\graphcreated.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\CzcionkaUI.xnb
 D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\colorBox2.xnb
+D:\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\KoloryText.xnb
