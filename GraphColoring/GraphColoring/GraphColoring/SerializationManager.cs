@@ -69,5 +69,24 @@ namespace GraphColoring
 
             return objectOut;
         }
+
+        public static string CreateFileName(DateTime date)
+        {
+            string month = NormalizeDateTime(date.Month.ToString());
+            string day = NormalizeDateTime(date.Day.ToString());
+            string hour = NormalizeDateTime(date.Hour.ToString());
+            string minute = NormalizeDateTime(date.Minute.ToString());
+            string second = NormalizeDateTime(date.Second.ToString());
+
+            return String.Format("{0}-{1}-{2}-{3}-{4}-{5}.xml", date.Year, month, day, hour, minute, second);
+        }
+
+        private static string NormalizeDateTime(string value)
+        {
+            if (value.Length == 1)
+                return "0" + value;
+
+            return value;
+        }
     }
 }
