@@ -18,19 +18,24 @@ namespace GraphColoring
         private GardenGraph graph;
         private Flower lastClicked;
         private Texture2D fenceTexture;
+        public Vector2 previousMousePosition = Vector2.Zero;
+        public bool movingFlower = false;
 
         public GraphCreator(ContentManager content)
         {
-            VerticesNrBuilder = new StringBuilder("3");
-            VerticesTextBox = new TextBox(content, "3", new Vector2(340, 200), new Vector2(450, 250), "liczba-kwiatkow", 0, "CzcionkaUI");
-            VerticesButtons = new List<Button>(){
-                new Button(new Vector2(350, 730), content, "anuluj"),
-                new Button(new Vector2(650, 730), content, "start")};
-            GCButtons = new List<Button>(){
-                new Button(new Vector2(0, 730), content, "anuluj"),
-                new Button(new Vector2(0, 660), content, "zapisz-graf"),
-            };
+            int gameHeight = Game1.GetHeight();
+            int gameWidth = Game1.GetWidth();
 
+            VerticesNrBuilder = new StringBuilder("3");
+            VerticesTextBox = new TextBox(content, "3", Game1.GetRatioDimensions(new Vector2(340, 200)), Game1.GetRatioDimensions(new Vector2(450, 250)), "liczba-kwiatkow", 0, "CzcionkaUI");
+            VerticesButtons = new List<Button>(){
+                new Button(Game1.GetRatioDimensions(new Vector2(350, 730)), content, "anuluj"),
+                new Button(Game1.GetRatioDimensions(new Vector2(650, 730)), content, "start")};
+            GCButtons = new List<Button>(){
+                new Button(Game1.GetRatioDimensions(new Vector2(0, 730)), content, "anuluj"),
+                new Button(Game1.GetRatioDimensions(new Vector2(0, 660)), content, "zapisz-graf"),
+            };
+            
             fenceTexture = content.Load<Texture2D>("Plotek");
         }
 
@@ -68,16 +73,17 @@ namespace GraphColoring
                 }
             }
 
-            for(int i =0;i<VerticesNr;i++)
+            for (int i = 0; i < VerticesNr; i++)
             {
-                if(graph.flowers[i].ContainsPoint(mousePos))
+                if (graph.flowers[i].ContainsPoint(mousePos))
                 {
-                    if(lastClicked==null)
+                    if (lastClicked == null)
                     {
                         lastClicked = graph.flowers[i];
                         lastClicked.color = Color.LightBlue;
+                        movingFlower = true;
                     }
-                    else
+                    else if(!movingFlower)
                     {
                         if (graph.flowers[i] != lastClicked)
                         {
@@ -93,10 +99,22 @@ namespace GraphColoring
                         }
                         lastClicked.color = Color.White;
                         lastClicked = null;
-                        
                     }
                 }
+            }
 
+            if (movingFlower)
+            {
+                if (previousMousePosition != Vector2.Zero)
+                {
+                    lastClicked.position.X -= previousMousePosition.X - mousePos.X;
+                    lastClicked.position.Y -= previousMousePosition.Y - mousePos.Y;
+
+                    lastClicked.center.X -= previousMousePosition.X - mousePos.X;
+                    lastClicked.center.Y -= previousMousePosition.Y - mousePos.Y;
+                }
+
+                previousMousePosition = new Vector2(mousePos.X, mousePos.Y);
             }
 
         }

@@ -37,8 +37,11 @@ namespace GraphColoring
         public override void Draw(SpriteBatch sBatch)
         {
             sBatch.Begin();
-            if(texture!=null)
-                sBatch.Draw(texture, position, color);
+            if (texture != null)
+            {
+                Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(texture.Width * Game1.widthRatio), (int)(texture.Height * Game1.heightRatio));
+                sBatch.Draw(texture, destRect, color);
+            }
             sBatch.DrawString(sp, text, textPosition,  textColor);
             sBatch.End();
         }

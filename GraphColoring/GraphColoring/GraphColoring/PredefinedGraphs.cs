@@ -10,7 +10,7 @@ namespace GraphColoring
     class PredefinedGraphs
     {
         public static List<GardenGraph> graphs;
-        public static Vector2 center = new Vector2(600, 320);
+        public static Vector2 center = Game1.GetRatioDimensions(new Vector2(600, 338));
         /// <summary>
         /// Metoda tworząca graf o n wierzcholkach bez krawedzi
         /// </summary>
@@ -21,8 +21,8 @@ namespace GraphColoring
         {
             int height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             int R = 50*n;
-            if (R > height / 2 - 300)
-                R = height / 2 - 300;
+            if (R > height / 2 - 100)
+                R = height / 2 - 100;
             List<Flower> flowers = CreateflowerList(n, center, R, content);
             List<Fence> fences = new List<Fence>();
             return new GardenGraph(flowers, fences);

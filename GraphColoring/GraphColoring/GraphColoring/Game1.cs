@@ -29,6 +29,9 @@ namespace GraphColoring
         bool wasChecked;
         bool gameStarted;
 
+        public static double widthRatio;
+        public static double heightRatio;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWndle, String text, String caption, int buttons);
 
@@ -45,12 +48,19 @@ namespace GraphColoring
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = 800;
-            graphics.PreferredBackBufferWidth = 1200;
+            //graphics.PreferredBackBufferHeight = 800;
+            //graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 100;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 250;
             Content.RootDirectory = "Content";
             this.wasChecked = false;            
             this.gameStarted = false;
             instance = this;
+
+            int gameHeight = Game1.GetHeight();
+            int gameWidth = Game1.GetWidth();
+            Game1.heightRatio = (double)gameHeight / 800;
+            Game1.widthRatio = (double)gameWidth / 1200;
         }
 
         /// <summary>
@@ -66,7 +76,6 @@ namespace GraphColoring
             playerInterface = new PlayerInterface(Content);
             graphCreator = new GraphCreator(Content);
             IsMouseVisible = true;
-            int colorsNr =2;
             Player p1 = new Player("Player 1");
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
@@ -79,6 +88,11 @@ namespace GraphColoring
                 GraphicsDevice.PresentationParameters.BackBufferHeight);
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 10.0f);
             base.Initialize();
+        }
+
+        public static Vector2 GetRatioDimensions(Vector2 v)
+        {
+            return new Vector2((int)(v.X * Game1.widthRatio), (int)(v.Y * Game1.heightRatio));
         }
 
         /// <summary>
@@ -153,7 +167,15 @@ namespace GraphColoring
                     break;
                 case InterfaceState.GraphCreation:
                     if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
                         graphCreator.CheckGraphCreator(mousePos, playerInterface, Content);
+                    }
+                    else
+                    {
+                        graphCreator.movingFlower = false;
+                        graphCreator.previousMousePosition = Vector2.Zero;
+                    }
+
                     break;
             }
             base.Update(gameTime);

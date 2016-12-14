@@ -48,17 +48,17 @@ namespace GraphColoring
         {
             PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
             state = InterfaceState.MainMenu;
-            MainMenuButtons = new List<Button>() { new Button(new Vector2(470, 300), content, "nowa-gra"),
-                new Button(new Vector2(440, 400), content, "stworz-graf"),
-                new Button(new Vector2(485, 500), content, "wyjscie"),
+            MainMenuButtons = new List<Button>() { new Button(Game1.GetRatioDimensions(new Vector2(470, 300)), content, "nowa-gra"),
+                new Button(Game1.GetRatioDimensions(new Vector2(440, 400)), content, "stworz-graf"),
+                new Button(Game1.GetRatioDimensions(new Vector2(485, 500)), content, "wyjscie"),
             };
 
             NewGameTextBoxes = new List<TextBox>() { 
-                new TextBox(content,colorsNr.ToString(),new Vector2(650,390),new Vector2(845,475),"liczba-kolorow",0,"CzcionkaUI"),
-                new TextBox(content,"",new Vector2(650,50),new Vector2(0,0),"trybBox"),
-                new TextBox(content,"",new Vector2(650,220),new Vector2(0,0),"kolorowanie"),
-                new TextBox(content,"",new Vector2(650,560),new Vector2(0,0),"gra"),
-                new TextBox(content,"",new Vector2(50,560),new Vector2(0,0),"poziom"),
+                new TextBox(content,colorsNr.ToString(),Game1.GetRatioDimensions(new Vector2(650,390)),Game1.GetRatioDimensions(new Vector2(845,475)),"liczba-kolorow",0,"CzcionkaUI"),
+                new TextBox(content,"",Game1.GetRatioDimensions(new Vector2(650,50)),new Vector2(0,0),"trybBox"),
+                new TextBox(content,"",Game1.GetRatioDimensions(new Vector2(650,220)),new Vector2(0,0),"kolorowanie"),
+                new TextBox(content,"",Game1.GetRatioDimensions(new Vector2(650,560)),new Vector2(0,0),"gra"),
+                new TextBox(content,"",Game1.GetRatioDimensions(new Vector2(50,560)),new Vector2(0,0),"poziom"),
 
             };
             p1 = new Player();
@@ -66,29 +66,29 @@ namespace GraphColoring
             easyMode = true;
             GraphButtons = new List<ClickableObject>() 
             {
-                new Button(new Vector2(50, 50), content, "graf1"),
-                new Button(new Vector2(210, 50), content, "graf2"),
-                new Button(new Vector2(370, 50), content, "graf3"),
+                new Button(Game1.GetRatioDimensions(new Vector2(50, 50)), content, "graf1"),
+                new Button(Game1.GetRatioDimensions(new Vector2(210, 50)), content, "graf2"),
+                new Button(Game1.GetRatioDimensions(new Vector2(370, 50)), content, "graf3"),
             };
             GameTypeButtons = new List<Button>(){
-                new Button(new Vector2(660, 100), content, "gra-vs-gra"),
-                new Button(new Vector2(660, 150), content, "gra-vs-komp"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 100)), content, "gra-vs-gra"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 150)), content, "gra-vs-komp"),
             };
             GameDifButtons = new List<Button>(){
-                new Button(new Vector2(60, 610), content, "latwy"),
-                new Button(new Vector2(60, 660), content, "trudny"),
+                new Button(Game1.GetRatioDimensions(new Vector2(60, 610)), content, "latwy"),
+                new Button(Game1.GetRatioDimensions(new Vector2(60, 660)), content, "trudny"),
             };
             GameColoringButtons = new List<Button>(){
-                new Button(new Vector2(660, 260), content, "kwiatkow"),
-                new Button(new Vector2(660, 310), content, "plotkow"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 260)), content, "kwiatkow"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 310)), content, "plotkow"),
             };
             GameModeButtons = new List<Button>(){
-                new Button(new Vector2(660, 610), content, "sasiad-ogrodnik"),
-                new Button(new Vector2(660, 660), content, "ogrodnik-sasiad"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 610)), content, "sasiad-ogrodnik"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 660)), content, "ogrodnik-sasiad"),
             };
             NewGameButtons = new List<ClickableObject>(){                
-                new Button(new Vector2(350, 730), content, "anuluj"),
-                new Button(new Vector2(650, 730), content, "start"),
+                new Button(Game1.GetRatioDimensions(new Vector2(350, 730)), content, "anuluj"),
+                new Button(Game1.GetRatioDimensions(new Vector2(650, 730)), content, "start"),
             };
             foreach (Button b in GameDifButtons)
                 NewGameButtons.Add(b);
@@ -102,16 +102,16 @@ namespace GraphColoring
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
-            {   new TextBox(content, "Player1", new Vector2(100, 200), new Vector2(550, 250), "Gracz1",0,"CzcionkaUI") ,
-                new TextBox(content, "Player2", new Vector2(100, 500), new Vector2(550, 550), "Gracz2",0,"CzcionkaUI")
+            {   new TextBox(content, "Player1", Game1.GetRatioDimensions(new Vector2(100, 200)), Game1.GetRatioDimensions(new Vector2(550, 250)), "Gracz1",0,"CzcionkaUI") ,
+                new TextBox(content, "Player2", Game1.GetRatioDimensions(new Vector2(100, 500)), Game1.GetRatioDimensions(new Vector2(550, 550)), "Gracz2",0,"CzcionkaUI")
             };
             LoginButtons = new List<Button>(){                
-                new Button(new Vector2(350, 30), content, "anuluj"),
-                new Button(new Vector2(650, 30), content, "start"),
+                new Button(Game1.GetRatioDimensions(new Vector2(350, 30)), content, "anuluj"),
+                new Button(Game1.GetRatioDimensions(new Vector2(650, 30)), content, "start"),
             };
 
             titleTexture = content.Load<Texture2D>("title");
-            titleVector = new Vector2(250, 100);
+            titleVector = Game1.GetRatioDimensions(new Vector2(250, 100));
             chosenGraph = null;
         }
 
@@ -150,15 +150,15 @@ namespace GraphColoring
 
                     int x;
                     if (n % 3 == 0)
-                        x = 50;
+                        x = (int)(50 * Game1.widthRatio);
                     else if (n % 3 == 1)
-                        x = 210;
+                        x = (int)(210 * Game1.widthRatio);
                     else
-                        x = 370;
+                        x = (int)(370 * Game1.widthRatio);
 
-                    int y = (n / 3) * 50 + 160;
+                    int y = (n / 3) * (int)(50 * Game1.heightRatio) + (int)(160 * Game1.heightRatio);
                     PredefinedGraphs.graphs.Add(newGraph);
-                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + 20, y + 15), "graphcreated", n));
+                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + (int)(17 * Game1.widthRatio), y + (int)(15 * Game1.heightRatio)), "graphcreated", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
             }
@@ -441,8 +441,9 @@ namespace GraphColoring
 
         public void MainMenuDraw(SpriteBatch sBatch)
         {
+            Rectangle destRect = new Rectangle((int)titleVector.X, (int)titleVector.Y, (int)(titleTexture.Width * Game1.widthRatio), (int)(titleTexture.Height * Game1.heightRatio));
             sBatch.Begin();
-            sBatch.Draw(titleTexture, titleVector, Color.White);
+            sBatch.Draw(titleTexture, destRect, Color.White);
             sBatch.End();
             foreach (Button b in MainMenuButtons)
                 b.Draw(sBatch);

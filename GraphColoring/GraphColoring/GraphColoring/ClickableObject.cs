@@ -27,7 +27,13 @@ namespace GraphColoring
         /// Funkcja rysujaca obiekt
         /// </summary>
         /// <param name="sBatch"></param>
-        public virtual void Draw(SpriteBatch sBatch){ }
+        public virtual void Draw(SpriteBatch sBatch)
+        {
+            Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(texture.Width * Game1.widthRatio), (int)(texture.Height * Game1.heightRatio));
+            sBatch.Begin();
+            sBatch.Draw(texture, destRect, color);
+            sBatch.End();
+        }
 
         /// <summary>
         /// Funckja sprawdzajaca zwawieranie punktu w obiekcie

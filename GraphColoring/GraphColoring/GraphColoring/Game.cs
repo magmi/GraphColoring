@@ -67,18 +67,18 @@ namespace GraphColoring
             panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
             string ps1 = p1.isGardener ? "O: " : "S: ";
             string ps2 = p2.isGardener ? "O: " : "S: ";
-            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), new Vector2(400, 0), Color.White, null, 0, "CzcionkaUI");
+            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(300, 0)), Color.White, null, 0, "CzcionkaUI");
             if(p2 is Computer)
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White, null, 0, "CzcionkaUI") };
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White, null, 0, "CzcionkaUI") };
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 400)), Color.White, null, 0, "CzcionkaUI") };
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 440)), Color.White, null, 0, "CzcionkaUI") };
             }
             else
             {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), new Vector2(10, 400), Color.White, null, 0, "CzcionkaUI"),
-                                            new TextBox(content, ps2 + p2.login, new Vector2(0, 0), new Vector2(10, 600), Color.White, null, 0, "CzcionkaUI"),};
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), new Vector2(30, 440), Color.White, null, 0, "CzcionkaUI"),
-                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), new Vector2(30, 640), Color.White, null, 0, "CzcionkaUI"),
+                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 400)), Color.White, null, 0, "CzcionkaUI"),
+                                            new TextBox(content, ps2 + p2.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 600)), Color.White, null, 0, "CzcionkaUI"),};
+                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 440)), Color.White, null, 0, "CzcionkaUI"),
+                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 640)), Color.White, null, 0, "CzcionkaUI"),
                 
                 };
             }
