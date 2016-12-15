@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="49152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="51200">
       <assemblyIdentity name="GraphColoring" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>uIn/sz7xdkLVBWC4IKSax34tSOM=</dsig:DigestValue>
+        <dsig:DigestValue>f7iFE5v03BrwoAlVVRz9UjZEUTM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -131,6 +131,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Ja59bIxORmWYAJsePAxG79THlys=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\dodaj-kwiatek.xnb" size="46303">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Cc8p4Ax93//iQ5dLQAqwJRxIKoQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\gra.xnb" size="255627">
@@ -428,6 +437,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>M/CfVwzdvr5MIMElguBpy32WU6Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\usun.xnb" size="46303">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>F4RXNfc8odAhQ+LAh7L8pwihecU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\wyjscie.xnb" size="39407">

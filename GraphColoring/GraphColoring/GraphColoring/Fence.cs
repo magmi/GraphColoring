@@ -69,7 +69,7 @@ namespace GraphColoring
             return Math.Atan2(yDiff, xDiff);// *(180 / Math.PI); 
         }
         /// <summary>
-        /// Funckaj obliczajaca odleglosc miedzy dwoma kwiatkami
+        /// Funkcja obliczajaca odleglosc miedzy dwoma kwiatkami
         /// </summary>
         /// <returns></returns>
         public int GetDistanceBetweenFlowers()

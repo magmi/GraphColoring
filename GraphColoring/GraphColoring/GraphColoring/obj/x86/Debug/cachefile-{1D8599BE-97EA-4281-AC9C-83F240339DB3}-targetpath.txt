@@ -39,3 +39,5 @@ Content\colorBox2.xnb
 Content\KoloryText.xnb
 Content\SpriteFont1.xnb
 Content\CzcionkaUI.xnb
+Content\usun.xnb
+Content\dodaj-kwiatek.xnb

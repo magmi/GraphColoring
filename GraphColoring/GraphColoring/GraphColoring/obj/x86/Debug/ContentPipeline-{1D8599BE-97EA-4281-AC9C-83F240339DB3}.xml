@@ -370,6 +370,24 @@
       <Output>C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\CzcionkaUI.xnb</Output>
       <Time>2016-01-19T19:45:19.1829132+01:00</Time>
     </Item>
+    <Item>
+      <Source>usun.png</Source>
+      <Name>usun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\usun.xnb</Output>
+      <Time>2016-12-15T21:03:57.214294+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dodaj-kwiatek.png</Source>
+      <Name>dodaj-kwiatek</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\dodaj-kwiatek.xnb</Output>
+      <Time>2016-12-15T21:08:53.7806224+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1D8599BE-97EA-4281-AC9C-83F240339DB3}</ContentProjectGUID>

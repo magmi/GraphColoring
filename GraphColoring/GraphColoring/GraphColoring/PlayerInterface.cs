@@ -158,7 +158,7 @@ namespace GraphColoring
 
                     int y = (n / 3) * (int)(50 * Game1.heightRatio) + (int)(160 * Game1.heightRatio);
                     PredefinedGraphs.graphs.Add(newGraph);
-                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + (int)(17 * Game1.widthRatio), y + (int)(15 * Game1.heightRatio)), "graphcreated", n));
+                    GraphButtons.Add(new TextBox(content, name, new Vector2(x, y), new Vector2(x + (int)(8 * Game1.widthRatio), y + (int)(15 * Game1.heightRatio)), "graphcreated", n));
                     NewGameButtons.Add(GraphButtons[n]);
                 }
             }

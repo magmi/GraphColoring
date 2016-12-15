@@ -17,14 +17,14 @@
           <A>255</A>
           <PackedValue>4294967295</PackedValue>
         </color>
-        <index>0</index>
+        <index>3</index>
         <position>
-          <X>600</X>
-          <Y>470</Y>
+          <X>354</X>
+          <Y>366</Y>
         </position>
         <center>
-          <X>650</X>
-          <Y>520</Y>
+          <X>404</X>
+          <Y>416</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -42,12 +42,12 @@
         </color>
         <index>2</index>
         <position>
-          <X>470</X>
-          <Y>245</Y>
+          <X>368</X>
+          <Y>128</Y>
         </position>
         <center>
-          <X>520</X>
-          <Y>295</Y>
+          <X>418</X>
+          <Y>178</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -60,10 +60,10 @@
       </texture>
       <textureAsset>Plotek</textureAsset>
       <position>
-        <X>650</X>
-        <Y>520</Y>
+        <X>404</X>
+        <Y>416</Y>
       </position>
-      <angle>-2.0947156</angle>
+      <angle>-1.5120405</angle>
       <height>10</height>
     </Fence>
     <Fence>
@@ -82,14 +82,14 @@
           <A>255</A>
           <PackedValue>4294967295</PackedValue>
         </color>
-        <index>2</index>
+        <index>3</index>
         <position>
-          <X>470</X>
-          <Y>245</Y>
+          <X>354</X>
+          <Y>366</Y>
         </position>
         <center>
-          <X>520</X>
-          <Y>295</Y>
+          <X>404</X>
+          <Y>416</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -105,14 +105,14 @@
           <A>255</A>
           <PackedValue>4294967295</PackedValue>
         </color>
-        <index>1</index>
+        <index>4</index>
         <position>
-          <X>729</X>
-          <Y>244</Y>
+          <X>713</X>
+          <Y>169</Y>
         </position>
         <center>
-          <X>779</X>
-          <Y>294</Y>
+          <X>763</X>
+          <Y>219</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -125,10 +125,75 @@
       </texture>
       <textureAsset>Plotek</textureAsset>
       <position>
-        <X>520</X>
-        <Y>295</Y>
+        <X>404</X>
+        <Y>416</Y>
       </position>
-      <angle>-0.0038609847</angle>
+      <angle>-0.501880348</angle>
+      <height>10</height>
+    </Fence>
+    <Fence>
+      <color>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+        <A>255</A>
+        <PackedValue>4294967295</PackedValue>
+      </color>
+      <f1>
+        <color>
+          <R>255</R>
+          <G>255</G>
+          <B>255</B>
+          <A>255</A>
+          <PackedValue>4294967295</PackedValue>
+        </color>
+        <index>3</index>
+        <position>
+          <X>354</X>
+          <Y>366</Y>
+        </position>
+        <center>
+          <X>404</X>
+          <Y>416</Y>
+        </center>
+        <sideLength>100</sideLength>
+        <texture>
+          <Name />
+        </texture>
+        <textureAsset>Kwiatek</textureAsset>
+      </f1>
+      <f2>
+        <color>
+          <R>255</R>
+          <G>255</G>
+          <B>255</B>
+          <A>255</A>
+          <PackedValue>4294967295</PackedValue>
+        </color>
+        <index>0</index>
+        <position>
+          <X>558</X>
+          <Y>482</Y>
+        </position>
+        <center>
+          <X>608</X>
+          <Y>532</Y>
+        </center>
+        <sideLength>100</sideLength>
+        <texture>
+          <Name />
+        </texture>
+        <textureAsset>Kwiatek</textureAsset>
+      </f2>
+      <texture>
+        <Name />
+      </texture>
+      <textureAsset>Plotek</textureAsset>
+      <position>
+        <X>404</X>
+        <Y>416</Y>
+      </position>
+      <angle>0.517031968</angle>
       <height>10</height>
     </Fence>
     <Fence>
@@ -149,12 +214,12 @@
         </color>
         <index>1</index>
         <position>
-          <X>729</X>
-          <Y>244</Y>
+          <X>557</X>
+          <Y>82</Y>
         </position>
         <center>
-          <X>779</X>
-          <Y>294</Y>
+          <X>607</X>
+          <Y>132</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -170,14 +235,14 @@
           <A>255</A>
           <PackedValue>4294967295</PackedValue>
         </color>
-        <index>0</index>
+        <index>4</index>
         <position>
-          <X>600</X>
-          <Y>470</Y>
+          <X>713</X>
+          <Y>169</Y>
         </position>
         <center>
-          <X>650</X>
-          <Y>520</Y>
+          <X>763</X>
+          <Y>219</Y>
         </center>
         <sideLength>100</sideLength>
         <texture>
@@ -190,10 +255,10 @@
       </texture>
       <textureAsset>Plotek</textureAsset>
       <position>
-        <X>779</X>
-        <Y>294</Y>
+        <X>607</X>
+        <Y>132</Y>
       </position>
-      <angle>2.08946586</angle>
+      <angle>0.5087298</angle>
       <height>10</height>
     </Fence>
   </fences>
@@ -208,12 +273,12 @@
       </color>
       <index>0</index>
       <position>
-        <X>600</X>
-        <Y>470</Y>
+        <X>558</X>
+        <Y>482</Y>
       </position>
       <center>
-        <X>650</X>
-        <Y>520</Y>
+        <X>608</X>
+        <Y>532</Y>
       </center>
       <sideLength>100</sideLength>
       <texture>
@@ -231,12 +296,12 @@
       </color>
       <index>1</index>
       <position>
-        <X>729</X>
-        <Y>244</Y>
+        <X>557</X>
+        <Y>82</Y>
       </position>
       <center>
-        <X>779</X>
-        <Y>294</Y>
+        <X>607</X>
+        <Y>132</Y>
       </center>
       <sideLength>100</sideLength>
       <texture>
@@ -254,12 +319,58 @@
       </color>
       <index>2</index>
       <position>
-        <X>470</X>
-        <Y>245</Y>
+        <X>368</X>
+        <Y>128</Y>
       </position>
       <center>
-        <X>520</X>
-        <Y>295</Y>
+        <X>418</X>
+        <Y>178</Y>
+      </center>
+      <sideLength>100</sideLength>
+      <texture>
+        <Name />
+      </texture>
+      <textureAsset>Kwiatek</textureAsset>
+    </Flower>
+    <Flower>
+      <color>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+        <A>255</A>
+        <PackedValue>4294967295</PackedValue>
+      </color>
+      <index>3</index>
+      <position>
+        <X>354</X>
+        <Y>366</Y>
+      </position>
+      <center>
+        <X>404</X>
+        <Y>416</Y>
+      </center>
+      <sideLength>100</sideLength>
+      <texture>
+        <Name />
+      </texture>
+      <textureAsset>Kwiatek</textureAsset>
+    </Flower>
+    <Flower>
+      <color>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+        <A>255</A>
+        <PackedValue>4294967295</PackedValue>
+      </color>
+      <index>4</index>
+      <position>
+        <X>713</X>
+        <Y>169</Y>
+      </position>
+      <center>
+        <X>763</X>
+        <Y>219</Y>
       </center>
       <sideLength>100</sideLength>
       <texture>
@@ -268,8 +379,8 @@
       <textureAsset>Kwiatek</textureAsset>
     </Flower>
   </flowers>
-  <flowersNumber>3</flowersNumber>
-  <fencesNumber>3</fencesNumber>
+  <flowersNumber>5</flowersNumber>
+  <fencesNumber>4</fencesNumber>
   <coloredFlowersNumber>0</coloredFlowersNumber>
   <coloredFencesNumber>0</coloredFencesNumber>
 </GardenGraph>

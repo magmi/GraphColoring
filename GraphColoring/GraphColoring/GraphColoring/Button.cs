@@ -15,6 +15,13 @@ namespace GraphColoring
             index = i;
         }
 
+        public Button(Vector2 pos, ContentManager content, string fileName, Color _color, int i = 0)
+            : base(pos, content, fileName)
+        {
+            color = _color;
+            index = i;
+        }
+
         public override void Draw(SpriteBatch sBatch)
         {
             int gameHeight = Game1.GetHeight();

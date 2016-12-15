@@ -32,8 +32,6 @@ namespace GraphColoring
         public static double widthRatio;
         public static double heightRatio;
 
-        public static SpriteFont Font1;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern uint MessageBox(IntPtr hWndle, String text, String caption, int buttons);
 
@@ -50,8 +48,6 @@ namespace GraphColoring
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.PreferredBackBufferHeight = 800;
-            //graphics.PreferredBackBufferWidth = 1200;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 100;
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 250;
             Content.RootDirectory = "Content";
@@ -82,7 +78,6 @@ namespace GraphColoring
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
 
-            //game = new Game(GameType.VerticesColoring, GameMode.SinglePlayer, PredefinedGraphs.GraphTwo(Content), colorsNr, Content,p1,c1);
             background = Content.Load<Texture2D>("tlo");
 
             screenRectangle = new Rectangle(0, 0, 
@@ -105,10 +100,6 @@ namespace GraphColoring
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-
-            Font1 = Content.Load<SpriteFont>("CzcionkaUI");
-
 
             // TODO: use this.Content to load your game content here
         }
@@ -243,7 +234,6 @@ namespace GraphColoring
 
                     if (!game.gardenerStartedMove && gameStarted)
                     {
-                        //MessageBox(new IntPtr(), "Gardener turn", "Next turn", 0);
                         game.ChangeTurn(game.player1.isGardener);
                         game.gardenerStartedMove = true;
                     }
@@ -269,7 +259,6 @@ namespace GraphColoring
                     {
                         if (game.gardenerStartedMove && gameStarted)
                         {
-                            //MessageBox(new IntPtr(), "Neighbour turn", "Next turn", 0);
                             game.ChangeTurn(!game.player1.isGardener);
                             game.gardenerStartedMove = false;
                         }

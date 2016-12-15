@@ -170,3 +170,5 @@ C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphCol
 C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.application
 C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.exe
 C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\obj\x86\Debug\GraphColoring.pdb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\usun.xnb
+C:\Users\Maja\GitRepositories\GraphColoring\GraphColoring\GraphColoring\GraphColoring\bin\x86\Debug\Content\dodaj-kwiatek.xnb

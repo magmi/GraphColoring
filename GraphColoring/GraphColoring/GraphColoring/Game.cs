@@ -71,7 +71,7 @@ namespace GraphColoring
             string ps1 = p1.isGardener ? "O: " : "S: ";
             string ps2 = p2.isGardener ? "O: " : "S: ";
 
-            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(550, 0)), Color.White, null, 0, "CzcionkaUI");
+            WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(250, 0)), Color.White, null, 0, "CzcionkaUI");
 
             if(p2 is Computer)
             {

@@ -16,7 +16,7 @@ namespace GraphColoring
         public StringBuilder VerticesNrBuilder;
         public int VerticesNr;
         private GardenGraph graph;
-        private Flower lastClicked;
+        private ColorableObject lastClicked;
         private Texture2D fenceTexture;
         public Vector2 previousMousePosition = Vector2.Zero;
         public bool movingFlower = false;
@@ -34,6 +34,8 @@ namespace GraphColoring
             GCButtons = new List<Button>(){
                 new Button(Game1.GetRatioDimensions(new Vector2(0, 730)), content, "anuluj"),
                 new Button(Game1.GetRatioDimensions(new Vector2(0, 660)), content, "zapisz-graf"),
+                new Button(Game1.GetRatioDimensions(new Vector2(0, 590)), content, "usun", Color.Gray),
+                new Button(Game1.GetRatioDimensions(new Vector2(0, 520)), content, "dodaj-kwiatek")
             };
             
             fenceTexture = content.Load<Texture2D>("Plotek");
@@ -67,38 +69,102 @@ namespace GraphColoring
                         break;
                     case "zapisz-graf":
                         DateTime now = DateTime.Now;
+                        PrepareGraphForSerialization();
                         SerializationManager.SerializeObject(graph, SerializationManager.CreateFileName(now));
                         pi.state = InterfaceState.MainMenu;
+                        break;
+                    case "usun":
+                        if(GCButtons[index].color == Color.White)
+                        {
+                            if (lastClicked is Fence)
+                            {
+                                graph.fences.Remove((Fence)lastClicked);
+                                graph.fencesNumber--;
+                            }
+                            else if(lastClicked is Flower)
+                            {
+                                outFences = graph.GetOutFences((Flower)lastClicked);
+                                if (outFences.Count > 0)
+                                    Game1.MessageBox(new IntPtr(), "Najpierw usuń wychodzące krawędzie", "", 0);
+                                else
+                                {
+                                    graph.flowers.Remove((Flower)lastClicked);
+                                    graph.flowersNumber--;
+                                }
+                            }
+
+                            GCButtons[index].color = Color.Gray;
+                            lastClicked.color = Color.White;
+                            lastClicked = null;
+                            GCButtons[3].color = Color.White;
+                            return;
+                        }
+                        break;
+                    case "dodaj-kwiatek":
+                        if (GCButtons[index].color == Color.White)
+                        {
+                            List<int> indices = new List<int>();
+                            foreach(Flower f in graph.flowers)
+                            {
+                                indices.Add(f.index);
+                            }
+                            indices.Sort();
+
+                            int previous_index = -1;
+                            int flower_index = graph.flowersNumber;
+                            foreach(int ind in indices)
+                            {
+                                if(ind - previous_index > 1)
+                                {
+                                    flower_index = previous_index + 1;
+                                    break;
+                                }
+                                previous_index = ind;
+                            }
+
+                            Flower flower = new Flower(Game1.GetRatioDimensions(new Vector2(0, 390)), "Kwiatek", flower_index);
+                            graph.flowers.Add(flower);
+                            graph.flowersNumber++;
+                            return;
+                        }
                         break;
                 }
             }
 
-            for (int i = 0; i < VerticesNr; i++)
+            if (!(lastClicked is Fence))
             {
-                if (graph.flowers[i].ContainsPoint(mousePos))
+                for (int i = 0; i < graph.flowersNumber; i++)
                 {
-                    if (lastClicked == null)
+                    if (graph.flowers[i].ContainsPoint(mousePos))
                     {
-                        lastClicked = graph.flowers[i];
-                        lastClicked.color = Color.LightBlue;
-                        movingFlower = true;
-                    }
-                    else if(!movingFlower)
-                    {
-                        if (graph.flowers[i] != lastClicked)
+                        if (lastClicked == null)
                         {
-                            Fence f = new Fence(lastClicked, graph.flowers[i], "Plotek");
-
-                            outFences = graph.GetOutFences(lastClicked);
-                            if (!outFences.Exists(x => (x.f1.Equals(lastClicked) && x.f2.Equals(graph.flowers[i])) || (x.f1.Equals(graph.flowers[i]) && x.f2.Equals(lastClicked))))
-                            {
-                                outFences.Add(f);
-                                graph.fences.Add(f);
-                                graph.fencesNumber += 1;
-                            }
+                            lastClicked = graph.flowers[i];
+                            lastClicked.color = Color.LightBlue;
+                            movingFlower = true;
+                            GCButtons[2].color = Color.White;
+                            GCButtons[3].color = Color.Gray;
+                            break;
                         }
-                        lastClicked.color = Color.White;
-                        lastClicked = null;
+                        else if (!movingFlower)
+                        {
+                            if (graph.flowers[i] != lastClicked)
+                            {
+                                Fence f = new Fence((Flower)lastClicked, graph.flowers[i], "Plotek");
+
+                                outFences = graph.GetOutFences((Flower)lastClicked);
+                                if (!outFences.Exists(x => (x.f1.Equals(lastClicked) && x.f2.Equals(graph.flowers[i])) || (x.f1.Equals(graph.flowers[i]) && x.f2.Equals(lastClicked))))
+                                {
+                                    graph.fences.Add(f);
+                                    graph.fencesNumber += 1;
+                                }
+                            }
+                            lastClicked.color = Color.White;
+                            lastClicked = null;
+                            GCButtons[2].color = Color.Gray;
+                            GCButtons[3].color = Color.White;
+                            return;
+                        }
                     }
                 }
             }
@@ -107,16 +173,55 @@ namespace GraphColoring
             {
                 if (previousMousePosition != Vector2.Zero)
                 {
-                    lastClicked.position.X -= previousMousePosition.X - mousePos.X;
-                    lastClicked.position.Y -= previousMousePosition.Y - mousePos.Y;
+                    ((Flower)lastClicked).position.X -= previousMousePosition.X - mousePos.X;
+                    ((Flower)lastClicked).position.Y -= previousMousePosition.Y - mousePos.Y;
 
-                    lastClicked.center.X -= previousMousePosition.X - mousePos.X;
-                    lastClicked.center.Y -= previousMousePosition.Y - mousePos.Y;
+                    ((Flower)lastClicked).center.X -= previousMousePosition.X - mousePos.X;
+                    ((Flower)lastClicked).center.Y -= previousMousePosition.Y - mousePos.Y;
                 }
 
                 previousMousePosition = new Vector2(mousePos.X, mousePos.Y);
             }
+            else
+            {
+                if (lastClicked == null || lastClicked is Fence)
+                {
+                    for (int i = 0; i < graph.fencesNumber; i++)
+                    {
+                        if (graph.fences[i].ContainsPoint(mousePos))
+                        {
+                            if (lastClicked == null)
+                            {
+                                lastClicked = graph.fences[i];
+                                lastClicked.color = Color.LightBlue;
+                                GCButtons[2].color = Color.White;
+                                GCButtons[3].color = Color.Gray;
+                            }
+                            else
+                            {
+                                if (graph.fences[i] == lastClicked)                               
+                                {
+                                    lastClicked.color = Color.White;
+                                    lastClicked = null;
+                                    GCButtons[2].color = Color.Gray;
+                                    GCButtons[3].color = Color.White;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
+        }
+
+        private void PrepareGraphForSerialization()
+        {
+            int iterator = 0;
+            foreach(Flower f in graph.flowers)
+            {
+                f.index = iterator++;
+            }
         }
 
         /// <summary>
