@@ -34,7 +34,7 @@ namespace GraphColoring
         public Player p1;
         public Player p2;
         public bool easyMode;
-        public GameType gT = GameType.EdgesColoring;
+        public GameType gT = GameType.VerticesColoring;
         public GameOrder gO = GameOrder.GN;
 
         //LoginSingle
@@ -62,6 +62,7 @@ namespace GraphColoring
 
             };
             p1 = new Player();
+            p1.isGardener = true;
             p2 = new Player();
             easyMode = true;
             GraphButtons = new List<ClickableObject>() 
@@ -71,20 +72,20 @@ namespace GraphColoring
                 new Button(Game1.GetRatioDimensions(new Vector2(370, 50)), content, "graf3"),
             };
             GameTypeButtons = new List<Button>(){
-                new Button(Game1.GetRatioDimensions(new Vector2(660, 100)), content, "gra-vs-gra"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 100)), content, "gra-vs-gra", Color.LightBlue),
                 new Button(Game1.GetRatioDimensions(new Vector2(660, 150)), content, "gra-vs-komp"),
             };
             GameDifButtons = new List<Button>(){
-                new Button(Game1.GetRatioDimensions(new Vector2(60, 610)), content, "latwy"),
+                new Button(Game1.GetRatioDimensions(new Vector2(60, 610)), content, "latwy", Color.LightBlue),
                 new Button(Game1.GetRatioDimensions(new Vector2(60, 660)), content, "trudny"),
             };
             GameColoringButtons = new List<Button>(){
-                new Button(Game1.GetRatioDimensions(new Vector2(660, 260)), content, "kwiatkow"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 260)), content, "kwiatkow", Color.LightBlue),
                 new Button(Game1.GetRatioDimensions(new Vector2(660, 310)), content, "plotkow"),
             };
             GameModeButtons = new List<Button>(){
                 new Button(Game1.GetRatioDimensions(new Vector2(660, 610)), content, "sasiad-ogrodnik"),
-                new Button(Game1.GetRatioDimensions(new Vector2(660, 660)), content, "ogrodnik-sasiad"),
+                new Button(Game1.GetRatioDimensions(new Vector2(660, 660)), content, "ogrodnik-sasiad", Color.LightBlue),
             };
             NewGameButtons = new List<ClickableObject>(){                
                 new Button(Game1.GetRatioDimensions(new Vector2(350, 730)), content, "anuluj"),
