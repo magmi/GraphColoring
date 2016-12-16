@@ -74,7 +74,7 @@ namespace GraphColoring
             playerInterface = new PlayerInterface(Content);
             graphCreator = new GraphCreator(Content);
             IsMouseVisible = true;
-            Player p1 = new Player("Player 1");
+            Player p1 = new Player("Gracz1");
             Computer c1 = new Computer(true);
             PredefinedGraphs.graphs = new List<GardenGraph>() { PredefinedGraphs.GraphZero(Content), PredefinedGraphs.GraphOne(Content), PredefinedGraphs.GraphTwo(Content) };
 
@@ -227,6 +227,23 @@ namespace GraphColoring
         public void ManageGame(MouseState mouseState, GameTime gameTime)
         {
             bool didGardenerWon;
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (game.Escape.ContainsPoint(new Point(mouseState.X, mouseState.Y)))
+                {
+                    if (MessageBox(new IntPtr(), "Zakoñczyæ grê?", "Wyjœcie", 4) == 6)
+                    {
+                        game = null;
+                        wasChecked = false;
+                        gameStarted = false;
+                        playerInterface = new PlayerInterface(Content);
+                        playerInterface.state = InterfaceState.MainMenu;
+                        return;
+                    }
+                }
+            }
+
             if (!wasChecked)
             {
                 if (game.whoseTurn == 0)
@@ -282,10 +299,21 @@ namespace GraphColoring
                 if (wasChecked)
                 {
                     if (didGardenerWon)
-                        MessageBox(new IntPtr(), "Gardener won", "Game over", 0);
+                    {
+                        if (game.gameType == GameType.VerticesColoring)
+                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPosadzi³ wszystkie kwiaty wed³ug w³asnego uznania.", "Koniec gry", 0);
+                        else
+                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPomalowa³ wszystkie p³otki wed³ug w³asnego uznania.", "Koniec gry", 0);
+                    }
+                        
                     else
-                        MessageBox(new IntPtr(), "Neighbour won", "Game over", 0);
-
+                    {
+                        if (game.gameType == GameType.VerticesColoring)
+                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z kwiatów nie mo¿e zostaæ prawid³owo posadzony.", "Koniec gry", 0);
+                        else
+                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z p³otków nie mo¿e zostaæ prawid³owo pomalowany.", "Koniec gry", 0);
+                    }
+                       
                     game = null;
                     wasChecked = false;
                     gameStarted = false;

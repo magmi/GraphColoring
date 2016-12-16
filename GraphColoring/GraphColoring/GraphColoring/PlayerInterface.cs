@@ -46,7 +46,7 @@ namespace GraphColoring
 
         public PlayerInterface(ContentManager content)
         {
-            PlayerSb = new StringBuilder[] { new StringBuilder("Player1"), new StringBuilder("Player2") };
+            PlayerSb = new StringBuilder[] { new StringBuilder("Gracz1"), new StringBuilder("Gracz2") };
             state = InterfaceState.MainMenu;
             MainMenuButtons = new List<Button>() { new Button(Game1.GetRatioDimensions(new Vector2(470, 300)), content, "nowa-gra"),
                 new Button(Game1.GetRatioDimensions(new Vector2(440, 400)), content, "stworz-graf"),
@@ -63,7 +63,9 @@ namespace GraphColoring
             };
             p1 = new Player();
             p1.isGardener = true;
+            p1.login = "Gracz1";
             p2 = new Player();
+            p2.login = "Gracz2";
             easyMode = true;
             GraphButtons = new List<ClickableObject>() 
             {
@@ -103,8 +105,8 @@ namespace GraphColoring
                 NewGameButtons.Add(b);
 
             LoginTextBoxes = new List<TextBox>() 
-            {   new TextBox(content, "Player1", Game1.GetRatioDimensions(new Vector2(100, 200)), Game1.GetRatioDimensions(new Vector2(550, 250)), "Gracz1",0,"CzcionkaUI") ,
-                new TextBox(content, "Player2", Game1.GetRatioDimensions(new Vector2(100, 500)), Game1.GetRatioDimensions(new Vector2(550, 550)), "Gracz2",0,"CzcionkaUI")
+            {   new TextBox(content, "Gracz1", Game1.GetRatioDimensions(new Vector2(100, 200)), Game1.GetRatioDimensions(new Vector2(550, 250)), "Gracz1",0,"CzcionkaUI") ,
+                new TextBox(content, "Gracz2", Game1.GetRatioDimensions(new Vector2(100, 500)), Game1.GetRatioDimensions(new Vector2(550, 550)), "Gracz2",0,"CzcionkaUI")
             };
             LoginButtons = new List<Button>(){                
                 new Button(Game1.GetRatioDimensions(new Vector2(350, 30)), content, "anuluj"),
@@ -288,8 +290,10 @@ namespace GraphColoring
                     switch (NewGameButtons[i].name)
                     {
                         case "start":
-                            if(p1!=null && chosenGraph != null)
-                                state = p2 is Computer ? InterfaceState.LoginSingle : InterfaceState.LoginMulti;                            
+                            if (p1 != null && chosenGraph != null)
+                                state = p2 is Computer ? InterfaceState.LoginSingle : InterfaceState.LoginMulti;
+                            else
+                                Game1.MessageBox(new IntPtr(), "Wybierz graf do rozgrywki", "", 0);
                             break;
                         case "anuluj":
                             state = InterfaceState.MainMenu;                           
@@ -316,15 +320,15 @@ namespace GraphColoring
                             break;
                         case "gra-vs-gra":
                             ClearButtons(GameTypeButtons);
-                            p1 = new Player("Player1");
-                            p2 = new Player("Player2");
+                            p1 = new Player("Gracz1");
+                            p2 = new Player("Gracz2");
                             UpdateLogins();
                             UpdatePlayers();
                             NewGameButtons[i].color = Color.LightBlue;
                             break;
                         case "gra-vs-komp":
                             ClearButtons(GameTypeButtons);
-                            p1 = new Player("Player1");
+                            p1 = new Player("Gracz1");
                             p2 = new Computer(easyMode);
                             UpdateLogins();
                             UpdatePlayers();

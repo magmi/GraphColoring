@@ -27,6 +27,7 @@ namespace GraphColoring
         public TextBox[] PlayersTexts;
         public TextBox[] PlayerPoints;
         public TextBox WhoseTurnText;
+        public Button Escape;
         public List<TextBox> panels;
         public TextBox colorsText;
         public Game(GameType gT, GardenGraph g, int c)
@@ -72,6 +73,7 @@ namespace GraphColoring
             string ps2 = p2.isGardener ? "O: " : "S: ";
 
             WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(250, 0)), Color.White, null, 0, "CzcionkaUI");
+            Escape = new Button(Game1.GetRatioDimensions(new Vector2(1010, 740)), content, "wyjscie");
 
             if(p2 is Computer)
             {
@@ -206,6 +208,7 @@ namespace GraphColoring
         public void DrawPlayers(SpriteBatch sBatch)
         {
             WhoseTurnText.Draw(sBatch);
+            Escape.Draw(sBatch);
             foreach (TextBox t in PlayersTexts)
                 t.Draw(sBatch);
             foreach (TextBox t in PlayerPoints)
