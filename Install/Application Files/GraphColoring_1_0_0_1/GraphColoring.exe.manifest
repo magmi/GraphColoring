@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="47616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphColoring.exe" size="53248">
       <assemblyIdentity name="GraphColoring" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6AG9bnugnSWW0GeQENs4vcRQjio=</dsig:DigestValue>
+        <dsig:DigestValue>NLwBfgzlajV/4rt0tGan38PxQl4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -131,6 +131,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Ja59bIxORmWYAJsePAxG79THlys=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\dodaj-kwiatek.xnb" size="46303">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Cc8p4Ax93//iQ5dLQAqwJRxIKoQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\gra.xnb" size="255627">
@@ -205,22 +214,22 @@
       <dsig:DigestValue>45oq6jUQ+E8g+uINzxkd5k4Nl1k=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\gra-vs-gra.xnb" size="31331">
+  <file name="Content\gra-vs-gra.xnb" size="31339">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KPkgmcIAUg4ILc1h4+7g0dGQTm0=</dsig:DigestValue>
+      <dsig:DigestValue>ac3VQOmfqbBrdLvjaShK60cK0yA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\gra-vs-komp.xnb" size="35695">
+  <file name="Content\gra-vs-komp.xnb" size="31339">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>xfysnmXvVx6p+kidgOGsuRJ6WVE=</dsig:DigestValue>
+      <dsig:DigestValue>hddr+9E5vgAbVNWBLcQy7TEym5s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\kolorowanie.xnb" size="255627">
@@ -232,13 +241,22 @@
       <dsig:DigestValue>18KjLyBJfZhgej9C/D9c5RkfXM8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Kwiatek.xnb" size="90779">
+  <file name="Content\KoloryText.xnb" size="12987">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cnFG1hln29d7sP/06Aa3s7KyuPg=</dsig:DigestValue>
+      <dsig:DigestValue>3ffjqaSXm0oYE91kzoOocZDP0ZU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Kwiatek.xnb" size="41799">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>8AFcOpzYSfkS7Bm6YiLmgcJqT2k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\kwiatkow.xnb" size="69547">
@@ -247,16 +265,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>auXLHiadom4QR+ckLurWorezAw8=</dsig:DigestValue>
+      <dsig:DigestValue>j2M4+2/1+NfCdVemQ3PkFMOSoVs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\latwy.xnb" size="68731">
+  <file name="Content\latwy.xnb" size="60667">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IluhHMfOXsJx6XBOUrluK8+yCzg=</dsig:DigestValue>
+      <dsig:DigestValue>6e6DPWZl9sNgdogALx8lU/OwBLs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\liczba-kolorow.xnb" size="255627">
@@ -295,13 +313,13 @@
       <dsig:DigestValue>D6Wq/MdB5Z07PKA93A+5jLvBrhw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\ogrodnik-sasiad.xnb" size="41811">
+  <file name="Content\ogrodnik-sasiad.xnb" size="54367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MrJUDqHXU9fHlJwFyjIFm4pT/1w=</dsig:DigestValue>
+      <dsig:DigestValue>ZnLVnI0pqvpSE/yGcwFXCVOJf7Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Panel.xnb" size="716243">
@@ -313,13 +331,13 @@
       <dsig:DigestValue>gg+w698rSWFaCFsQDfZkHDT94cY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Plotek.xnb" size="88187">
+  <file name="Content\Plotek.xnb" size="36707">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>EJ+C+Gbh6GHgLVwJST1T8LWM6+4=</dsig:DigestValue>
+      <dsig:DigestValue>LpkAlG4Cn5iR4F1D8p/exqwTzII=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\plotkow.xnb" size="69547">
@@ -328,7 +346,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LOgkIVsGn+2Du72uOmWCgupIcy0=</dsig:DigestValue>
+      <dsig:DigestValue>/pWqQZYf+zAzjGuNdH5cVqdjAbc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\powrot-menu.xnb" size="37267">
@@ -349,13 +367,13 @@
       <dsig:DigestValue>ZHVL/rOvu+hNokx0FjTf+6ceohY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\sasiad-ogrodnik.xnb" size="41811">
+  <file name="Content\sasiad-ogrodnik.xnb" size="54367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>jRmbxEfYkwx67ESSAB/3PmGh/l4=</dsig:DigestValue>
+      <dsig:DigestValue>upYjSPoM3VCgscq4WU7ndJmDZIw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\SpriteFont1.xnb" size="13486">
@@ -403,13 +421,13 @@
       <dsig:DigestValue>Y1TrXBdvMItmFx9XOVNSkyYgGeM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\trudny.xnb" size="68731">
+  <file name="Content\trudny.xnb" size="60667">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zU6Uj6mHi8JfmypvwF+bK8lf/Bo=</dsig:DigestValue>
+      <dsig:DigestValue>inyHA6cqpM01sdNlaM6e2ovbcxE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\trybBox.xnb" size="255627">
@@ -419,6 +437,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>M/CfVwzdvr5MIMElguBpy32WU6Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\usun.xnb" size="46303">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>F4RXNfc8odAhQ+LAh7L8pwihecU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\wyjscie.xnb" size="39407">
@@ -457,4 +484,4 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=Ula-Komputer\Ula" issuerKeyHash="6014c3604922664c00b34ebee80cfbb2782f2bb7" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>0rZI+N+O14tx/noghZisFPlWJAM=</DigestValue></Reference></SignedInfo><SignatureValue>CGh2xzi23sOg/DdjiE2LTM30HAXzSVfc08zQPb2sigIvnzNJX4oEleFXUL3RzFmI8dEsKYF1PsiUKFuNfEXcrCz0DizFdXqDbnFkj5Rz9djLMNIo2R2DTURbsgfqw3h9ybX97Du5ts8Bft9RST5KEApwldhR2AOtb+CFVhQzVow=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>kvQJNaeYUcNDsgbtrmBi1md4bAVovJeLFfTP0oI8I8oRcEdceMZvDSe0+9XvglzSoV+oWc6wi1vP8xTkTN8zq5csSobr7XgMd1vfdxKsaiK2hqH4Q8ahywTVtueKKt/qCePo4t8zDYSZkj53bs/MhPUUuVKyCIq6liS2jp0ztkM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="032456f914ac9885207afe718bd78edff848b6d2" Description="" Url=""><as:assemblyIdentity name="GraphColoring.exe" version="1.0.0.1" publicKeyToken="2f2bf03e2389b699" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Ula-Komputer\Ula</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>tHIFvJKE9eVCcv8f8qDA6iy24Ts=</DigestValue></Reference></SignedInfo><SignatureValue>KSS6q1sqLdzo08wYk00yDPX3Kxu0QWXTH1FiJ9MJM547Oa4x97Gl9bJeYKXICZ6U/td3i2twFk3UNIGIggOiK3fBjSDhe0aCsDYQ73GnfhaoFNvLAGZdfY+xiO0cQNqq6omKyOgSTCLAy1X13CP3XUC8bDjvxWrof4By4Kjters=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>kvQJNaeYUcNDsgbtrmBi1md4bAVovJeLFfTP0oI8I8oRcEdceMZvDSe0+9XvglzSoV+oWc6wi1vP8xTkTN8zq5csSobr7XgMd1vfdxKsaiK2hqH4Q8ahywTVtueKKt/qCePo4t8zDYSZkj53bs/MhPUUuVKyCIq6liS2jp0ztkM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQE1oGRDsjR49OhCqyxegeNzANBgkqhkiG9w0BAQUFADArMSkwJwYDVQQDHiAAVQBsAGEALQBLAG8AbQBwAHUAdABlAHIAXABVAGwAYTAeFw0xNjAxMTExNzIyNTBaFw0xNzAxMTAyMzIyNTBaMCsxKTAnBgNVBAMeIABVAGwAYQAtAEsAbwBtAHAAdQB0AGUAcgBcAFUAbABhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCS9Ak1p5hRw0OyBu2uYGLWZ3hsBWi8l4sV9M/SgjwjyhFwR1x4xm8NJ7T71e+CXNKhX6hZzrCLW8/zFORM3zOrlyxKhuvteAx3W993EqxqIraGofhDxqHLBNW254oq3+oJ4+ji3zMNhJmSPnduz8yE9RS5UrIIirqWJLaOnTO2QwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAChTkMKMiOQUsmbbY/XIaUmgl3sJfMrkQ0cciSG/piWKgVNX7u3pJZ2jb/HkuSsQyH6h7cbwrhB22Y1tFH+PGGg+n+vj33+Rhq7Py54pxMQxwepWsrNwWgCGmZ/pTPtLbqNFrNPK63LBrBBY2ZfPJxlSgJLrGxllKyGhdRJZMMKw</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=Ula-Komputer\Ula" issuerKeyHash="6014c3604922664c00b34ebee80cfbb2782f2bb7" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>oiWagtezJC7XWLzDD22M6jYpWJI=</DigestValue></Reference></SignedInfo><SignatureValue>GTA0oDweQC8PuMhxJr0Ooa4HQYpoKK/SSiM+2FoHiMI8uUSs7jNh8hIqzFC8gTrT4nXCWphFMKwCHZmKJHXd/pxL1Viy0ZFgtH2Mzy67jruJNtrg4s7MLgPQeIGDTYwAfghrljct/bb9588WXMdVToAm89+K32Ez2O/O3Z7wRXc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>kvQJNaeYUcNDsgbtrmBi1md4bAVovJeLFfTP0oI8I8oRcEdceMZvDSe0+9XvglzSoV+oWc6wi1vP8xTkTN8zq5csSobr7XgMd1vfdxKsaiK2hqH4Q8ahywTVtueKKt/qCePo4t8zDYSZkj53bs/MhPUUuVKyCIq6liS2jp0ztkM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="92582936ea8c6d0fc3bc58d72e24b3d7829a25a2" Description="" Url=""><as:assemblyIdentity name="GraphColoring.exe" version="1.0.0.1" publicKeyToken="2f2bf03e2389b699" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Ula-Komputer\Ula</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>K9qpvlftYaDFtTT9PWlTfTtKVuM=</DigestValue></Reference></SignedInfo><SignatureValue>bH42AYI2p9g8IrDLMvdkO4DVi9Ut10B7LKIAe0TfiMYVCmGtyO34ClTOd/haKKJLtr0jWUZyrTQdom+eKzHdLWHRuzlCjz8X6BBm/MiQQF/AhqglawzNGVz9lek2j7VEFCQIwXbUsp5akLdUzfcipSA3rG7k78iiusDJK7aC0JA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>kvQJNaeYUcNDsgbtrmBi1md4bAVovJeLFfTP0oI8I8oRcEdceMZvDSe0+9XvglzSoV+oWc6wi1vP8xTkTN8zq5csSobr7XgMd1vfdxKsaiK2hqH4Q8ahywTVtueKKt/qCePo4t8zDYSZkj53bs/MhPUUuVKyCIq6liS2jp0ztkM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQE1oGRDsjR49OhCqyxegeNzANBgkqhkiG9w0BAQUFADArMSkwJwYDVQQDHiAAVQBsAGEALQBLAG8AbQBwAHUAdABlAHIAXABVAGwAYTAeFw0xNjAxMTExNzIyNTBaFw0xNzAxMTAyMzIyNTBaMCsxKTAnBgNVBAMeIABVAGwAYQAtAEsAbwBtAHAAdQB0AGUAcgBcAFUAbABhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCS9Ak1p5hRw0OyBu2uYGLWZ3hsBWi8l4sV9M/SgjwjyhFwR1x4xm8NJ7T71e+CXNKhX6hZzrCLW8/zFORM3zOrlyxKhuvteAx3W993EqxqIraGofhDxqHLBNW254oq3+oJ4+ji3zMNhJmSPnduz8yE9RS5UrIIirqWJLaOnTO2QwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAChTkMKMiOQUsmbbY/XIaUmgl3sJfMrkQ0cciSG/piWKgVNX7u3pJZ2jb/HkuSsQyH6h7cbwrhB22Y1tFH+PGGg+n+vj33+Rhq7Py54pxMQxwepWsrNwWgCGmZ/pTPtLbqNFrNPK63LBrBBY2ZfPJxlSgJLrGxllKyGhdRJZMMKw</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
