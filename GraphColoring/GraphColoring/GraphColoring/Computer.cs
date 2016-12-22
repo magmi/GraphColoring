@@ -120,6 +120,7 @@ namespace GraphColoring
             {
                 game.graph.MakeMove(game.lastClicked, chosenColor, game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
             }
             if (flowerColored)
@@ -207,6 +208,7 @@ namespace GraphColoring
             {
                 game.graph.MakeMove(game.lastClicked, chosenColor, game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
             }
             if (flowerColored)
@@ -244,6 +246,7 @@ namespace GraphColoring
 
                 game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
             }
 
@@ -282,6 +285,7 @@ namespace GraphColoring
 
                 game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
             }
 
@@ -321,6 +325,7 @@ namespace GraphColoring
 
                 game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
             }
 
@@ -371,6 +376,7 @@ namespace GraphColoring
 
                 game.graph.MakeMove(game.lastClicked, game.colors[colorIndex], game);
                 game.lastClicked = null;
+                game.AddPoints();
                 flowerColored = true;
       
             }

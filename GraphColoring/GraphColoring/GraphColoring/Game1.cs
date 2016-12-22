@@ -295,23 +295,65 @@ namespace GraphColoring
 
             if (game.CheckIfEnd(out didGardenerWon))
             {
-
                 if (wasChecked)
                 {
-                    if (didGardenerWon)
-                    {
-                        if (game.gameType == GameType.VerticesColoring)
-                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPosadzi³ wszystkie kwiaty wed³ug w³asnego uznania.", "Koniec gry", 0);
-                        else
-                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPomalowa³ wszystkie p³otki wed³ug w³asnego uznania.", "Koniec gry", 0);
-                    }
-                        
+                    int pointsToBeGiven;
+
+                    if (game.gameMode == GameMode.MultiPlayer)
+                        pointsToBeGiven = 100;
                     else
                     {
-                        if (game.gameType == GameType.VerticesColoring)
-                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z kwiatów nie mo¿e zostaæ prawid³owo posadzony.", "Koniec gry", 0);
+                        if (((Computer)(game.player2)).easyMode)
+                            pointsToBeGiven = 50;
                         else
-                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z p³otków nie mo¿e zostaæ prawid³owo pomalowany.", "Koniec gry", 0);
+                            pointsToBeGiven = 150;
+                    }
+
+                    if (didGardenerWon)
+                    {
+                        if (game.player1.isGardener)
+                        {
+                            game.player1.points += pointsToBeGiven;
+                            game.PlayerPoints[0].text = game.player1.points.ToString();
+                        }
+
+                        if (game.player2.isGardener)
+                        {
+                            game.player2.points += pointsToBeGiven;
+                            game.PlayerPoints[1].text = game.player2.points.ToString();
+                        }
+
+                        if (game.gameType == GameType.VerticesColoring)
+                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPosadzi³ wszystkie kwiaty wed³ug w³asnego uznania.\n" +
+                        game.player1.login + ": " + game.player1.points.ToString() + " punktów,\n" +
+                        game.player2.login + ": " + game.player2.points.ToString() + " punktów.", "Koniec gry", 0);
+                        else
+                            MessageBox(new IntPtr(), "Ogrodnik wygra³.\nPomalowa³ wszystkie p³otki wed³ug w³asnego uznania.\n" +
+                        game.player1.login + ": " + game.player1.points.ToString() + " punktów,\n" +
+                        game.player2.login + ": " + game.player2.points.ToString() + " punktów.", "Koniec gry", 0);
+                    }
+                    else
+                    {
+                        if (!game.player1.isGardener)
+                        {
+                            game.player1.points += pointsToBeGiven;
+                            game.PlayerPoints[0].text = game.player1.points.ToString();
+                        }
+
+                        if (!game.player2.isGardener)
+                        {
+                            game.player2.points += pointsToBeGiven;
+                            game.PlayerPoints[1].text = game.player2.points.ToString();
+                        }
+
+                        if (game.gameType == GameType.VerticesColoring)
+                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z kwiatów nie mo¿e zostaæ prawid³owo posadzony.\n" +
+                        game.player1.login + ": " + game.player1.points.ToString() + " punktów,\n" +
+                        game.player2.login + ": " + game.player2.points.ToString() + " punktów.", "Koniec gry", 0);
+                        else
+                            MessageBox(new IntPtr(), "S¹siad wygra³.\nKtóryœ z p³otków nie mo¿e zostaæ prawid³owo pomalowany.\n" +
+                        game.player1.login + ": " + game.player1.points.ToString() + " punktów,\n" +
+                        game.player2.login + ": " + game.player2.points.ToString() + " punktów.", "Koniec gry", 0);
                     }
                        
                     game = null;

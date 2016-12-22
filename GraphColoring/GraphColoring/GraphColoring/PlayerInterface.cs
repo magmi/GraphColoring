@@ -203,6 +203,8 @@ namespace GraphColoring
         /// <param name="content"></param>
         public void LoginSingleCheck(Point mousePos,ref Game game, ContentManager content)
         {
+            p2.login = "Komputer";
+
             for (int i = 0; i < LoginButtons.Count; i++)
             {
                 if (LoginButtons[i].ContainsPoint(mousePos))

@@ -43,7 +43,7 @@ namespace GraphColoring
         }
 
         public Game(GameType gT, GameMode gM, GardenGraph g, int c, ContentManager content, Player p1, Player p2, GameOrder go)
-        {            
+        {
             player2 = new Computer(true);
             colorBoxes = new List<ColorBox>();
             gameType = gT;
@@ -60,36 +60,25 @@ namespace GraphColoring
 
             colorsText = new TextBox(content, "", new Vector2(0, 0), new Vector2(0, 0), "KoloryText");
 
-            for(int i =0;i<colors.Length;i++)
+            for (int i = 0; i < colors.Length; i++)
             {
-                Vector2 vect = new Vector2(10+offset + (distx) * (i % 3), 30 +offset + (disty) * ((int)i / 3));
+                Vector2 vect = new Vector2(10 + offset + (distx) * (i % 3), 30 + offset + (disty) * ((int)i / 3));
                 colorBoxes.Add(new ColorBox(colors[i], content, vect));
             }
 
             player1 = p1;
             player2 = p2;
-            panels = new List<TextBox>() { new TextBox(content, "",new Vector2(0,0),new Vector2(0,0),"Panel") };
+            panels = new List<TextBox>() { new TextBox(content, "", new Vector2(0, 0), new Vector2(0, 0), "Panel") };
             string ps1 = p1.isGardener ? "O: " : "S: ";
             string ps2 = p2.isGardener ? "O: " : "S: ";
 
             WhoseTurnText = new TextBox(content, "Tura: " + (p1.isGardener ? "Ogrodnika" : "Sasiada"), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(250, 0)), Color.White, null, 0, "CzcionkaUI");
             Escape = new Button(Game1.GetRatioDimensions(new Vector2(1010, 740)), content, "wyjscie");
 
-            if(p2 is Computer)
-            {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 400)), Color.White, null, 0, "CzcionkaUI") };
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 440)), Color.White, null, 0, "CzcionkaUI") };
-            }
-            else
-            {
-                PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 400)), Color.White, null, 0, "CzcionkaUI"),
+            PlayersTexts = new TextBox[] { new TextBox(content, ps1 + p1.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 400)), Color.White, null, 0, "CzcionkaUI"),
                                             new TextBox(content, ps2 + p2.login, new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(10, 600)), Color.White, null, 0, "CzcionkaUI"),};
-                PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 440)), Color.White, null, 0, "CzcionkaUI"),
-                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 640)), Color.White, null, 0, "CzcionkaUI"),
-                
-                };
-            }
-
+            PlayerPoints = new TextBox[] { new TextBox(content, p1.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 440)), Color.White, null, 0, "CzcionkaUI"),
+                                           new TextBox(content, p2.points.ToString(), new Vector2(0, 0), Game1.GetRatioDimensions(new Vector2(30, 640)), Color.White, null, 0, "CzcionkaUI"), };
         }
 
         /// <summary>
@@ -212,7 +201,9 @@ namespace GraphColoring
             foreach (TextBox t in PlayersTexts)
                 t.Draw(sBatch);
             foreach (TextBox t in PlayerPoints)
+            {
                 t.Draw(sBatch);
+            }
         }
 
         /// <summary>
@@ -222,7 +213,7 @@ namespace GraphColoring
         {
             int index = whoseTurn;
             Player p = index == 0 ? player1 : player2;
-            p.points += 50;
+            p.points += 10;
             PlayerPoints[index].text = p.points.ToString();
         }
 
